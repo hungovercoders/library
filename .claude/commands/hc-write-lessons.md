@@ -1,6 +1,6 @@
 ---
 description: Write all lesson content for the current learn.* series using the dataGriff voice guide
-allowed-tools: Read, Write, Edit, Bash
+allowed-tools: Read, Write, Edit, Bash, WebSearch, WebFetch
 ---
 
 Write tutorial lessons for the current series. Run this from within a `learn.*` repo after stub lesson directories exist.
@@ -19,6 +19,12 @@ Read the following files in full before writing anything:
 List all directories under `docs/`. For each one, check whether `README.md` is a stub (frontmatter only, empty description) or already has content. Report the list to the user before writing.
 
 **Step 3 — Write each stub lesson in order**
+
+Before writing each lesson, use WebSearch to find:
+- The official documentation section most relevant to this lesson's topic
+- One or two real-world examples, common patterns, or community-discovered gotchas for this feature
+
+Use this research to ensure the lesson content is accurate and reflects how people actually use the feature in practice — not just what the spec says. The honest-moment beat needs to come from a real quirk or tripping point you found, not a manufactured one.
 
 For each stub lesson, write a complete `README.md` following these rules:
 

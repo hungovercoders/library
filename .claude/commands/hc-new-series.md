@@ -1,6 +1,6 @@
 ---
 description: Scaffold a new learn.<slug> tutorial series repo and wire it into the hungovercoders site
-allowed-tools: Bash, Read, Write, Edit
+allowed-tools: Bash, Read, Write, Edit, WebSearch, WebFetch
 ---
 
 Scaffold a new hungovercoders tutorial series. Arguments: $ARGUMENTS (expected format: `<topic-slug> "<Topic Title>"` e.g. `claude-code "Claude Code"`)
@@ -28,11 +28,23 @@ Then the repo-specific conventions: what the series covers, lesson directory lay
 
 `docs/` — empty directory (lessons go here).
 
-**Step 2 — Ask about lesson structure**
+**Step 2 — Research the topic and propose a lesson plan**
 
-Ask the user: "What lessons should this series cover? Give me ~8–12 titles in order and I'll create the stubs."
+Use WebSearch and your own knowledge to research:
+- The official documentation / getting-started guide for TITLE
+- Common learning paths people follow (tutorials, course outlines, community guides)
+- What the "hello world" through "production-ready" progression looks like for this tool/topic
+- Real gotchas, sharp edges, and things people wish they'd known earlier
 
-Once the user replies, create stub `docs/NN-slug/README.md` files (NN = zero-padded number, slug = kebab-case lesson title) with this frontmatter and nothing else:
+Based on the research, design a lesson plan of 8–12 lessons that:
+- Starts with "What is X?" and "Installation" (every series does)
+- Follows a logical complexity ramp: concept → first hands-on → core features → advanced → production patterns
+- Ends with testing, troubleshooting, or a full end-to-end example
+- Mixes concept-only lessons with hands-on lessons that have runnable examples (matching the learn.bento shape)
+
+Present the proposed lesson plan to the user as a numbered list with a one-line description for each lesson. Ask: "Does this look right? Add, remove, or reorder anything before I create the stubs."
+
+Once the user approves (or provides changes), create stub `docs/NN-slug/README.md` files (NN = zero-padded number, slug = kebab-case lesson title) with this frontmatter and nothing else:
 
 ```markdown
 ---
