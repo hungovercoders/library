@@ -13,8 +13,8 @@ reference/    Human reference. Roadmap, OKRs, technical implementation spec. Rea
               for planning and build cadence — not auto-loaded into any model context.
               `reference/archive/` holds documents superseded by other parts of the system.
 
-.claude/      Slash commands (hc-new-series, hc-write-lessons, hc-launch). Symlinked into
-                              ~/.claude/commands/ by install-skills.sh.
+.claude/      Slash commands (hc-new-series, hc-write-lessons, hc-launch, hc-review-series).
+                              Symlinked into ~/.claude/commands/ by install-skills.sh.
 
 install-skills.sh   Symlinks .claude/commands/* and voice/* into the user-level Claude Code
                     directories. Run once after cloning, and any time the library is moved.

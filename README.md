@@ -34,9 +34,10 @@ reference/          Human reference docs. Not auto-installed anywhere.
     claude-integration-playbook.md   (superseded by the hc- slash commands)
 
 .claude/commands/   Slash commands installed into ~/.claude/commands/ by install-skills.sh.
-  hc-new-series.md
-  hc-write-lessons.md
-  hc-launch.md
+  hc-new-series.md      Scaffold a new learn.<topic> series with researched lesson plan
+  hc-write-lessons.md   Fill in all lesson content in voice for the current series
+  hc-launch.md          Write a launch blog post for a series and verify the site build
+  hc-review-series.md   Thorough voice/consistency/usefulness review of a series
 
 AGENTS.md           Agent orientation when landing in this repo.
 install-skills.sh   One-shot installer — symlinks skills and voice content to user-level paths.
