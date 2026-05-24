@@ -12,8 +12,8 @@ Arguments: $ARGUMENTS (expected format: `<series-slug> [day context]`)
 **Step 1 — Load context**
 
 Read in full:
-- `~/dev/hungovercoders/library/datagriff-voice-guide.md`
-- `~/dev/hungovercoders/library/blog-tutorial-template.md`
+- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md`
+- `~/.claude/hungovercoders/voice/blog-tutorial-template.md`
 
 Then read the first 3 lesson `README.md` files from `training-repos/learn.<SLUG>/docs/` (sorted by `order` frontmatter). These give you the material for the post.
 

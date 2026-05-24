@@ -10,8 +10,8 @@ Optional context in $ARGUMENTS — e.g. "focus on practical demos, hooks are the
 **Step 1 — Load context**
 
 Read the following files in full before writing anything:
-- `~/dev/hungovercoders/library/datagriff-voice-guide.md` — voice, tone, opinion beats, themed headings, all of it
-- `~/dev/hungovercoders/library/blog-tutorial-template.md` — structure reference
+- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice, tone, opinion beats, themed headings, all of it
+- `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — structure reference
 - `AGENTS.md` in the current repo — series conventions, topic, frontmatter rules
 
 **Step 2 — Survey the lesson stubs**

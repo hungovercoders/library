@@ -15,12 +15,7 @@ Then do the following in order:
 
 Create `~/dev/hungovercoders/learn.<SLUG>/` with:
 
-`AGENTS.md` — adapt the structure from `~/dev/hungovercoders/learn.bento/AGENTS.md` for this new topic. At the very top, before any other content, include:
-```
-@../library/datagriff-voice-guide.md
-@../library/blog-tutorial-template.md
-```
-Then the repo-specific conventions: what the series covers, lesson directory layout, frontmatter requirements (title, series, order, description, canonical_url pattern `https://hungovercoders.com/training/<SLUG>/NN-slug`), YAML/code style for the topic.
+`AGENTS.md` — adapt the structure from `~/dev/hungovercoders/learn.bento/AGENTS.md` for this new topic. The file describes the **repo's own conventions only** — what the series covers, lesson directory layout, frontmatter requirements (title, series, order, description, canonical_url pattern `https://hungovercoders.com/training/<SLUG>/NN-slug`), YAML/code style for the topic. Do **not** add `@` includes pointing at the library — the hungovercoders voice guide and blog template are loaded by the hc- skills at run time from `~/.claude/hungovercoders/voice/`, so the new repo stays self-contained and portable.
 
 `CLAUDE.md` — single line: `@AGENTS.md`
 
