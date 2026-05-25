@@ -52,7 +52,26 @@ The post should read as **a succinct summary of the topic plus one working demo 
 
 The post must:
 
-1. **Frontmatter** — `title`, `date` (today), `author: dataGriff`, `description` (one sentence, no period), `tags` (array including the topic and `hungovercoders`)
+1. **Frontmatter** — `title`, `date` (today), `author: dataGriff`, `description` (one sentence, no period), `tags` (array including the topic and `hungovercoders`), and an `image` block pointing at the post's share image:
+
+   ```yaml
+   image:
+     path: /assets/YYYY-MM-DD-<slug>/link.png
+   ```
+
+   The Astro schema reads this and renders absolute `og:image` / `twitter:image` tags pointing at `https://hungovercoders.com/assets/...`. Posts without it fall back to a generic placeholder, which kills social sharing — every post must have its own `link.png` (1200×630).
+
+   **Generate the share image** after writing the post by running `scripts/generate-share-image.mjs`:
+
+   ```bash
+   node scripts/generate-share-image.mjs <slug> "<title>" "<tagline>"
+   ```
+
+   - `<slug>` is the post filename without `.md` (e.g. `2026-05-25-building-a-film-picker-with-claude-code`)
+   - `<title>` is the post title (wraps to multiple lines automatically)
+   - `<tagline>` is a short one-liner shown under the title — usually a compressed version of the post's `description`, or the post's "in one sentence" hook. Keep it under ~50 chars.
+
+   The script writes `public/assets/<slug>/link.png` at 1200×630 with the hungovercoders branding. The user can replace it later with something fancier; this gets the social card live on day one.
 
 2. **Pre-Requisites section** — brief: what needs to be installed, 3–4 bullet points max.
 
@@ -92,8 +111,27 @@ The post must:
 
 Run `npm run build` from the site directory. Confirm the post renders without errors.
 
+Then confirm the social-sharing metadata is set correctly. Grep the built HTML for the post's OG tags:
+
+```bash
+grep -oE '(og:image|og:type|og:url|twitter:image|canonical[^>]+)' dist/blog/YYYY-MM-DD-<slug>/index.html | head -10
+```
+
+Expect to see:
+- `og:type = article`
+- `og:url` and `canonical` absolute (`https://hungovercoders.com/blog/...`)
+- `og:image` pointing at `https://hungovercoders.com/assets/<slug>/link.png` (the file itself can be missing for now — the URL just needs to be right)
+
+If any are wrong (e.g. `og:image` falling back to `_astro/blog-placeholder-...jpg`) the post's `image:` frontmatter wasn't picked up — fix and rebuild.
+
 **Step 4 — Report**
 
-Tell the user the URL path (`/blog/YYYY-MM-DD-<slug>/` — derived from the chosen title), the title pattern chosen, and the opener formula chosen. Confirm the build passed. Remind them to commit and push.
+Tell the user:
+- URL path: `/blog/YYYY-MM-DD-<slug>/` (derived from the chosen title)
+- Title pattern chosen and opener formula chosen
+- Build status (pass/fail)
+- **Share image**: the path of the generated `public/assets/YYYY-MM-DD-<slug>/link.png` and the tagline you used — they can swap in a custom image at the same path if they want something fancier than the auto-branded card
+- **Metatags.io reminder**: once pushed and deployed, paste the post URL into `https://metatags.io/` to preview how it'll look on Twitter, LinkedIn, Slack, etc. — this is the SEO sanity check the old Jekyll setup did via `jekyll-seo-tag` and the new site does via the `BaseHead` component
+- Reminder to commit and push
 
 A note on what's *required* vs what varies. Required across every launch post: the want-or-equivalent personal opener, themed example data, the three opinion beats (honest moment, verdict, what I'd do differently), the "fellow hungovercoder" closer, British spellings, no corporate filler. Those are the brand. **Title pattern, opener formula, themed section headings, and the specific demo composition should vary post-to-post** — that's how the corpus stays interesting across thirty entries instead of reading like one templated voice.
