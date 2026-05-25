@@ -12,7 +12,7 @@ A connected set of documents and tools that defines:
 - **How to write for it** (templates for blog and YouTube) — `voice/`
 - **What to build, and how to know it's working** (roadmap, OKRs) — `reference/`
 - **How to build it** (technical implementation) — `reference/`
-- **How to use Claude to apply all of the above** (slash commands) — `.claude/commands/`
+- **How to use Claude to apply all of the above** (skills) — `skills/`
 - **Why it exists** (the personal manifesto underneath everything) — *private, lives in the `ops` repo*
 
 ---
@@ -31,13 +31,13 @@ reference/          Human reference docs. Not auto-installed anywhere.
   okrs.md
   technical-implementation.md
   archive/
-    claude-integration-playbook.md   (superseded by the hc- slash commands)
+    claude-integration-playbook.md   (superseded by the hc- skills)
 
-.claude/commands/   Slash commands installed into ~/.claude/commands/ by install-skills.sh.
-  hc-new-series.md      Scaffold a new learn.<topic> series with researched lesson plan
-  hc-write-lessons.md   Fill in all lesson content in voice for the current series
-  hc-launch.md          Write a launch blog post for a series and verify the site build
-  hc-review-series.md   Thorough voice/consistency/usefulness review of a series
+skills/             Claude Code skills installed into ~/.claude/skills/ by install-skills.sh.
+  hc-new-series/SKILL.md      Scaffold a new learn.<topic> series with researched lesson plan
+  hc-write-lessons/SKILL.md   Fill in all lesson content in voice for the current series
+  hc-launch/SKILL.md          Write a launch blog post for a series and verify the site build
+  hc-review-series/SKILL.md   Thorough voice/consistency/usefulness review of a series
 
 AGENTS.md           Agent orientation when landing in this repo.
 install-skills.sh   One-shot installer — symlinks skills and voice content to user-level paths.
@@ -55,7 +55,7 @@ cd library
 
 The installer symlinks:
 
-- `.claude/commands/*.md` into `~/.claude/commands/` — slash commands available everywhere
+- `skills/*` into `~/.claude/skills/` — each skill directory is reachable at `/hc-*`
 - `voice/*.md` into `~/.claude/hungovercoders/voice/` — voice content reachable at a stable path
 
 The library can live anywhere on the machine. If you move it, re-run `./install-skills.sh` from the new location.
@@ -70,7 +70,7 @@ The bundle is **public by default, with one exception**.
 
 ### `library` (public, MIT — `github.com/hungovercoders/library`)
 
-The handbook. Voice guide, templates, worked example, roadmap, OKRs, technical implementation, and the Claude Code slash commands that operationalise everything. Public because the hungovercoders worldview is *small, cheap, yours, source-controlled* — and being demonstrably open about how the system works is more on-brand than hiding it.
+The handbook. Voice guide, templates, worked example, roadmap, OKRs, technical implementation, and the Claude Code skills that operationalise everything. Public because the hungovercoders worldview is *small, cheap, yours, source-controlled* — and being demonstrably open about how the system works is more on-brand than hiding it.
 
 ### `ops` (private — `github.com/hungovercoders/ops`)
 
@@ -106,7 +106,7 @@ Operations plus the one document that *should* stay private — the personal man
                               shipped using...
                                        ▼
                           reference/technical-implementation.md
-                          .claude/commands/hc-*.md
+                          skills/hc-*/SKILL.md
                                        │
                                        ▼
                               hungovercoders.com (live)
@@ -121,7 +121,7 @@ In words:
 - The **roadmap** sequences what to build and embeds the publishing and monetisation strategies.
 - The **OKRs** measure whether the build is working.
 - The **technical implementation** is the engineering spec for the build.
-- The **`hc-` slash commands** are the day-to-day tool for applying the voice and templates to a new tutorial series, lesson content, or launch blog post. They supersede the older `claude-integration-playbook.md` (kept under `reference/archive/` as historical reference).
+- The **`hc-` skills** are the day-to-day tool for applying the voice and templates to a new tutorial series, lesson content, or launch blog post. They supersede the older `claude-integration-playbook.md` (kept under `reference/archive/` as historical reference).
 
 ---
 
@@ -145,6 +145,6 @@ If you only have ten minutes:
 
 ## The system in one paragraph
 
-Hungovercoders is the honest tech blog of dataGriff — a forty-something working developer from the South Wales valleys whose posts are folk tales of working in tech in this place at this time. The voice is opinionated, self-deprecating, and rooted in real lived experience. Every post carries three opinion beats (an honest moment, a verdict, a what-I'd-do-differently) that AI tutorials can't fake. Three formats — blog, YouTube, training — each do a job the others can't. The build runs on Cloudflare Pages with Claude integrated at three points to keep the voice consistent. The whole operating handbook is public — voice guide, templates, roadmap, OKRs, tech spec, slash commands, the lot — because building in the open *is* the brand. Only the personal manifesto stays private, because that one's personal reflection, not craft. The brand survives because the worldview is the load-bearing wall and the metaphors are the paint.
+Hungovercoders is the honest tech blog of dataGriff — a forty-something working developer from the South Wales valleys whose posts are folk tales of working in tech in this place at this time. The voice is opinionated, self-deprecating, and rooted in real lived experience. Every post carries three opinion beats (an honest moment, a verdict, a what-I'd-do-differently) that AI tutorials can't fake. Three formats — blog, YouTube, training — each do a job the others can't. The build runs on Cloudflare Pages with Claude integrated at three points to keep the voice consistent. The whole operating handbook is public — voice guide, templates, roadmap, OKRs, tech spec, skills, the lot — because building in the open *is* the brand. Only the personal manifesto stays private, because that one's personal reflection, not craft. The brand survives because the worldview is the load-bearing wall and the metaphors are the paint.
 
 Cheers, fellow hungovercoder. Time to start building.

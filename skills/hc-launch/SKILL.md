@@ -1,4 +1,5 @@
 ---
+name: hc-launch
 description: Write a launch blog post for a hungovercoders tutorial series and verify the site build
 allowed-tools: Read, Write, Bash
 ---

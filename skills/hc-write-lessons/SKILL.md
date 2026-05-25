@@ -1,4 +1,5 @@
 ---
+name: hc-write-lessons
 description: Write all lesson content for the current learn.* series using the dataGriff voice guide
 allowed-tools: Read, Write, Edit, Bash, WebSearch, WebFetch
 ---

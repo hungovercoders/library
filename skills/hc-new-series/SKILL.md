@@ -1,4 +1,5 @@
 ---
+name: hc-new-series
 description: Scaffold a new learn.<slug> tutorial series repo and wire it into the hungovercoders site
 allowed-tools: Bash, Read, Write, Edit, WebSearch, WebFetch
 ---

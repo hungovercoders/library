@@ -7,14 +7,14 @@
 set -euo pipefail
 
 LIBRARY_DIR="$(cd "$(dirname "$0")" && pwd)"
-COMMANDS_SRC="$LIBRARY_DIR/.claude/commands"
+SKILLS_SRC="$LIBRARY_DIR/skills"
 VOICE_SRC="$LIBRARY_DIR/voice"
 
-COMMANDS_TARGET="$HOME/.claude/commands"
+SKILLS_TARGET="$HOME/.claude/skills"
 VOICE_TARGET="$HOME/.claude/hungovercoders/voice"
 
-if [ ! -d "$COMMANDS_SRC" ]; then
-  echo "Error: $COMMANDS_SRC not found. Is this the library root?" >&2
+if [ ! -d "$SKILLS_SRC" ]; then
+  echo "Error: $SKILLS_SRC not found. Is this the library root?" >&2
   exit 1
 fi
 
@@ -23,12 +23,12 @@ if [ ! -d "$VOICE_SRC" ]; then
   exit 1
 fi
 
-mkdir -p "$COMMANDS_TARGET" "$VOICE_TARGET"
+mkdir -p "$SKILLS_TARGET" "$VOICE_TARGET"
 
-echo "installing slash commands to $COMMANDS_TARGET"
-for skill in "$COMMANDS_SRC"/*.md; do
-  name="$(basename "$skill")"
-  ln -sf "$skill" "$COMMANDS_TARGET/$name"
+echo "installing skills to $SKILLS_TARGET"
+for skill_dir in "$SKILLS_SRC"/*/; do
+  name="$(basename "$skill_dir")"
+  ln -sfn "${skill_dir%/}" "$SKILLS_TARGET/$name"
   echo "  linked: $name"
 done
 
@@ -41,7 +41,7 @@ done
 
 echo ""
 echo "hungovercoders library installed."
-echo "  skills:        $COMMANDS_TARGET"
+echo "  skills:        $SKILLS_TARGET"
 echo "  voice content: $VOICE_TARGET"
 echo ""
 echo "Library source: $LIBRARY_DIR (can be moved — re-run this script after moving)"

@@ -1,4 +1,5 @@
 ---
+name: hc-review-series
 description: Thorough voice/consistency/usefulness review of a learn.* tutorial series
 allowed-tools: Read, Glob, Grep, Bash(ls:*), Bash(git log:*), Bash(mkdir:*), Write, Agent
 argument-hint: <optional path to series — defaults to current working directory>
