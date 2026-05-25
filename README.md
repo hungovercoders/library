@@ -36,8 +36,11 @@ reference/          Human reference docs. Not auto-installed anywhere.
 skills/             Claude Code skills installed into ~/.claude/skills/ by install-skills.sh.
   hc-new-series/SKILL.md      Scaffold a new learn.<topic> series with researched lesson plan
   hc-write-lessons/SKILL.md   Fill in all lesson content in voice for the current series
-  hc-launch/SKILL.md          Write a launch blog post for a series and verify the site build
   hc-review-series/SKILL.md   Thorough voice/consistency/usefulness review of a series
+  hc-launch/SKILL.md          Write a launch blog post for a series and verify the site build
+  hc-review-blog/SKILL.md     Voice/structural review of a single blog post (independent pass)
+  hc-preflight/SKILL.md       Site-wide pre-publish health check — frontmatter, OG, sitemap, build
+  hc-social/SKILL.md          Draft LinkedIn, X, and Mastodon copy for a blog post in voice
 
 AGENTS.md           Agent orientation when landing in this repo.
 install-skills.sh   One-shot installer — symlinks skills and voice content to user-level paths.
@@ -107,6 +110,8 @@ Operations plus the one document that *should* stay private — the personal man
                                        ▼
                           reference/technical-implementation.md
                           skills/hc-*/SKILL.md
+                          (new-series → write-lessons → review-series →
+                           launch → review-blog → preflight → social)
                                        │
                                        ▼
                               hungovercoders.com (live)

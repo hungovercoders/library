@@ -13,9 +13,16 @@ reference/    Human reference. Roadmap, OKRs, technical implementation spec. Rea
               for planning and build cadence — not auto-loaded into any model context.
               `reference/archive/` holds documents superseded by other parts of the system.
 
-skills/       Claude Code skills (hc-new-series, hc-write-lessons, hc-launch, hc-review-series).
-              Each skill is a directory containing a SKILL.md. Symlinked into ~/.claude/skills/
-              by install-skills.sh, so they invoke as /hc-launch, /hc-write-lessons, etc.
+skills/       Claude Code skills. Each is a directory containing a SKILL.md, symlinked into
+              ~/.claude/skills/ by install-skills.sh and invoked as /hc-<name>.
+              The seven cover the end-to-end workflow:
+                hc-new-series      research a topic, propose a lesson plan, scaffold the repo
+                hc-write-lessons   write all lesson content in voice
+                hc-review-series   independent voice/consistency review of training content
+                hc-launch          write the launch blog post + share image + verify build
+                hc-review-blog     independent voice/structural review of a single blog post
+                hc-preflight       site-wide pre-publish health check (build, OG, sitemap, etc.)
+                hc-social          draft LinkedIn / X / Mastodon copy in voice for a post
 
 install-skills.sh   Symlinks skills/* into ~/.claude/skills/ and voice/* into
                     ~/.claude/hungovercoders/voice/. Run once after cloning, and any time the
