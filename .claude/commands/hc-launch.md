@@ -22,9 +22,31 @@ Then survey the **whole** series — the blog has to summarise the topic, not ju
 - Read the **final lesson** in full — almost always the capstone where the topic's features compose. This is the structural model the blog should mirror.
 - For series with fewer than 6 lessons, read every lesson in full.
 
+**Step 1b — Uniqueness pass against recent posts**
+
+List the most recent 2–3 files in `src/content/blog/` (sort by date in filename, descending). Read each and capture:
+
+- **Title pattern** used — one of: *Quick Beer with X*, *X with Y* (verb tells the story), *Deploy X on Y*, *X for/with Z* (multi-component), *Adding X to Y* (incremental)
+- **Opener formula** used — one of: *The Want* ("I wanted…"), *The Rabbit Hole* ("I recently went down a rabbit hole of…"), *The Confession* ("I've been meaning to…"), *The Cheat* ("This blog is a bit of a cheat…")
+- Two or three of the **themed section headings** used in the walkthrough
+
+The new post **must use a different title pattern and a different opener formula from the most recent post**, and should reach for different themed section headings. Repetition of opinion beats and the "fellow hungovercoder" closer is brand consistency; repetition of title patterns, openers, and themed headings is monotony. The voice guide documents five title patterns and four opener formulas precisely so the corpus varies across them.
+
 **Step 2 — Write the blog post**
 
-Create `src/content/blog/YYYY-MM-DD-quick-<SLUG>.md` (today's date).
+**Pick the title pattern first.** Choose from the five documented patterns based on the post's actual shape:
+
+| Pattern | Use when the post is… |
+|---|---|
+| *Quick Beer with X* | A short single-tool tutorial. Don't default to this; it's overused. |
+| *X with Y* | The verb tells the story (e.g. *Protecting Code Quality with Trunk.io*) |
+| *Deploy X on Y* | Deployment-focused |
+| *X for/with Z* | Multi-component infrastructure |
+| *Adding X to Y* | An incremental addition to an existing thing |
+
+Pick the pattern that fits the topic *and* differs from the most recent post's pattern (from Step 1b).
+
+**Then derive the filename** as `src/content/blog/YYYY-MM-DD-<slug>.md` where `<slug>` is the kebab-case of the chosen title — `2026-05-24-quick-beer-with-claude-code.md`, `2026-06-01-deploy-bento-on-fly.md`, `2026-06-15-adding-mcp-to-an-existing-cli.md`. **Do not hardcode `quick-<SLUG>`** — the filename follows the title.
 
 The post should read as **a succinct summary of the topic plus one working demo that proves the features compose**. A reader who reads this post and nothing else should leave knowing (a) what the topic is for, (b) the main concepts it ships, and (c) how those concepts fit together — with one runnable thing they built along the way.
 
@@ -34,7 +56,13 @@ The post must:
 
 2. **Pre-Requisites section** — brief: what needs to be installed, 3–4 bullet points max.
 
-3. **Want-led opener** — first sentence opens with "I wanted…" or similar personal desire. Weave in the day context naturally if provided (warm afternoon, dogs walked, barbecue, whatever it is — this is the texture that proves a real person wrote it). 1–2 paragraphs maximum.
+3. **Opener** — pick one of the four formulas from the voice guide, **different from the most recent post's opener** (from Step 1b). Use the one that's actually true for *this* post — don't pick by default:
+   - *The Want*: "I wanted [thing] so that [reason]…"
+   - *The Rabbit Hole*: "I recently went down a rabbit hole of [topic] and…"
+   - *The Confession*: "I've been meaning to [thing] for a while now…"
+   - *The Cheat*: "This blog is a bit of a cheat — it's pretty much the same as my previous post but this time…"
+
+   Weave the day context (warm afternoon, dogs walked, BBQ, whatever it is) into whichever opener fits — that's the texture that proves a real person wrote it. 1–2 paragraphs maximum, ending on a transition into action.
 
 4. **A whistle-stop tour of the topic** — one short section that names the topic's main features or concepts with one sentence each. Five to eight bullets, derived from the lesson titles and descriptions surveyed in Step 1. The reader leaves knowing the shape of the topic, not just the slice the demo touched. This is the "summary" half of the post.
 
@@ -59,4 +87,6 @@ Run `npm run build` from the site directory. Confirm the post renders without er
 
 **Step 4 — Report**
 
-Tell the user the URL path (`/blog/YYYY-MM-DD-quick-<SLUG>/`) and confirm the build passed. Remind them to commit and push.
+Tell the user the URL path (`/blog/YYYY-MM-DD-<slug>/` — derived from the chosen title), the title pattern chosen, and the opener formula chosen. Confirm the build passed. Remind them to commit and push.
+
+A note on what's *required* vs what varies. Required across every launch post: the want-or-equivalent personal opener, themed example data, the three opinion beats (honest moment, verdict, what I'd do differently), the "fellow hungovercoder" closer, British spellings, no corporate filler. Those are the brand. **Title pattern, opener formula, themed section headings, and the specific demo composition should vary post-to-post** — that's how the corpus stays interesting across thirty entries instead of reading like one templated voice.
