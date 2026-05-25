@@ -76,7 +76,10 @@ The post must:
 
 7. **Three opinion beats** (non-negotiable — the AI-proofing layer):
    - **Honest moment** mid-walkthrough: one sentence proving you ran this yourself
-   - **Verdict section** near the end: "Would I Actually Use X?" — honest take: yes for tactical use cases, caveats for others, the worldview fit
+   - **Verdict section** near the end: an honest take grounded in your lived experience with the tool. Pick the framing that matches your stance:
+     - *"Would I Actually Use X?"* — when you're experienced enough to call it. Yes for tactical use cases, caveats for others, the worldview fit.
+     - *"How I Actually Use X"* — when you're a few months in and still finding the patterns. Same substance (chat-window vs codebase vs custom workflows, worldview fit) but framed as current practice rather than verdict. Use this when claiming a full verdict would overstate your experience.
+     The form varies; the substance — your honest take that an AI couldn't fake — doesn't.
    - **What I'd do differently** — one line in the closer
 
 8. **Links** — to the full series (`https://hungovercoders.com/training/<SLUG>`) and the GitHub repo (`https://github.com/hungovercoders/learn.<SLUG>`)
