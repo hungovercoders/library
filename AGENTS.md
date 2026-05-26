@@ -29,6 +29,19 @@ install-skills.sh   Symlinks skills/* into ~/.claude/skills/ and voice/* into
                     library is moved.
 ```
 
+## Publish flow — branch → draft PR → preview → merge
+
+All series + blog work happens on a **feature branch in the site repo**, never directly on `main`. The first commit on the branch always gets pushed and put behind a **draft PR** so the work is remote, safe, and has a live Cloudflare preview URL attached:
+
+1. `hc-new-series` creates `series/<SLUG>` in `~/dev/hungovercoders/site/`, edits `fetch-training-repos.sh`, then makes the first commit, pushes the branch, and opens a draft PR via `gh pr create --draft`. The Cloudflare deployment check on that PR is the preview URL.
+2. `hc-launch` (re-using the same branch, or creating `blog/<slug>` for a standalone post) writes the blog post + share image, commits, pushes, and ensures a draft PR exists — creating one if not.
+3. `hc-review-blog` and `hc-preflight` run on the branch as gating checks.
+4. When clean, the author **marks the PR ready for review and merges to `main`** — the merge is what publishes; pushes to the branch only update the preview.
+
+The `learn.*` repo stays on `main` throughout — it isn't deployed anywhere customer-facing; it's only source content the site fetches at build time. Only the site repo needs branching + PRs.
+
+`gh` CLI must be installed and authenticated for the PR-opening step. If it isn't, the skills fall back to pushing the branch and instructing the author to open the draft PR via the GitHub web UI.
+
 ## How the workflow stays portable
 
 The library can be cloned **anywhere on the machine** — `~/dev/hungovercoders/library`, `~/code/library`, an external drive, doesn't matter. After running `./install-skills.sh` once, the skills and voice content are reachable from any working directory via stable `~/.claude/...` paths.

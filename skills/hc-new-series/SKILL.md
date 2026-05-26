@@ -52,20 +52,84 @@ canonical_url: https://hungovercoders.com/training/<SLUG>/NN-slug
 ---
 ```
 
-**Step 3 — Wire into the site**
+**Step 3 — Wire into the site (on a branch)**
 
-Append `"learn.<SLUG>"` to the `REPOS` array in `~/dev/hungovercoders/site/scripts/fetch-training-repos.sh`.
+The site is the only thing Cloudflare deploys, so the series wiring lives on a feature branch in the site repo until you're ready to publish. Cloudflare auto-deploys a preview URL for every non-`main` branch — that's how you review the new series end-to-end before customers see it.
 
-Run `./scripts/link-local-repos.sh` from `~/dev/hungovercoders/site/` to symlink the new repo for local dev.
+In `~/dev/hungovercoders/site/`:
+
+```bash
+git fetch origin
+git checkout main && git pull --ff-only origin main
+git checkout -b series/<SLUG>
+```
+
+If `series/<SLUG>` already exists locally (because the author started the work and came back to it), `git checkout series/<SLUG>` instead. If the working tree has uncommitted changes when you arrive, **stop and surface them** rather than branching over them — they may be the author's in-progress work.
+
+On the new branch:
+
+- Append `"learn.<SLUG>"` to the `REPOS` array in `scripts/fetch-training-repos.sh`.
+- Run `./scripts/link-local-repos.sh` to symlink the new repo for local dev.
+
+The learn.* repo itself stays on `main` — it isn't deployed anywhere customer-facing; it's only source content the site fetches at build time. Everything customer-visible lives on the site branch.
 
 **Step 4 — Initialise git**
 
 Run `git init` in `~/dev/hungovercoders/learn.<SLUG>/`.
 Add all files and make an initial commit: `chore: initial scaffold for learn.<SLUG>`
 
-**Step 5 — Report**
+**Step 5 — Push learn.<SLUG> to GitHub (user step, confirm before continuing)**
+
+Before the site branch can be pushed, the `learn.<SLUG>` repo must exist on GitHub — otherwise `fetch-training-repos.sh` will fail at the Cloudflare build and the preview will be red.
+
+Tell the user to:
+
+1. Create the public repo at `https://github.com/hungovercoders/learn.<SLUG>` (or run `gh repo create hungovercoders/learn.<SLUG> --public --description "<one-line series description>" --source ~/dev/hungovercoders/learn.<SLUG> --remote origin --push` if they prefer the CLI).
+2. Confirm back when done so the skill can proceed to Step 6.
+
+**Stop here and wait** for the user to confirm. Do not run Step 6 until they say the learn.* repo is on GitHub — pushing the site branch before then guarantees a broken preview build.
+
+**Step 6 — Commit, push, and open the draft PR on the site repo**
+
+With learn.<SLUG> live on GitHub, the site branch is safe to push. The first commit on the branch triggers the Cloudflare preview *and* opens the draft PR — that way the work is remote (safe), the preview URL exists for review, and there's a single PR thread for the whole series + launch.
+
+In `~/dev/hungovercoders/site/`:
+
+```bash
+git add scripts/fetch-training-repos.sh
+git commit -m "chore: wire learn.<SLUG> into training repos"
+git push -u origin series/<SLUG>
+
+gh pr create \
+  --draft \
+  --base main \
+  --head series/<SLUG> \
+  --title "Series: <Topic Title>" \
+  --body "$(cat <<'EOF'
+New tutorial series: **<Topic Title>** — `learn.<SLUG>`.
+
+This PR stays in **draft** until the series + launch post are ready for review.
+
+- Repo: https://github.com/hungovercoders/learn.<SLUG>
+- Live URL (after merge): https://hungovercoders.com/training/<SLUG>
+- Cloudflare preview: see the deployment check on this PR
+
+Workflow:
+1. `/hc-write-lessons` inside the learn.<SLUG> repo (lessons land on main of that repo as they're written; the site picks them up on next preview build)
+2. `/hc-launch` from this site repo on this branch (writes the launch blog post + share image)
+3. `/hc-review-series`, `/hc-review-blog`, `/hc-preflight` for independent passes
+4. Mark this PR ready for review, then merge to publish
+EOF
+)"
+```
+
+If `gh` is not installed or not authenticated, fall back to: push the branch, then tell the user to open the draft PR in the GitHub web UI with the body above.
+
+**Step 7 — Report**
 
 Tell the user:
-- What was created
-- That they need to create `github.com/hungovercoders/learn.<SLUG>` and push: `git remote add origin https://github.com/hungovercoders/learn.<SLUG>.git && git push -u origin main`
-- That they can now run `/hc-write-lessons` from inside the new repo to write all the lesson content
+- What was created in the learn.<SLUG> repo (file list)
+- The site repo branch (`series/<SLUG>`) is pushed; draft PR number + URL (from `gh pr create` output)
+- The Cloudflare preview will appear as a deployment check on the PR within a minute or two
+- That they can now run `/hc-write-lessons` from inside the learn.<SLUG> repo, then `/hc-launch` from the site (still on this branch) — `/hc-launch` will commit the blog post onto this same PR
+- The PR stays in **draft** until the series + launch post pass `/hc-review-*` and `/hc-preflight`; marking ready for review + merging is what publishes

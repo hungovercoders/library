@@ -122,7 +122,8 @@ Optionally, if `$ARGUMENTS` contains `--save`, write the full set to `~/.claude/
 
 **Notes on running this**
 
-- Run after `hc-launch` and after the build verifies (`hc-preflight` or `npm run build`). The share image needs to exist.
+- Run **after the post is live on `https://hungovercoders.com`** — i.e. after the publish branch has been merged to `main` and Cloudflare has deployed. The drafts hard-code the canonical URL, so running this against an unpublished branch would give the user copy that points at a 404.
+- The share image needs to exist locally as well (`public/assets/<slug>/link.png`) — that's what the platforms preview when they fetch the canonical URL.
 - The drafts are a starting point, not final copy. Expect to tweak before posting — the user has the lived context the model doesn't.
 - LinkedIn and X don't auto-detect canonical URLs the same way Slack does, so the explicit link line is non-negotiable.
 - Do **not** schedule or post automatically. This skill drafts; the user posts.

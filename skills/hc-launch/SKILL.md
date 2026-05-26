@@ -10,6 +10,26 @@ Arguments: $ARGUMENTS (expected format: `<series-slug> [day context]`)
 - SLUG: first word (e.g. `claude-code`)
 - DAY CONTEXT: everything after (e.g. `Sunday morning, second coffee, dog asleep on the sofa`) — used for the opener. If absent, write a generic want-led opener.
 
+**Step 0 — Ensure we're on a publish branch, not `main`**
+
+The launch post must not land on `main` directly — `main` is the live site. Cloudflare deploys every non-`main` branch as a preview URL, so the workflow is: write on a branch, push, review the preview, then merge to `main` to publish.
+
+In `~/dev/hungovercoders/site/`:
+
+```bash
+git status --short
+git branch --show-current
+```
+
+Decide based on the current state:
+
+- **Already on `series/<SLUG>`** (set up earlier by `hc-new-series`): use this branch. Don't switch.
+- **On `main`** with a clean tree: check whether `series/<SLUG>` exists locally or on the remote (`git rev-parse --verify series/<SLUG>` / `git ls-remote --heads origin series/<SLUG>`). If it exists, `git checkout series/<SLUG>` (and pull). If it doesn't (standalone launch with no associated training series), create `blog/<slug-of-title>` once you've picked the title in Step 2 — `git checkout -b blog/<slug>`.
+- **On `main`** with uncommitted changes: **stop and surface them**. They may be the author's in-progress work, and you shouldn't branch over them.
+- **On a different branch** entirely: surface what branch and ask before continuing. Don't silently switch.
+
+Record the resolved branch name — Step 4 will reference it.
+
 **Step 1 — Load context**
 
 Read in full:
@@ -125,14 +145,62 @@ Expect to see:
 
 If any are wrong (e.g. `og:image` falling back to `_astro/blog-placeholder-...jpg`) the post's `image:` frontmatter wasn't picked up — fix and rebuild.
 
-**Step 4 — Report**
+**Step 4 — Commit, push, and ensure the draft PR exists**
+
+First commit on a branch should always land on a remote draft PR — that's how the work gets backed up off-machine and how Cloudflare's preview URL appears.
+
+From `~/dev/hungovercoders/site/` on the resolved branch:
+
+```bash
+git add src/content/blog/YYYY-MM-DD-<slug>.md public/assets/YYYY-MM-DD-<slug>/link.png
+git commit -m "feat: launch blog post for <Topic Title>"
+git push -u origin <branch>
+```
+
+Then check whether a PR already exists for this branch (it usually does if `hc-new-series` ran earlier in the series):
+
+```bash
+gh pr list --head <branch> --json number,url,isDraft --jq '.[0]'
+```
+
+- **If a PR exists**: leave it alone. The push above already updated it; the Cloudflare preview will redeploy with the new post. Capture its `number` and `url` for the report.
+- **If no PR exists** (standalone launch, no series wiring): open a draft PR now.
+
+  ```bash
+  gh pr create \
+    --draft \
+    --base main \
+    --head <branch> \
+    --title "Blog: <Title>" \
+    --body "$(cat <<'EOF'
+  New blog post: **<Title>**.
+
+  - Path: /blog/YYYY-MM-DD-<slug>/
+  - Share image: public/assets/YYYY-MM-DD-<slug>/link.png
+  - Cloudflare preview: see the deployment check on this PR
+
+  Stays in **draft** until `/hc-review-blog` and `/hc-preflight` pass. Mark ready for review + merge to publish.
+  EOF
+  )"
+  ```
+
+If `gh` is unavailable or unauthenticated, fall back to: push the branch (already done), tell the user to open the draft PR via the GitHub web UI using the body above.
+
+**Step 5 — Report**
 
 Tell the user:
 - URL path: `/blog/YYYY-MM-DD-<slug>/` (derived from the chosen title)
 - Title pattern chosen and opener formula chosen
 - Build status (pass/fail)
+- **Branch**: the resolved branch from Step 0
 - **Share image**: the path of the generated `public/assets/YYYY-MM-DD-<slug>/link.png` and the tagline you used — they can swap in a custom image at the same path if they want something fancier than the auto-branded card
-- **Metatags.io reminder**: once pushed and deployed, paste the post URL into `https://metatags.io/` to preview how it'll look on Twitter, LinkedIn, Slack, etc. — this is the SEO sanity check the old Jekyll setup did via `jekyll-seo-tag` and the new site does via the `BaseHead` component
-- Reminder to commit and push
+- **Draft PR**: number + URL (either the existing one updated by this push, or the new one just opened)
+- **Cloudflare preview**: appears as a deployment check on the PR within a minute or two — preview URL is on the PR page
+- **Next steps before publishing**:
+  1. Open the preview URL — confirm the post renders, share image shows, training links resolve
+  2. Run `/hc-review-blog` for an independent voice/structural pass
+  3. Run `/hc-preflight` for the site-wide gate (build, OG, sitemap)
+  4. When all clean, **mark the PR ready for review and merge to `main`** — the merge is what publishes; `git push` on the branch only updates the preview
+- **Metatags.io reminder**: paste the preview URL into `https://metatags.io/` to confirm Twitter / LinkedIn / Slack previews render correctly. This is the SEO sanity check the old Jekyll setup did via `jekyll-seo-tag` and the new site does via the `BaseHead` component.
 
 A note on what's *required* vs what varies. Required across every launch post: the want-or-equivalent personal opener, themed example data, the three opinion beats (honest moment, verdict, what I'd do differently), the "fellow hungovercoder" closer, British spellings, no corporate filler. Those are the brand. **Title pattern, opener formula, themed section headings, and the specific demo composition should vary post-to-post** — that's how the corpus stays interesting across thirty entries instead of reading like one templated voice.

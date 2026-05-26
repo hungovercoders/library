@@ -14,9 +14,16 @@ If `$ARGUMENTS` contains a path or slug, scope checks to that file plus the site
 ```bash
 cd ~/dev/hungovercoders/site
 git status --short
+git branch --show-current
 ```
 
-Capture: branch name, untracked files, modifications. If `--strict` and there are unstaged changes, flag this as P2 — publish should ideally happen from a clean tree.
+Capture: branch name, untracked files, modifications.
+
+Branch expectations:
+- **Preflight is intended to run on a feature branch** (`series/<slug>` or `blog/<slug>`) before merging to `main`. The Cloudflare preview for that branch is what you're validating; merge-to-`main` is what publishes.
+- **If on `main`**: flag as P1 with the note *"preflight is normally run on the publish branch before merge — if you've already merged, the work below is post-mortem rather than gating; if you haven't branched yet, you're about to publish straight to live"*.
+- **If on a feature branch with uncommitted changes**: that's expected mid-flow. Note it informationally. If `--strict`, flag as P2 — the merge-to-main step needs a committed tree.
+- **If on a feature branch with a clean tree**: ideal state. Note the branch in the report so the user knows what they're about to merge.
 
 **Step 2 — Build the site**
 
@@ -114,6 +121,7 @@ Print to chat:
 ```
 hc-preflight — <date> <time>
 
+Branch: <current branch>  (publish target: main)
 Build: PASS / FAIL
 P0 issues: N
 P1 issues: M
@@ -127,14 +135,16 @@ P1:
   - <file>: <issue> → <fix>
   ...
 
-Verdict: <ready to publish | fix P0 first | …>
+Verdict: <ready to merge to main | fix P0 first | …>
 ```
+
+If the verdict is "ready to merge to main", remind the user the actual publish step is the merge — `git push` on the branch only updates the preview URL.
 
 Exit non-zero if `--strict` and any P0 or P1 issue exists.
 
 **Notes on running this**
 
-- Run this immediately before `git push` to main. It's the publish gate.
+- Run this on the publish branch immediately before merging to `main`. It's the publish gate — the merge is what goes live, `git push` on the branch only updates the Cloudflare preview.
 - Build is the first gate — everything else assumes the build passed.
 - This skill does **not** check voice or content quality. For that, run `hc-review-blog` or `hc-review-series` separately.
 - If `training-repos/` is empty (deliberate exclusion of all series), the training half of the audit is skipped — that's fine, not a failure.
