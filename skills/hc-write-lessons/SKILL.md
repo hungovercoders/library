@@ -43,10 +43,24 @@ For each stub lesson, write a complete `README.md` following these rules:
 
 *Hands-on lessons* — if the lesson needs a runnable config or code file, create it alongside the README. It must run as-is with no editing required.
 
-**Step 4 — Commit in batches**
+**Step 4 — Commit, push, and nudge the site preview**
 
-After every 3 lessons, commit: `feat: add lessons NN–NN <series> content`
+After every 3 lessons (or at the end of a partial final batch):
+
+1. **Commit on the learn.\* repo:** `feat: add lessons NN–NN <series> content`
+2. **Push to origin/main:** `git push origin main`
+3. **Nudge the site PR preview.** Cloudflare watches the **site** repo, not learn.\* repos — so a push to learn.\*/main does NOT rebuild the site PR preview on its own. After pushing learn.\*, run from inside the site repo (still on `series/<SLUG>` from `/hc-new-series`):
+
+   ```sh
+   cd ~/dev/hungovercoders/site
+   git commit --allow-empty -m "chore: trigger preview rebuild for <SLUG> lessons NN–NN"
+   git push
+   ```
+
+   Cloudflare then rebuilds the PR preview, `fetch-training-repos.sh` re-clones learn.\*/main, and the fresh lessons render at the preview URL. Without this nudge, the PR preview keeps serving the previous build and the lessons you just pushed are invisible until the next site-branch push.
+
+This gap is structural — it applies to any learn.\* repo, not just this one — so the nudge step is part of every batch. (Production has no gap: when the series PR merges to site/main, the production build runs `fetch-training-repos.sh` and picks up everything in learn.\*/main.)
 
 **Step 5 — Report**
 
-When all stubs are written, tell the user how many lessons were written, which (if any) were skipped because they already had content, and what to do next (push and optionally run `/hc-launch` from the site).
+When all stubs are written, tell the user how many lessons were written, which (if any) were skipped because they already had content, and what to do next (run `/hc-launch` from the site to write the launch blog post, then `/hc-review-series` and `/hc-preflight` before marking the PR ready for review).
