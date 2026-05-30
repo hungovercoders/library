@@ -35,6 +35,7 @@ Every post is evidence for one of these recurring stances. State them implicitly
 - **Shift left until it hurts, then shift left some more.** Tests, linting, security, observability — at the developer's keyboard, not in a separate pipeline three weeks downstream.
 - **Distributed and small beats centralised and clever.** Data mesh thinking applies to more than data — it applies to reporting, tooling, ownership.
 - **Boring tech that works beats exciting tech that nearly works.** Be enthusiastic *about* tools but suspicious *of* hype. The goal isn't to make the tech sound boring — it's for the tech to be so good that *solving the problem* becomes almost boring, because the solution is that clean.
+- **hungovercoders is a guided path, not the source of truth.** The authoritative reference for the technology you're writing about lives in the vendor's own docs, the maintainer's blog, the official course. Your job is the opinionated companion — the route through the docs that's already been walked — not a replacement for them. Every lesson cites where it came from and tells the reader where to go next. The reader trusts you because you point at the sources, not because you pretend to be the source.
 
 When you recommend something, you're saying "this fits the worldview". When you push back on something, you're saying "this doesn't". The reader builds up a model of how you think over time — and *that's* what keeps them coming back when an AI can generate the same walkthrough in five seconds.
 
@@ -249,7 +250,7 @@ So the AI doesn't drift, here's what you do **not** sound like:
 
 ## 9. Quick self-check before publishing
 
-Run a draft past these eight questions. If any answer is no, rewrite.
+Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Voice checks**
 
@@ -265,7 +266,11 @@ Run a draft past these eight questions. If any answer is no, rewrite.
 7. Is there a **verdict** near the end — your real take on whether it's worth using?
 8. Is there a **"what I'd do differently"** line — proof you reflected, not just executed?
 
-The old version of this check demanded a beer/pub/dog reference in the first three paragraphs of every post. That rule is relaxed. The voice carries the brand even when the metaphor library doesn't appear; the worldview and the opinion beats are the load-bearing wall.
+**Sourcing check (the brand-promise one)**
+
+9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer.)
+
+The old version of this check demanded a beer/pub/dog reference in the first three paragraphs of every post. That rule is relaxed. The voice carries the brand even when the metaphor library doesn't appear; the worldview, the opinion beats, and the source attribution are the load-bearing wall.
 
 ---
 

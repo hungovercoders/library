@@ -18,9 +18,40 @@ Create `~/dev/hungovercoders/learn.<SLUG>/` with:
 
 `AGENTS.md` — adapt the structure from `~/dev/hungovercoders/learn.bento/AGENTS.md` for this new topic. The file describes the **repo's own conventions only** — what the series covers, lesson directory layout, frontmatter requirements (title, series, order, description, canonical_url pattern `https://hungovercoders.com/training/<SLUG>/NN-slug`), YAML/code style for the topic. Do **not** add `@` includes pointing at the library — the hungovercoders voice guide and blog template are loaded by the hc- skills at run time from `~/.claude/hungovercoders/voice/`, so the new repo stays self-contained and portable.
 
+The AGENTS.md **must include a Sources convention section** stating the hungovercoders brand promise (per the voice guide: hungovercoders is a guided path, not the source of truth) and naming the two per-lesson requirements:
+
+> **Sources convention.** Every lesson must include (a) a **top framing line** placed immediately after the want-led opener, naming the canonical source for the lesson's topic and framing this series as the guided path alongside it, and (b) a `## Sources and further reading` section placed before the closer, listing the canonical vendor doc(s) plus 1–2 community alternatives. The series-wide canonical reference set lives in `SOURCES.md` at the repo root; per-lesson sources draw from there plus lesson-specific WebSearches.
+
 `CLAUDE.md` — single line: `@AGENTS.md`
 
 `README.md` — one paragraph overview of the series: what it teaches, who it's for, and a link to `https://hungovercoders.com/training/<SLUG>`.
+
+`SOURCES.md` — the series-level canonical reference list. Template:
+
+```markdown
+# Sources and inspiration — learn.<SLUG>
+
+hungovercoders is dataGriff's path through <TOPIC>. The canonical references below are where the technology *actually* lives; this series is a guided walk alongside them, not a replacement.
+
+## Canonical reference
+
+- [<Official docs / spec / vendor reference>](<URL>) — the authoritative source
+
+## Recommended alternative paths
+
+- [<A well-respected course / book / blog>](<URL>) — when to reach for it
+- [<Another alternative path>](<URL>) — when to reach for it
+
+## Practice and reinforcement
+
+- [<Practice tool / certification exam vendor / community forum>](<URL>) — what it gives you that this series doesn't
+
+## How to use this series
+
+Read this series for the opinionated walk. Open the canonical reference when you need authoritative detail. Take an alternative path if dataGriff's voice isn't landing for you — different voices work for different readers, and the canonical source is the same either way.
+```
+
+Populate `SOURCES.md` based on the research in Step 2 — at minimum the canonical vendor doc + one community alternative + (if cert-prep) one practice exam vendor.
 
 `docs/` — empty directory (lessons go here).
 
