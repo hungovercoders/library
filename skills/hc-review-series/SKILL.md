@@ -41,8 +41,8 @@ Score each lesson on:
 | **Length appropriateness** | Concept-only lessons ≈ 500–900 words; hands-on lessons ≈ 1,000–1,500 words. Anything past 2,000 should justify itself |
 | **Hands-on accuracy** | If the lesson references runnable code/config files, those files exist alongside the README in the lesson directory, and they look like they'd run as-is with no editing |
 | **Top framing line** | A sentence or two placed immediately after the want-led opener, explicitly framing hungovercoders as the *guided path* and naming the canonical source the lesson draws from (vendor docs, official course, etc.) |
-| **Sources and further reading** | A `## Sources and further reading` section sits before the closer, with the canonical vendor doc(s) plus 1–2 community alternatives. Each link has a short qualifier explaining why the reader would click it. Closer remains the last thing the reader sees |
-| **Series-level SOURCES.md** | The series root contains a `SOURCES.md` listing the canonical reference set. Per-lesson sources are consistent with it (no contradictions, no random extra canonical sources not noted at the series level) |
+| **Sources and further reading** | A `## Sources and further reading` section sits before the closer, with the canonical vendor doc(s) plus 1–2 community alternatives and a pointer to the References lesson. Each link has a short qualifier explaining why the reader would click it. Closer remains the last thing the reader sees |
+| **References lesson** | The series's final lesson is `docs/<NN>-references-and-further-reading/README.md` — a customer-facing reference page presented as a lesson so it shows in the tutorial sidebar. Per-lesson sources are consistent with it (no contradictions, no random extra canonical sources not noted at the series level) |
 
 For each lesson, produce a structured report:
 - Pass/fail per criterion (with specific quotes for any failures — file path, the offending text, and *why* it fails)

@@ -14,7 +14,7 @@ Read the following files in full before writing anything:
 - `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice, tone, opinion beats, themed headings, all of it
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — structure reference
 - `AGENTS.md` in the current repo — series conventions, topic, frontmatter rules
-- `SOURCES.md` in the current repo (if present) — the canonical reference set for the series. This is the source list every lesson's "Sources and further reading" section draws from. If the repo doesn't yet have one, propose creating it before writing lessons (see hc-new-series for the template).
+- The repo's **References lesson** at `docs/<NN>-references-and-further-reading/README.md` (if present — by convention the last lesson in the series). It is the canonical reference set for the series and the source list every lesson's "Sources and further reading" section draws from. If the repo doesn't yet have one, propose creating it as the final lesson before writing the rest (see hc-new-series for the template).
 
 **Step 2 — Survey the lesson stubs**
 
@@ -34,7 +34,7 @@ For each stub lesson, write a complete `README.md` following these rules:
 
 *Structure* — every lesson must have:
 1. **Want-led opener** — first sentence is "I wanted…" or equivalent personal desire. Sets up why this lesson matters.
-2. **Top framing line** — one or two sentences placed immediately after the opener (and before pre-reqs) explicitly framing hungovercoders as the *guided path* and naming the canonical source. Example: *"This lesson is dataGriff's path through X — opinionated, hands-on, slightly hungover. The canonical source is `<vendor docs URL>`; use this series alongside, not instead of, that."* Pull the canonical source from `SOURCES.md` at the series root.
+2. **Top framing line** — one or two sentences placed immediately after the opener (and before pre-reqs) explicitly framing hungovercoders as the *guided path* and naming the canonical source. Example: *"This lesson is dataGriff's path through X — opinionated, hands-on, slightly hungover. The canonical source is `<vendor docs URL>`; use this series alongside, not instead of, that."* Pull the canonical source from the References lesson (`docs/<NN>-references-and-further-reading/README.md`).
 3. **Themed section headings** — not generic ("Run it") but beer/dogs/music/films/geek flavoured ("Getting the Round In", "Cracking Open the Config", "Pouring the Logic").
 4. **The substance** — explain the concept, show the code/config, explain each part.
 5. **Honest moment** — one sentence mid-lesson proving a real person built this: "I'll be honest…", "First time I ran this…", "This is the bit the docs don't mention…"
@@ -43,7 +43,7 @@ For each stub lesson, write a complete `README.md` following these rules:
 8. **`## Sources and further reading`** — placed before the closer. A structured list of:
    - The canonical vendor doc page(s) for this lesson's topic
    - 1–2 community alternatives (course, blog post, well-known guide) where they exist
-   - The series-wide `SOURCES.md` for additional context
+   - A pointer to **the References lesson** at `docs/<NN>-references-and-further-reading/` for the consolidated series-wide reference page
 
    Frame each link with one short qualifier so the reader knows why they'd click it (e.g. *"Canonical reference for the six pillars"* or *"Stéphane Maarek's CLF-C02 course — the most popular alternative path"*).
 9. **Fellow hungovercoder closer** — "Well done on your X, fellow hungovercoder" or a handoff: "On to lesson N, fellow hungovercoder."

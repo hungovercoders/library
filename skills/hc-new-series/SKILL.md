@@ -20,40 +20,61 @@ Create `~/dev/hungovercoders/learn.<SLUG>/` with:
 
 The AGENTS.md **must include a Sources convention section** stating the hungovercoders brand promise (per the voice guide: hungovercoders is a guided path, not the source of truth) and naming the two per-lesson requirements:
 
-> **Sources convention.** Every lesson must include (a) a **top framing line** placed immediately after the want-led opener, naming the canonical source for the lesson's topic and framing this series as the guided path alongside it, and (b) a `## Sources and further reading` section placed before the closer, listing the canonical vendor doc(s) plus 1–2 community alternatives. The series-wide canonical reference set lives in `SOURCES.md` at the repo root; per-lesson sources draw from there plus lesson-specific WebSearches.
+> **Sources convention.** Every lesson must include (a) a **top framing line** placed immediately after the want-led opener, naming the canonical source for the lesson's topic and framing this series as the guided path alongside it, and (b) a `## Sources and further reading` section placed before the closer, listing the canonical vendor doc(s) plus 1–2 community alternatives and a pointer to the References lesson. The series-wide canonical reference list lives as the **References and Further Reading lesson** — the last numbered lesson in `docs/` — so it's discoverable in the tutorial navigation like any other lesson page; per-lesson sources draw from there plus lesson-specific WebSearches.
 
 `CLAUDE.md` — single line: `@AGENTS.md`
 
 `README.md` — one paragraph overview of the series: what it teaches, who it's for, and a link to `https://hungovercoders.com/training/<SLUG>`.
 
-`SOURCES.md` — the series-level canonical reference list. Template:
+`docs/` — empty directory (lessons go here).
+
+**The final lesson of every series must be a `<NN>-references-and-further-reading/README.md`** — the series-level reference page presented as a lesson so it's discoverable in the sidebar like any other page. Template (write the actual content after Step 2 once the canonical references are identified):
 
 ```markdown
-# Sources and inspiration — learn.<SLUG>
+---
+title: "References and Further Reading"
+series: <SLUG>
+order: <NN>
+description: "Every authoritative reference, recommended alternative path, practice tool, and community resource this series leans on — the bookmark page for after you finish"
+canonical_url: https://hungovercoders.com/training/<SLUG>/<NN>-references-and-further-reading
+---
 
-hungovercoders is dataGriff's path through <TOPIC>. The canonical references below are where the technology *actually* lives; this series is a guided walk alongside them, not a replacement.
+I wanted one page I could bookmark for the day after I finish the series — the consolidated list of every authoritative reference this series points at, every alternative learning path worth recommending, every practice tool that moves the needle, and the communities worth following.
 
-## Canonical reference
+This lesson is the series-wide reference page. The canonical sources for <TOPIC> are below — open them when you need authoritative detail and treat this series as the guided path through them, not the source itself.
 
-- [<Official docs / spec / vendor reference>](<URL>) — the authoritative source
+## The Canonical References
 
-## Recommended alternative paths
+| Reference | What it gives you |
+|---|---|
+| [<Official docs / spec / vendor reference>](<URL>) | <one-line job> |
 
-- [<A well-respected course / book / blog>](<URL>) — when to reach for it
-- [<Another alternative path>](<URL>) — when to reach for it
+## Recommended Alternative Paths
 
-## Practice and reinforcement
+| Resource | When to reach for it |
+|---|---|
+| [<Course / book / blog>](<URL>) | <one-line job> |
 
-- [<Practice tool / certification exam vendor / community forum>](<URL>) — what it gives you that this series doesn't
+## Practice and Reinforcement
 
-## How to use this series
+| Resource | What it gives you |
+|---|---|
+| [<Practice tool / community>](<URL>) | <one-line job> |
 
-Read this series for the opinionated walk. Open the canonical reference when you need authoritative detail. Take an alternative path if dataGriff's voice isn't landing for you — different voices work for different readers, and the canonical source is the same either way.
+## How to Use This Lesson
+
+Don't read it like a lesson. Bookmark it. Open it when you need an authoritative reference, when you're picking a follow-up path, or when someone asks for the source.
+
+## Sources and further reading
+
+This lesson IS the sources and further reading. Everything above is the reference set.
+
+---
+
+Closing line in the dataGriff voice.
 ```
 
-Populate `SOURCES.md` based on the research in Step 2 — at minimum the canonical vendor doc + one community alternative + (if cert-prep) one practice exam vendor.
-
-`docs/` — empty directory (lessons go here).
+Populate the References lesson based on the research in Step 2 — at minimum the canonical vendor doc + one community alternative + (if cert-prep) one practice exam vendor + the community forum or subreddit.
 
 **Step 2 — Research the topic and propose a lesson plan**
 
