@@ -36,7 +36,7 @@ flowchart TB
     subgraph github["GitHub: hungovercoders org"]
         ORG_PROFILE[".github repo<br/>(org public profile)"]
         LIBRARY_REPO["library<br/>(public)<br/>voice guide, templates,<br/>worked example, roadmap,<br/>OKRs, integration playbook,<br/>tech implementation"]
-        OPS_REPO["ops<br/>(PRIVATE)<br/>personal manifesto,<br/>redirects, runbooks"]
+        OPS_REPO["ops<br/>(PRIVATE)<br/>personal manifesto,<br/>runbooks"]
         SITE_REPO["site<br/>(Astro + Pagefind)"]
         BRAND_REPO["brand<br/>(logos, fonts, colours)"]
         TUTORIAL_REPOS["learn.bento, learn.*<br/>(per-series)"]
@@ -180,7 +180,7 @@ flowchart TD
     end
 
     subgraph ops_layer["Operations & private reflection"]
-        OR["ops<br/>(private)<br/>🔧 personal manifesto<br/>🔧 redirect map<br/>🔧 runbooks<br/>🔧 analytics snapshots"]
+        OR["ops<br/>(private)<br/>🔧 personal manifesto<br/>🔧 runbooks<br/>🔧 analytics snapshots"]
     end
 
     DG -.->|points to| CL
@@ -210,7 +210,7 @@ The principle is **public by default, with one explicit carve-out for genuinely 
 Only one document is qualitatively different enough to stay private, plus the operational data:
 
 - **The personal manifesto.** Not because it's IP — it isn't, really — but because it's *personal reflection* written explicitly for the author, not for readers. The honest content about drinking, identity, the gap between aspirations and lived reality. That stuff stays yours.
-- **The redirect map** (lists every old URL — useful intel for someone planning an SEO attack), **the runbooks**, and **analytics snapshots**. Operational data — none of this helps readers, some of it could help attackers, all of it stays in `ops`.
+- **The runbooks** and **analytics snapshots**. Operational data — none of this helps readers, all of it stays in `ops`. (Note: the redirect map *was* originally planned for `ops` on a "useful intel for SEO attackers" rationale, but that doesn't hold — old URLs are already in the index and archive.org, and the Worker code is just `{old: new}` lookups with no attack surface. It now lives in `site/redirects/` alongside the rest of the deployed code.)
 
 So: **five public repos, one private.** The private repo is the only place a determined reader can't see — and what's in it is the kind of personal reflection that benefits from privacy regardless of any IP argument.
 
@@ -535,7 +535,7 @@ Set this once per tutorial repo. If managing per-repo becomes painful as more se
 
 ### 4.6 `ops` (private)
 
-The one private repo in the bundle. Houses the personal manifesto (the only file that's qualitatively private rather than craft-private) plus all the operational data — redirect maps, runbooks, analytics snapshots, infrastructure docs.
+The one private repo in the bundle. Houses the personal manifesto (the only file that's qualitatively private rather than craft-private) plus operational data — runbooks, analytics snapshots, infrastructure docs. (The blog redirect map lives in the public `site` repo; see §6.)
 
 **Visibility:** Private.
 
@@ -553,11 +553,6 @@ ops/
 │   ├── cloudflare-pages-config.md       # documented settings
 │   └── README.md
 ├── migration/
-│   ├── redirect-map.csv                 # old URL → new URL mapping
-│   ├── generate-worker.js               # script: CSV → Worker source
-│   ├── blog-redirect-worker/            # the deployed Cloudflare Worker
-│   │   ├── wrangler.toml
-│   │   └── src/index.js                 # generated from CSV
 │   ├── migration-runbook.md
 │   └── post-migration-checks.md
 ├── runbooks/
@@ -572,7 +567,8 @@ ops/
 Key files:
 
 - **`operating-manual/personal-manifesto.md`** — the honest source under everything. Read by you when the brand starts feeling hollow. Never published. This is the *only* document that's private for its own sake rather than for operational sensitivity.
-- **`migration/redirect-map.csv`** — the source of truth for every redirect. The Worker source is *generated* from this CSV, never hand-edited.
+
+(The redirect map used to be listed here; it now lives in `site/redirects/redirect-map.csv` — see §6.)
 
 The voice guide, roadmap, OKRs, and everything else operational-but-public lives in `library`, not here.
 
@@ -593,8 +589,9 @@ The voice guide, roadmap, OKRs, and everything else operational-but-public lives
 # ops
 
 The single private repo in the hungovercoders bundle. Contains the personal
-manifesto (private reflection) and all the operational data (redirects,
-runbooks, analytics).
+manifesto (private reflection) and the operational data (runbooks,
+analytics). The blog redirect map lives in the public `site` repo — see
+the site repo's `redirects/` directory.
 
 This repo is private and stays private. The contents are not for publication.
 
@@ -604,10 +601,7 @@ This repo is private and stays private. The contents are not for publication.
    to expand or rework it, ask the user to do that themselves — the manifesto
    is one of the few documents in the whole system that has to be theirs alone.
 
-2. **The redirect map is source-of-truth.** Edits go in the CSV; the Worker
-   source is regenerated, not hand-edited.
-
-3. **Maintain CHANGELOG.md.** Every meaningful change gets a one-line entry.
+2. **Maintain CHANGELOG.md.** Every meaningful change gets a one-line entry.
 
 ## Rules for human contributors
 
@@ -1059,18 +1053,32 @@ Cloudflare auto-creates the Pages CNAME when you add the custom domain via the d
 
 ### The redirect Worker
 
-Since Cloudflare runs the whole edge, a Worker is the natural fit for the old-subdomain 301s. Lighter than running a separate Pages site for redirects.
+Since Cloudflare runs the whole edge, a Worker is the natural fit for the old-subdomain 301s. Lighter than running a separate site for redirects, and bound to its own route so it lives alongside — not inside — the main site Worker.
+
+It lives in **the public `site` repo** under `redirects/` (not in `ops` — see the public/private rationale earlier; the redirect map isn't sensitive). Layout:
+
+```
+site/redirects/
+├── redirect-map.csv      # source of truth: old URL → new URL → status
+├── generate.mjs          # reads CSV, writes src/index.js
+├── src/index.js          # AUTO-GENERATED, committed
+├── wrangler.jsonc        # bound to blog.hungovercoders.com/*
+└── README.md
+```
+
+The CSV is the truth; the Worker source is generated; deployment runs the generator and then `wrangler deploy --config redirects/wrangler.jsonc`. Edits to the CSV become the deployment trigger and the JavaScript is never hand-edited.
+
+Worker shape:
 
 ```javascript
-// blog-redirect-worker/src/index.js
-// Deploy with: wrangler deploy
-// Bound to route: blog.hungovercoders.com/*
+// site/redirects/src/index.js (auto-generated)
 
 const REDIRECT_MAP = {
-  '/datagriff/2024/12/01/deploy-docusaurus.html': '/blog/2024/12/01/deploy-docusaurus',
-  '/datagriff/2024/11/15/trunk-io.html': '/blog/2024/11/15/trunk-io',
-  // ... generated from ops/migration/redirect-map.csv
+  '/datagriff/2022/07/19/environment-variables.html': '/blog/2022-07-19-environment-variables/',
+  // ... 40-ish entries generated from redirects/redirect-map.csv
 };
+
+const APEX = 'https://hungovercoders.com';
 
 export default {
   async fetch(request) {
@@ -1078,24 +1086,36 @@ export default {
     const newPath = REDIRECT_MAP[url.pathname];
 
     if (newPath) {
-      return Response.redirect(`https://hungovercoders.com${newPath}`, 301);
+      const target = new URL(newPath, APEX);
+      target.search = url.search;          // preserve query strings (utm_*, etc.)
+      return Response.redirect(target.toString(), 301);
     }
 
-    // Unknown old path — send to the apex homepage
-    return Response.redirect('https://hungovercoders.com/', 301);
-  }
+    return Response.redirect(APEX + '/', 301);   // unknown path → apex homepage
+  },
 };
 ```
 
-The `REDIRECT_MAP` is generated from `ops/migration/redirect-map.csv` by `ops/migration/generate-worker.js`. The CSV is the truth; the Worker source is generated; deployment is `wrangler deploy`. Means edits to the CSV become the deployment trigger and the JavaScript is never hand-edited.
+The site's `package.json` exposes the lifecycle:
+
+```json
+{
+  "scripts": {
+    "redirects:generate": "node redirects/generate.mjs",
+    "redirects:deploy":   "npm run redirects:generate && wrangler deploy --config redirects/wrangler.jsonc"
+  }
+}
+```
+
+Wrangler is already in the site's devDeps — no nested `package.json` needed inside `redirects/`.
 
 ### Setup steps
 
-1. In `ops/migration/`, build the `redirect-map.csv` with every old post URL.
-2. Run `generate-worker.js` to produce `blog-redirect-worker/src/index.js`.
-3. `cd blog-redirect-worker && wrangler deploy`.
-4. Configure the Worker route to `blog.hungovercoders.com/*` (in the Cloudflare dashboard or via `wrangler.toml`).
-5. Test 10 random URLs, confirm 301s land on the right new paths.
+1. Build `redirects/redirect-map.csv` with every old post URL → new URL pair. Cross-validate `new_url` values against the live built slugs under `dist/client/blog/` (the live Astro routing may normalise dots, etc., differently from filenames).
+2. Run `npm run redirects:generate` to produce `redirects/src/index.js`.
+3. Run `npm run redirects:deploy` to push it. Wrangler picks up the route from `redirects/wrangler.jsonc`.
+4. Ensure the `blog` DNS record on the `hungovercoders.com` zone exists and is Proxied (orange-cloud). A placeholder `AAAA 100::` is enough to attach the route.
+5. Test ~10 random URLs from the CSV; confirm 301s land on the right new paths and unknown paths fall back to apex.
 
 Cost: free. Workers free tier handles 100,000 requests per day — comfortably above what a redirect host needs.
 
