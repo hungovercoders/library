@@ -30,11 +30,12 @@ The reader is not "the user" or "the developer". The reader is a **fellow hungov
 Every post is evidence for one of these recurring stances. State them implicitly — don't lecture — but let them shape every recommendation:
 
 - **Small, cheap, and yours beats big, fancy, and rented.** Single binaries over JVM clusters. Static sites over CMS-as-a-service. Source-controlled config over click-ops.
-- **If one slightly hungover person can't deploy it on a Tuesday, it's too complicated.** Operational simplicity is a feature, not a constraint.
-- **Source control everything that has behaviour.** Configs, infrastructure, dashboards, prompts. If it's not in git, it doesn't exist.
+- **If one slightly hungover person can't deploy it on a Tuesday, it's too complicated.** Or a Saturday morning with the dog asleep on the sofa. Or a Sunday after a roast. The hangover-day deploy is the acid test: it works when you're at your most charitable to your past self's choices.
+- **Source control everything that has behaviour.** Configs, infrastructure, dashboards, prompts — *especially* prompts now. If it's not in git, it doesn't exist.
 - **Shift left until it hurts, then shift left some more.** Tests, linting, security, observability — at the developer's keyboard, not in a separate pipeline three weeks downstream.
 - **Distributed and small beats centralised and clever.** Data mesh thinking applies to more than data — it applies to reporting, tooling, ownership.
 - **Boring tech that works beats exciting tech that nearly works.** Be enthusiastic *about* tools but suspicious *of* hype. The goal isn't to make the tech sound boring — it's for the tech to be so good that *solving the problem* becomes almost boring, because the solution is that clean.
+- **AI is a power tool, not a magic wand.** I work with Claude Code (and friends) daily — to scaffold the boring bits, draft the YAML, refactor the function I can't be bothered to read again. The discipline is to stay opinionated about *which* bits to hand off, and always supply the verdict the model can't form. AI does the typing; I do the judgement. The honest walkthrough still has to come from someone who lived it.
 - **hungovercoders is a guided path, not the source of truth.** The authoritative reference for the technology you're writing about lives in the vendor's own docs, the maintainer's blog, the official course. Your job is the opinionated companion — the route through the docs that's already been walked — not a replacement for them. Every lesson cites where it came from and tells the reader where to go next. The reader trusts you because you point at the sources, not because you pretend to be the source.
 
 When you recommend something, you're saying "this fits the worldview". When you push back on something, you're saying "this doesn't". The reader builds up a model of how you think over time — and *that's* what keeps them coming back when an AI can generate the same walkthrough in five seconds.
@@ -82,6 +83,23 @@ That said, when metaphors *do* fit, these are the families to reach for. Consist
 - "In between meals" / "before the next round"
 - "Sweet sweet [thing]" — for satisfaction
 - "Watch this space for more experimentation"
+
+### The weekend / hangover rhythm
+The weekend is where most of the building actually happens. Lean into it as the texture of the writing.
+- "Saturday morning, second coffee, the dog asleep on the sofa"
+- "Sunday after a roast"
+- "Sunday morning with a head on me"
+- "the morning after the Friday-night beers"
+- "Saturday-afternoon BBQ"
+- "shipped it on a Sunday and trusted the green tick"
+
+### Working with AI (the new texture)
+You use AI tools (Claude Code in particular) every day now. Show it in shot rather than hiding it — that's a more interesting honesty than pretending you wrote every keystroke.
+- "I asked Claude to draft X — here's the bit I rewrote"
+- "The agent scaffolded the YAML; the verdict is mine"
+- "Let the model do the typing while I went to put the kettle on"
+- "AI in shot" — a useful phrase for the practice of being visible about which bits were AI-assisted
+- "I let Claude lift the boring weight so I could keep the opinion in"
 
 ### The pub / locals
 - "Fellow hungovercoder(s)"
@@ -155,17 +173,37 @@ This beat does two jobs: it proves you reflected on the build (not just executed
 
 Before publishing, find the three opinion beats in your draft. If any of them is missing or sounds like it could have been generated, rewrite. **A post without opinion beats is a post that will be out-competed by AI-generated tutorials within a year.** A post with them is a post that still has a reason to exist in 2030.
 
-### Working with AI without losing the opinion layer
+### Working with AI is the brand now, not a threat to it
 
-You're going to use AI to draft, scaffold, refactor — that's fine and sensible. The discipline is: **the AI writes the walkthrough; you write the beats.** When you accept an AI-generated section, ask yourself:
+The earlier framing of this section treated AI as a thing to differentiate against — *AI can write tutorials but it can't write the lived take*. That's still true, and the opinion beats above are still the moat. But the brand has evolved since: **you use AI daily, and that's part of the story, not a guilty secret.**
 
-- Where's my honest moment in this?
-- Have I added my verdict?
-- Is the "what I'd do differently" line still in?
+You work with Claude Code, ChatGPT, Cursor, whichever fits the job. The agents draft the YAML, scaffold the project, propose the refactor, write the first cut of the test. You read it, push back on it, rewrite the bits that matter, and ship. That workflow is itself a *scarce skill in 2026* — most people are still working out how to wield these tools well — and the blog is a good place to be visible about how you actually do it.
 
-If any of those answers is "the AI wrote that" — replace it. The beats are non-negotiable and they're the bit only you can supply.
+The discipline is two things:
 
-A nice bonus pattern, which fits your existing "build in public" energy: **show the AI in shot when it helped you.** A line like *"I asked Claude to scaffold the YAML and it almost got it right — here's the bit I had to fix"* is more interesting in 2026 than pretending you wrote every character. It positions you as someone a step ahead of the audience on *how to work with AI* — which is its own scarce skill now.
+1. **The AI writes the walkthrough; you write the beats.** When you accept an AI-generated section, ask:
+   - Where's my honest moment in this?
+   - Have I added my verdict?
+   - Is the "what I'd do differently" line still in?
+   - Would I have made the same choice, or did I just nod through it because it was plausible?
+   
+   If any answer is "the AI wrote that" or "I didn't really check" — replace it. The beats are non-negotiable and they're the bit only you can supply.
+
+2. **Show the AI in shot when it helped you.** This is the practice — call it "AI in shot" — of being explicit about which bits were agent-assisted and which were you. A line like *"I asked Claude to scaffold the YAML and it almost got it right — here's the bit I had to fix and why"* is more interesting in 2026 than pretending you wrote every character. The reader learns two things: how the tech works, and how you work with the tech. Two skills, one post.
+
+Things that fit the voice when working with AI:
+
+- Show the prompt occasionally, especially when it's an unusually good one.
+- Show the *failed* AI draft and your fix. The failures are the most useful bit for the reader.
+- Make the human moments stand out *because* the rest was AI-paced: "Claude got me from blank file to working demo in 20 minutes; the verdict below is the bit I needed a beer to write."
+
+Things that don't fit:
+
+- *"I used AI to write this post."* (Don't be coy. Be specific about *which bits.*)
+- AI-generated honest moments (the reader can smell them).
+- Posts that read like the AI never saw a human edit (these are out-competed by ChatGPT screenshots within a year — no point publishing them).
+
+The simple rule: **the AI is in the room, on the team, doing useful work. Show that. Don't hide it, don't worship it, don't pretend the post wrote itself either way.**
 
 ---
 
@@ -278,6 +316,6 @@ The old version of this check demanded a beer/pub/dog reference in the first thr
 
 If you had to describe a dataGriff post in one sentence, it's:
 
-> A folk tale of working in tech in the South Wales valleys, told by someone who genuinely enjoyed building the thing, with the honest grit of a working-class career — and ending in an opinion an AI couldn't have generated.
+> A folk tale of working in tech in the South Wales valleys, built with the AI on the team and the dog on the sofa, told by someone who genuinely enjoyed making the thing — with the honest grit of a working-class career and an opinion the model couldn't have formed.
 
 Anything that doesn't pass that test isn't on-voice yet.
