@@ -33,7 +33,8 @@ Record the resolved branch name — Step 4 will reference it.
 **Step 1 — Load context**
 
 Read in full:
-- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md`
+- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — **Section 1a (Truth in first-person) is load-bearing.**
+- `~/.claude/hungovercoders/voice/datagriff-facts.md` — the source of truth for every first-person claim in the post. If the series' topic isn't covered here, stop and run `/hc-datagriff-interview <topic>` before writing, or write the post with impersonal framing.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md`
 
 Then survey the **whole** series — the blog has to summarise the topic, not just the bit the demo touches:

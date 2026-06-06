@@ -10,9 +10,12 @@ Review a hungovercoders tutorial series for voice, consistency, and usefulness. 
 **Step 1 — Load context**
 
 Read in full before reviewing anything:
-- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice rules, opinion beats, the eight-point self-check, the metaphor library
+- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice rules, opinion beats, the eight-point self-check, the metaphor library. **Section 1a (Truth in first-person) is load-bearing.**
+- `~/.claude/hungovercoders/voice/datagriff-facts.md` — the source of truth for first-person claims across the series. Every lesson's first-person specifics must cite a fact here or be impersonal.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — structure reference
 - `AGENTS.md` in the target repo — repo-specific conventions, lesson layout, frontmatter requirements
+
+**Mandatory pass — series-wide fabrication audit.** Across every lesson, sweep for first-person claims with a specific detail (number, duration, physical reaction, named moment, named person/place). For each, confirm it's cited in `datagriff-facts.md`. Aggregate unsourced ones into a single P0 finding at the top of the review with line references — these break the brand promise and are higher-priority than voice or structural drift.
 
 **Step 2 — Discover the series**
 
