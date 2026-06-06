@@ -11,11 +11,12 @@ Review a hungovercoders blog post for voice, structure, opinion beats, and metad
 
 Read in full before reviewing anything:
 - `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice rules, opinion beats, title and opener formulas, metaphor library, eight-point self-check. **Section 1a (Truth in first-person) is load-bearing.**
-- `~/.claude/hungovercoders/voice/datagriff-facts.md` — the source of truth for first-person claims. Every "I + verb" / "I'd" / "I've" / "the first time I" sentence in the post under review must cite a fact here or be impersonal.
+- `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention.
+- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about the post's topic. Resolve the slug from the post's `tags` / `series` frontmatter (e.g. a post tagged `claude-code` → `voice/facts/claude-code.md`). Load **only this file**. If it doesn't exist, every first-person claim with a specific detail in the post is unsourced by default.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — mandatory structure including the verdict section
 - `src/content.config.ts` (if present) — blog frontmatter schema, so you know what's required
 
-**Mandatory pass — fabrication audit.** Before the eight-point self-check, sweep every first-person claim with a specific detail (number, duration, physical reaction, named moment, named person/place). For each, confirm it's cited in `datagriff-facts.md` (topic + fact short title). Flag any that isn't. Unsourced first-person specifics are a P0 review finding — they break the brand promise of honest content.
+**Mandatory pass — fabrication audit.** Before the eight-point self-check, sweep every first-person claim with a specific detail (number, duration, physical reaction, named moment, named person/place). For each, confirm it's cited in the matching `voice/facts/<topic-slug>.md` (cite as: *per voice/facts/`<slug>`.md → `<fact short title>`*). Flag any that isn't. Unsourced first-person specifics are a P0 review finding — they break the brand promise of honest content.
 
 **Step 2 — Resolve the target**
 

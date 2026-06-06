@@ -10,11 +10,16 @@ Capture real first-person material for a topic and append it to `~/.claude/hungo
 
 **Why it exists.** The dataGriff voice rewards specificity (numbers, durations, physical reactions, specific moments). When the writer is an AI and hasn't been told the lived take, those specifics get *invented* — which corrodes the brand promise of honest content. This skill is the mandatory upstream step before writing any post or lesson on a topic that isn't already covered in the facts file.
 
-## Step 1 — Confirm the topic
+## Step 1 — Confirm the topic and resolve the file path
 
-Read `$ARGUMENTS` as the topic. If empty, ask the user: *"Which topic are we capturing facts for? (Claude Code, Bento, AWS fundamentals, the hungovercoders brand journey, the launch blog post, general developer life, or something new.)"*
+Read `$ARGUMENTS` as the topic. If empty, ask: *"Which topic are we capturing facts for? (Claude Code, Bento, AWS fundamentals, the hungovercoders brand journey, the launch blog post, general developer life, or something new.)"*
 
-Read `~/.claude/hungovercoders/voice/datagriff-facts.md` and check whether the topic already has a `## <Topic>` section. If yes, this run will append to that section. If no, create a new section using the canonical naming and tell the user before continuing.
+Derive the **slug** from the topic: lowercase, hyphenated, no `learn.` prefix. *Claude Code → `claude-code`*. *AWS fundamentals → `aws-fundamentals`*. *The hungovercoders brand journey → `brand-journey`*. If unsure, propose the slug and ask the user to confirm before continuing.
+
+Resolve the file path to `~/.claude/hungovercoders/voice/facts/<slug>.md`. Read `~/.claude/hungovercoders/voice/facts/README.md` for the convention and `~/.claude/hungovercoders/voice/facts/<slug>.md` if it exists.
+
+- If it exists: this run will append a new `## <fact short title>` entry to it.
+- If it doesn't exist: this run will create it. Use the template in `voice/facts/README.md` (one `#` heading, the reminder line, then the new entry).
 
 ## Step 2 — Run the interview
 
@@ -36,10 +41,10 @@ After each answer, paraphrase it back briefly and ask *"Right? Anything to sharp
 
 ## Step 3 — Structure the entry
 
-Convert the answers into the `datagriff-facts.md` format:
+Convert the answers into the per-topic facts file format (per `voice/facts/README.md`):
 
 ```markdown
-### <short title for this fact, kebab-case, derived from the want or the honest moment>
+## <short title for this fact, kebab-case, derived from the want or the honest moment>
 - **Date / period:** <interview date, e.g. 2026-06-06; plus the rough period of the experience if the user said one>
 - **Fact (want):** <answer 1, in dataGriff's own words where possible>
 - **Fact (first use):** <answer 2>
@@ -47,7 +52,7 @@ Convert the answers into the `datagriff-facts.md` format:
 - **Fact (verdict):** <answer 4>
 - **Fact (would do differently):** <answer 5>
 - **Never claim:** <answer 6, if any — bullet-list each forbidden framing>
-- **Allowed framings:** <pull 2–3 verbatim phrases from the user's answers that future prose can quote or paraphrase recognisably>
+- **Allowed framings:** <verbatim phrases pulled from the user's answers (often a longer list — capture every distinctive phrase, not just two or three) so future prose can quote or paraphrase recognisably>
 - **Permissions:** <answer 7>
 - **Source:** Interview on <date>
 ```
@@ -58,26 +63,38 @@ If a question was skipped, omit that bullet. Keep the user's voice — if they s
 
 Show the user the proposed entry verbatim. Ask: *"Good to write this to the facts file? Or want me to redraft anything?"* Edit and reshow until the user says yes.
 
-## Step 5 — Append to the facts file
+## Step 5 — Write to the per-topic facts file
 
-Use `Edit` to append the entry to the matching `## <Topic>` section in `~/.claude/hungovercoders/voice/datagriff-facts.md`. Place new entries above any existing `### ` sub-sections so the most recent is at the top.
+Two cases:
 
-If the topic section doesn't exist yet, create it just before the closing line of the file (preserving the order of other topics roughly alphabetically — Bento before Claude Code etc., but new topics go wherever fits).
+- **File exists** — use `Edit` to insert the new `## <fact short title>` entry just below the file's opening reminder block (so the most recent fact is at the top of the entry list).
+- **File doesn't exist** — use `Write` to create it. Template:
+
+  ```markdown
+  # dataGriff facts — <Topic>
+
+  > Reminder: these facts are the source of truth for first-person claims about <Topic> in any hungovercoders content. Never invent specifics not listed here.
+
+  <the new entry>
+  ```
+
+After writing, also update `voice/facts/README.md`'s "What's in here" section to list the new file.
 
 ## Step 6 — Suggest next steps
 
 After appending, tell the user:
 
-- The fact short title is now citable as *"per datagriff-facts.md: `<Topic>` → `<short title>`"*
-- Future content-generating skills (`hc-write-lessons`, `hc-launch`, etc.) will read this entry automatically and refuse to invent contradicting first-person claims
-- If they want to capture more facts on the same topic, run this skill again — entries accumulate
+- The fact short title is now citable as *"per voice/facts/`<slug>`.md → `<short title>`"*
+- Future content-generating skills (`hc-write-lessons`, `hc-launch`, etc.) will read this entry automatically (they load only the matching per-topic file, so context cost stays proportional to the topic being written) and refuse to invent contradicting first-person claims
+- If they want to capture more facts on the same topic, run this skill again — entries accumulate in the same per-topic file
 - If they're about to rewrite existing content on this topic, the next skill to reach for is `/hc-review-blog <path>` or `/hc-review-series <repo>`, which will flag prose that contradicts or invents around these facts
 
 ## Edge cases
 
-- **No topic supplied and no existing facts file** — create the facts file from `datagriff-facts.md`'s canonical structure (see the file itself for the template) and proceed.
+- **No topic supplied** — ask the user before deriving a slug. Don't guess.
 - **User rejects every question** — ask explicitly: *"Should I close without writing anything?"* and respect the answer. Don't write an empty entry.
-- **Topic name overlaps with an existing one** — confirm the user wants a new entry under the existing section rather than a new section.
+- **Topic file doesn't exist** — use `Write` to create it from the template above (and add it to `voice/facts/README.md`'s listing).
+- **Slug ambiguity** — if the topic could map to more than one existing file (e.g. *"Claude API"* vs *"Claude Code"*), propose the slug and ask the user to confirm.
 - **Long answers** — don't summarise without permission. The point of this skill is the user's actual words; paraphrasing defeats it. If an answer is too long, ask the user *"want me to keep this whole, or trim to the load-bearing sentence?"*
 
 ## Out of scope

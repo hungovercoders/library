@@ -50,7 +50,7 @@ If hungovercoders had to fit on a coaster, it's this: **folk tales of now from a
 
 Every first-person claim about *behaviour, history, specific moments, or feelings dataGriff actually had* must either:
 
-- (a) cite an entry in `datagriff-facts.md` (the source of truth file in this same voice/ directory), or
+- (a) cite an entry in `voice/facts/<topic-slug>.md` (per-topic facts files; one file per topic so content-generating skills load only the facts relevant to what they're writing — see `voice/facts/README.md` for the convention), or
 - (b) be captured fresh via `/hc-datagriff-interview <topic>` before the prose is written.
 
 If neither is possible for a given paragraph, the prose **switches to second person** ("you might find…") or **impersonal** ("the common pattern is…", "the dance of paste-copy-paste-error happens often"). The honest moment, the want, the verdict, the would-do-differently — all of these are *required by the structure* but only legitimate if they're real.
@@ -64,7 +64,7 @@ If neither is possible for a given paragraph, the prose **switches to second per
 - **Feelings** — "I'll be honest, I was nervous", "the kind of relief I hadn't felt since"
 - **Named people, places, or events** unless dataGriff has named them — pub names, friend names, conference names, all off-limits unless they're in facts.md
 
-If a draft contains any of these patterns and the fact isn't in `datagriff-facts.md`, the draft is failing this rule. Rewrite impersonal, capture the fact via interview, or remove the claim.
+If a draft contains any of these patterns and the fact isn't in the matching `voice/facts/<topic-slug>.md`, the draft is failing this rule. Rewrite impersonal, capture the fact via interview, or remove the claim.
 
 The "An AI can generate the walkthrough; it can't generate the lived take" line earlier in this guide is the *why*. This section is the *rule with consequences*. Both belong here.
 
