@@ -12,9 +12,13 @@ If `$ARGUMENTS` is empty, target the newest post in `src/content/blog/` (excludi
 **Step 1 — Load context**
 
 Read in full:
-- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice rules, what dataGriff is *not*, opinion beats, metaphor library
+- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice rules, what dataGriff is *not*, opinion beats, metaphor library. **Section 1a (Truth in first-person) is load-bearing** even for social copy — short, punchy first-person sentences are *especially* prone to fabrication.
+- `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention.
+- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about the post's topic. Resolve the slug from the post's `tags` / `series` frontmatter, or fall back to the most prominent topic the post covers. Load **only this file**.
 
 You do **not** need the blog template for this — the post itself is the source. You're adapting voice across platforms, not constructing one.
+
+**Truth in social copy.** Social platforms compress hard — a 280-character X post or a LinkedIn opener has no room for hedging or qualifiers. That makes social copy the *most* exposed surface for fabricated first-person specifics. Any "I + verb" claim with a specific detail (number, duration, physical reaction, named moment) must either come from the post itself (which already passed the facts check) or be directly cited from `voice/facts/<topic-slug>.md`. If the post itself has unsourced specifics, flag them — drafting social copy *off* fabricated source material multiplies the problem. Do not invent new specifics that aren't in either source.
 
 **Step 2 — Resolve the target and extract the post's spine**
 

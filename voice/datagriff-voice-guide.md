@@ -46,6 +46,30 @@ If hungovercoders had to fit on a coaster, it's this: **folk tales of now from a
 
 ---
 
+## 1a. Truth in first-person (load-bearing)
+
+Every first-person claim about *behaviour, history, specific moments, or feelings dataGriff actually had* must either:
+
+- (a) cite an entry in `voice/facts/<topic-slug>.md` (per-topic facts files; one file per topic so content-generating skills load only the facts relevant to what they're writing — see `voice/facts/README.md` for the convention), or
+- (b) be captured fresh via `/hc-datagriff-interview <topic>` before the prose is written.
+
+If neither is possible for a given paragraph, the prose **switches to second person** ("you might find…") or **impersonal** ("the common pattern is…", "the dance of paste-copy-paste-error happens often"). The honest moment, the want, the verdict, the would-do-differently — all of these are *required by the structure* but only legitimate if they're real.
+
+**Never invent specifics.** The voice rewards specificity, which is exactly why AI confabulates here. These are the categories to never make up:
+
+- **Numbers** — "forty times by Friday", "three months in", "the seventh attempt"
+- **Durations** — "a year of doing the dance", "an hour of my life I won't get back"
+- **Physical reactions** — "I felt my chest tighten", "the keyboard shortcut wearing into my thumb", "my hands shook"
+- **Specific moments** — "the first time I ran this", "that Tuesday morning", "the day I realised"
+- **Feelings** — "I'll be honest, I was nervous", "the kind of relief I hadn't felt since"
+- **Named people, places, or real-life events from dataGriff's life** unless he's named them — pub names he claims to drink at, friend or colleague names, conferences he claims to have attended, employers, projects he worked on at past jobs. All off-limits unless they're in the matching `voice/facts/<slug>.md`. (This rule applies to *real-life* named entities only. Affectionately-named *tools* — "the mighty gitpod", "the super Marvel API", "the awesome book Succeeding with OKRs" — are encouraged elsewhere in this guide and are fine.)
+
+If a draft contains any of these patterns and the fact isn't in the matching `voice/facts/<topic-slug>.md`, the draft is failing this rule. Rewrite impersonal, capture the fact via interview, or remove the claim.
+
+The "An AI can generate the walkthrough; it can't generate the lived take" line earlier in this guide is the *why*. This section is the *rule with consequences*. Both belong here.
+
+---
+
 ## 2. The voice rules
 
 ### Always

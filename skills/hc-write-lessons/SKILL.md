@@ -11,10 +11,14 @@ Optional context in $ARGUMENTS — e.g. "focus on practical demos, hooks are the
 **Step 1 — Load context**
 
 Read the following files in full before writing anything:
-- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice, tone, opinion beats, themed headings, all of it
+- `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice, tone, opinion beats, themed headings, all of it. **Section 1a (Truth in first-person) is load-bearing** — re-read it.
+- `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention (one file per topic; slug derived from repo name).
+- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for every first-person claim about this topic. The slug is the current repo name with the `learn.` prefix stripped (e.g. `learn.claude-code` → `voice/facts/claude-code.md`). Load **only this file**, not the whole `voice/facts/` directory.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — structure reference
 - `AGENTS.md` in the current repo — series conventions, topic, frontmatter rules
 - The repo's **References lesson** at `docs/<NN>-references-and-further-reading/README.md` (if present — by convention the last lesson in the series). It is the canonical reference set for the series and the source list every lesson's "Sources and further reading" section draws from. If the repo doesn't yet have one, propose creating it as the final lesson before writing the rest (see hc-new-series for the template).
+
+**Truth check before writing.** If the matching `voice/facts/<topic-slug>.md` doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the lessons with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics.
 
 **Step 2 — Survey the lesson stubs**
 
