@@ -1,12 +1,14 @@
 ---
 name: hc-datagriff-interview
-description: Interview dataGriff to capture real lived experience for a topic, then append the facts to datagriff-facts.md so future hungovercoders content cites truth instead of inventing it
+description: Interview dataGriff to capture real lived experience for a topic, then write the facts to the matching voice/facts/<slug>.md file so future hungovercoders content cites truth instead of inventing it
 allowed-tools: Read, Edit, Write
-argument-hint: <topic — e.g. "Claude Code", "Bento", "Launch blog post (film picker)">
+argument-hint: <topic — e.g. "Claude Code", "Bento", "AWS fundamentals", "brand journey">
 disable-model-invocation: true
 ---
 
-Capture real first-person material for a topic and append it to `~/.claude/hungovercoders/voice/datagriff-facts.md`. Every hungovercoders content-generating skill loads that file as the source of truth for personal claims; this skill is how it gets populated.
+Capture real first-person material for a topic and write it to the matching `~/.claude/hungovercoders/voice/facts/<slug>.md` file. Every hungovercoders content-generating skill loads the per-topic file relevant to the work it's doing as the source of truth for personal claims; this skill is how those files get populated.
+
+**Note on launch-post topics.** A launch blog post about an existing learn.* series shares facts with the series. Run the interview against the series topic (e.g. `Claude Code`), not the launch post itself — the launch post then reads `voice/facts/claude-code.md`. Only create a separate facts file when the topic is genuinely standalone.
 
 **Why it exists.** The dataGriff voice rewards specificity (numbers, durations, physical reactions, specific moments). When the writer is an AI and hasn't been told the lived take, those specifics get *invented* — which corrodes the brand promise of honest content. This skill is the mandatory upstream step before writing any post or lesson on a topic that isn't already covered in the facts file.
 

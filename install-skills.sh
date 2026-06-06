@@ -39,6 +39,16 @@ for v in "$VOICE_SRC"/*.md; do
   echo "  linked: $name"
 done
 
+# Subdirectories (e.g. voice/facts/) — symlink the directory itself so any
+# file the interview skill adds later is automatically available without
+# re-running this script.
+for d in "$VOICE_SRC"/*/; do
+  [ -d "$d" ] || continue
+  name="$(basename "$d")"
+  ln -sfn "${d%/}" "$VOICE_TARGET/$name"
+  echo "  linked: $name/ (directory)"
+done
+
 echo ""
 echo "hungovercoders library installed."
 echo "  skills:        $SKILLS_TARGET"
