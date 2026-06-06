@@ -2,6 +2,57 @@
 
 > Reminder: these facts are the source of truth for first-person claims about Claude Code in any hungovercoders content. Never invent specifics not listed here.
 
+## current-posture-and-feature-experience-2026-06-06
+
+- **Date / period:** Interview captured 2026-06-06. Covers current lived experience of Claude Code's individual features at the time the learn.claude-code series shipped.
+- **Fact (permissions):** Has not yet invested in curating permission allow/deny lists. *"Haven't leveraged permissions very well."* Day-to-day flow: **at home, plan mode then auto-edit (more cavalier); at work, plan mode then manually accept edits** — explicitly because the guardrails and practices haven't been set up yet. *"Definitely sleep walked into accepting things when pressing 2 over and over."* Has not used the OS-level sandbox.
+- **Fact (CLAUDE.md):** Still learning best practice — the learn.claude-code series itself is part of that learning. The specific thing repeatedly retyped into sessions was *not* "be terse" but the **development-discipline pattern: don't work in main, ensure branches, commit, raise a draft PR.** Currently working on optimising file size. Real practice in use: writes `AGENTS.md` and imports it into `CLAUDE.md` via `@` syntax so non-Claude-Code agents can use the same context.
+- **Fact (plan mode):** *"Plan mode has been smooth for me and used it a lot from the offset, helps me have a conversation with claude."* No rough edges encountered. Has NOT hit the ExitPlanMode-confirmation-flow weirdness, the reject-as-guidance misinterpretation, or any other plan-mode bug. Reframes plan mode as a *dialogue tool*, not just a thinking gear.
+- **Fact (slash commands and skills):** **First skill built was for ODCS data contract creation** — *"when I first tried to make data contracts it just kept making JSON schemas when I wanted a fully fledged and linted ODCS"*. Has since written skills for media workflows (blogging and tutorials with the dataGriff tone of voice — i.e. the hungovercoders content library). **Started as commands, then moved to skills on conversation** — *"skills were the better investment."* The workflow has changed in a load-bearing way: *"work becomes conversational now, interactive and refine as a pair while maintaining who I am due to interview techniques introduced."* Source-controls the user-level `~/.claude/CLAUDE.md` in a `datagriff/dotfiles` repo with symlinks.
+- **Fact (hooks):** Has only written hooks in tutorials (Anthropic courses). *"Not made one myself in anger for a real repo."* The cinema's `films-validate.sh` is therefore the first real-ish hook. Has NOT hit the stderr-vs-stdout gotcha personally — knows about it from the course content.
+- **Fact (subagents and Task tool):** *"Not used subagents or task tool so excited by that tutorial!"* Subagents are entirely fresh ground. Has NOT had the "free speed-up" surprise, the "subagent missed matches" issue, or written custom subagent prompts.
+- **Fact (MCP):** **Uses the Linear MCP** to *"write plans out to external sources for refinement with my peers once I have finished"*, then *"use agents to action the issue with the context of other documents around it too like projects and initiatives."* Has NOT used the GitHub MCP — *"the cli seems to work ok on demand when interacting with claude."* Open question worth answering for readers: when is MCP a real win over CLI for things like GitHub?
+- **Fact (worktrees):** **Used worktrees once.** Was unsure how to perform maintenance of the extra directories. Raised a genuine reader question — *"why wouldn't I just use them all the time and not use branches as they provide isolation"*. The *truthful* lived pain that worktrees solve: *"definitely hit multiple pieces of work in different terminals on same repo though and accidentally polluted branches"* (this replaces the fabricated *"git checkout main mid-session and lose half-staged files"* scenario).
+- **Fact (libraries built in the cinema shape):** **One library built — the writing library (hungovercoders content library).** *"Specific to the hungovercoder media suite so makes sense full on library."* The release-notes and code-review use cases the prior prose claimed *"would be useful"* but **would just be skills, not full libraries** — the library shape is overkill for single-focus jobs.
+- **Never claim:**
+  - Specific quantified usage durations or counts that aren't listed here (no "for a month", "for a fortnight", "two weeks of writing prompts", "third day clicking allow", "by end of the week eight times", etc.)
+  - That dataGriff has hit hooks/subagents/MCP gotchas he hasn't (stderr Tuesday morning, subagent missing matches, SQLite-forgot-to-rebuild)
+  - That plan mode has rough edges in his experience — it doesn't
+  - That dataGriff has built multiple libraries in the cinema shape — only the writing library exists
+  - That permissions are fully curated for him — they're not yet
+- **Allowed framings:** (verbatim phrases free to quote or paraphrase recognisably)
+  - *"haven't leveraged permissions very well"*
+  - *"plan and then auto edit at home now as I am more cavalier"*
+  - *"working I mostly use plan then manually accept edits"*
+  - *"not taken the time to put the guardrails and practices in yet"*
+  - *"sleep walked into accepting things when pressing 2 over and over"*
+  - *"haven't used OS-level sandbox"*
+  - *"still learning best practice for claude.md which this will help with"*
+  - *"definitely repeated myself with development practices like work in main, ensure branches, commit and raise a draft PR"*
+  - *"need to optimise the size of claude files"*
+  - *"try to use AGENTS.md and then import that using @ into claude.md so other agents can utilise too"*
+  - *"plan mode has been smooth for me"*
+  - *"used it a lot from the offset"*
+  - *"helps me have a conversation with claude"*
+  - *"created a skill for data contract creation to ensure uses ODCS"*
+  - *"when I first tried to make data contracts it just kept making JSON schemas"*
+  - *"written other skills now to help with my media such as blogging and tutorials with a tone of voice"*
+  - *"work becomes conversational now, interactive and refine as a pair while maintaining who I am due to interview techniques introduced"*
+  - *"did start these as commands but on conversation skills were the better investment"*
+  - *"datagriff/dotfiles where I am keeping my user claude.md source controlled"*
+  - *"only wrote a hook in the claude tutorials on anthropic courses but not made one myself in anger for a real repo"*
+  - *"not used subagents or task tool so excited by that tutorial"*
+  - *"leveraged the linear mcp to write plans out to external sources for refinement with my peers once I have finished"*
+  - *"use agents to action the issue with the context of other documents around it too like projects and initiatives"*
+  - *"haven't used github mcp as cli seems to work ok on demand when interacting with claude"*
+  - *"used worktrees once but was unsure how to perform maintenance of the extra directories"*
+  - *"why wouldn't I just use them all the time and not use branches as they provide isolation"*
+  - *"definitely hit multiple pieces of work in different terminals on same repo though and accidentally polluted branches"*
+  - *"writing library is specific to the hungovercoder media suite so makes sense full on library"*
+  - *"would just be skills rather than full on libraries"*
+- **Permissions:** use anywhere within Claude Code content. The honesty about being mid-journey on permissions/hooks/subagents is brand-positive (folk tales of *now*, doer-not-theorist); the captured framings reinforce why the series is structured around earning the discipline rather than performing expertise.
+- **Source:** Interview on 2026-06-06.
+
 ## from-copilot-to-auto-mode-discipline
 
 - **Date / period:** Interview captured 2026-06-06. The arc covered roughly the first months of dataGriff using Claude Code.
