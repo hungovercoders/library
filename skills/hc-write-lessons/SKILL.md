@@ -56,6 +56,8 @@ For each stub lesson, write a complete `README.md` following these rules:
 
 *Hands-on lessons* — if the lesson needs a runnable config or code file, create it alongside the README. It must run as-is with no editing required.
 
+*Diagrams and visuals* — if a lesson moment would land harder with a diagram (the cage you're building, a settings hierarchy, a flow of dispatched subagents, a terminal-output mockup), invoke `/hc-diagram` rather than describing the visual idea in prose only. The brand visual system — palette, typography, layout shapes — lives in that skill and stays consistent across the series. For behavioural recordings (hooks firing, agents acting, etc.), reference `CAPTURE-GUIDE.md` if the current repo ships one.
+
 **Step 4 — Commit, push, and nudge the site preview**
 
 After every 3 lessons (or at the end of a partial final batch):

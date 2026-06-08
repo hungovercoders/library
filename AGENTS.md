@@ -15,7 +15,7 @@ reference/    Human reference. Roadmap, OKRs, technical implementation spec. Rea
 
 skills/       Claude Code skills. Each is a directory containing a SKILL.md, symlinked into
               ~/.claude/skills/ by install-skills.sh and invoked as /hc-<name>.
-              The seven cover the end-to-end workflow:
+              The set covers the end-to-end workflow:
                 hc-new-series      research a topic, propose a lesson plan, scaffold the repo
                 hc-write-lessons   write all lesson content in voice
                 hc-review-series   independent voice/consistency review of training content
@@ -23,6 +23,7 @@ skills/       Claude Code skills. Each is a directory containing a SKILL.md, sym
                 hc-review-blog     independent voice/structural review of a single blog post
                 hc-preflight       site-wide pre-publish health check (build, OG, sitemap, etc.)
                 hc-social          draft LinkedIn / X / Mastodon copy in voice for a post
+                hc-diagram         author on-brand SVG diagrams using the visual design system
 
 install-skills.sh   Symlinks skills/* into ~/.claude/skills/ and voice/* into
                     ~/.claude/hungovercoders/voice/. Run once after cloning, and any time the
