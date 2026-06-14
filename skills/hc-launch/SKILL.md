@@ -132,6 +132,14 @@ The post must:
 
 **Length target:** 1,500–2,500 words. Long enough to summarise the topic and demo a real composition; short enough to read in one sitting before the next round.
 
+**Step 2c — Optional screenshots**
+
+If the post is walkthrough-shaped (an install, a setup session, a "here's what I did" demo where visual proof helps the reader) invoke `/hc-screenshot <slug>` after the draft is written. Walk through the post's beats with the writer; capture at the natural moments — the command they ran and its output, the CI check page they're describing, the dashboard state at the verdict moment. Drop the returned embed snippets into the post body at the matching headings.
+
+The skill owns the convention: `public/assets/<slug>/<name>.png` (use `step-NN-<what>.png` for ordered walkthroughs, free-form kebab-case for one-offs), site-absolute paths in the markdown embed, alt text that says what's *informative* about the shot. Browser captures (PR pages, Cloudflare preview, metatags.io) are user-driven from their browser; the skill emits the path + filename for them to save to.
+
+Skip this step entirely for opinion / verdict / retro posts where text carries the load. `link.png` (the social card from Step 2.1) is separate — it always ships; inline screenshots are an addition.
+
 **Step 3 — Verify**
 
 Run `npm run build` from the site directory. Confirm the post renders without errors.
