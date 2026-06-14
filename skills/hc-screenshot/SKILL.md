@@ -139,7 +139,7 @@ Inline images render full-width in the site's blog layout. No `<figure>` tag nee
 **What this skill does NOT do.**
 - It does not generate the 1200×630 social card (`link.png`). That's `scripts/generate-share-image.mjs`, invoked separately by `hc-launch`.
 - It does not edit, crop, or annotate captures. Use Preview.app or another tool for that; the captured PNG is what ships.
-- It does not record video / GIF — that's `vhs`/`asciinema` per the `CAPTURE-GUIDE.md` pattern in learn.claude-code's behavioural-recordings convention.
+- It does not record video / GIF — that's the peer skill [`hc-recording`](../hc-recording/SKILL.md) (vhs / asciinema, with the asset path and embed-template conventions for behavioural moments).
 - It does not insert embeds into post bodies — emits snippets only; the caller integrates them.
 
 **When to skip the skill.** Pure opinion posts (verdicts, takes, retros) usually don't need step-by-step screenshots — prose carries the load. Use the skill when visual proof of state matters: install output, terminal sessions, CI check pages, before/after UI shots. If you're tempted to write *"the dashboard showed X"*, that's a candidate for a screenshot instead.

@@ -35,7 +35,7 @@ Record the resolved branch name — Step 4 will reference it.
 Read in full:
 - `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — **Section 1a (Truth in first-person) is load-bearing.**
 - `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention.
-- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about this topic. Slug derived from the launching series' repo name (`learn.claude-code` → `claude-code.md`). Load **only this file**.
+- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about this topic. Slug derived from the launching series' repo name (strip the `learn.` prefix: `learn.<topic>` → `<topic>.md`). Load **only this file**.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md`
 
 **Truth check before writing.** If the matching `voice/facts/<topic-slug>.md` doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the launch post with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics — a launch post is a high-visibility surface where invented details corrode the brand promise fastest.
