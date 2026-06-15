@@ -78,11 +78,30 @@ Notes on the alt text:
 - Bad: *"screenshot 1"*. *"install output"*. *"the result"*.
 - If the caller didn't pass `<ALT>`, emit the snippet with a placeholder like `TODO: alt text` and remind them to fix it before the post ships. The `hc-preflight` skill's image-asset check won't catch missing alt — but `hc-review-blog` will.
 
-**Step 4 — Browser captures (the honest gap)**
+**Step 4 — Browser captures**
 
-The skill **cannot** drive a browser autonomously — no MCP browser screenshot server is wired in. For browser-side moments (GitHub PR checks page, Cloudflare preview URL, metatags.io preview), the skill provides the target path + filename + embed snippet, and the user takes the screenshot from their browser and drops it at that path.
+For browser-side moments (GitHub PR checks page, Cloudflare preview URL, metatags.io preview), the skill has **two** routes — pick by context:
 
-Workflow for browser captures:
+**4a. Headless capture via Playwright** — for any *public* GitHub PR's checks/Actions/run-detail pages, drive chromium headless against the real URL. Bundled script: [`scripts/capture-github-pr.mjs`](./scripts/capture-github-pr.mjs).
+
+```bash
+cd ~/dev/hungovercoders/site   # or any repo that has @playwright/test installed
+node ~/dev/hungovercoders/library/skills/hc-screenshot/scripts/capture-github-pr.mjs \
+    --pr-url https://github.com/<owner>/<repo>/pull/<num> \
+    --out-dir public/assets/<slug> \
+    --workflow-file ss-security-dast-check.yml   # optional: which workflow to detail
+```
+
+Captures three files into `<out-dir>`:
+- `step-07-pr-checks.png` — the PR's checks tab
+- `step-08-pr-actions.png` — Actions tab filtered to the PR's branch
+- `step-09-workflow-detail.png` — single workflow-run detail page
+
+The script resolves `@playwright/test` from the cwd (so it runs from any adopter repo that has slopstopper installed; the reliability checks pull Playwright in). For private repos, pass `--storage-state <path>` pointing at a Playwright `storageState` JSON with a logged-in GitHub session. The script will not autonomously authenticate.
+
+**4b. User-driven browser capture** — for non-PR pages (Cloudflare preview, metatags.io, a sites's dashboard), the skill provides the target path + filename + embed snippet, and the user takes the screenshot from their browser and drops it at that path.
+
+Workflow:
 
 1. Ask the user what they want to capture and pick a kebab-case name.
 2. Print the full target path: `~/dev/hungovercoders/site/public/assets/<slug>/<name>.png`.
@@ -91,7 +110,29 @@ Workflow for browser captures:
 5. Verify the file exists and is non-zero (`test -s <path>`); if not, surface and re-prompt.
 6. Emit the embed snippet (Step 3).
 
-If we later add a Chrome DevTools MCP server or similar, this step becomes autonomous — but the skill's API doesn't change.
+If a Chrome DevTools MCP server is later wired in, 4b becomes autonomous — but the skill's API doesn't change.
+
+**Step 4.5 — Synthetic captures (rendered, no real shell or browser)**
+
+For walkthroughs run by a headless agent — no human at the keyboard, no real terminal session to capture — the skill ships a fallback renderer that turns piped stdin text into a styled PNG that *reads as* a terminal (or browser-chrome) screenshot. Useful for CI-driven blog generation, agent-authored posts, or when you want a clean reproducible visual instead of whatever happened to be on the writer's actual screen.
+
+Bundled script: [`scripts/generate-terminal-screenshot.mjs`](./scripts/generate-terminal-screenshot.mjs).
+
+```bash
+# Terminal-chrome render — pipe any command's output:
+slopstopper doctor | node ~/dev/hungovercoders/library/skills/hc-screenshot/scripts/generate-terminal-screenshot.mjs \
+    --out public/assets/<slug>/step-04-doctor.png \
+    --title "slopstopper doctor" --width 1100
+
+# Browser-chrome render — for mocking up a "look-and-feel" UI frame from text:
+cat gh-checks-as-text.txt | node ~/dev/hungovercoders/library/skills/hc-screenshot/scripts/generate-terminal-screenshot.mjs \
+    --out public/assets/<slug>/checks-mockup.png \
+    --title "github.com/owner/repo · PR #N · checks" --width 1400 --browser
+```
+
+Resolves `sharp` from the cwd (the same engine `generate-share-image.mjs` uses). Colours common terminal markers automatically: green for `✅` / `passed` / `SUCCESS`; red for `❌` / `failed`; amber for `⚠️` / `warn`; blue for shell prompts; indigo for header rules.
+
+**Honesty caveat for posts that use 4.5.** Synthetic terminal-style captures look real but aren't real screenshots. If your post's pitch leans on showing *what actually happened*, prefer 4a (real chromium) or the macOS modes in Steps 1–3 for terminal moments. Reserve 4.5 for when the alternative is no visual at all — better a clean rendered mockup than a missing image.
 
 **Step 5 — Report**
 
