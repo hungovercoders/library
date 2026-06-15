@@ -35,7 +35,7 @@ Record the resolved branch name — Step 4 will reference it.
 Read in full:
 - `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — **Section 1a (Truth in first-person) is load-bearing.**
 - `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention.
-- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about this topic. Slug derived from the launching series' repo name (`learn.claude-code` → `claude-code.md`). Load **only this file**.
+- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about this topic. Slug derived from the launching series' repo name (strip the `learn.` prefix: `learn.<topic>` → `<topic>.md`). Load **only this file**.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md`
 
 **Truth check before writing.** If the matching `voice/facts/<topic-slug>.md` doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the launch post with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics — a launch post is a high-visibility surface where invented details corrode the brand promise fastest.
@@ -131,6 +131,14 @@ The post must:
 9. **Closer** — "Well done…fellow hungovercoder" beat. One or two sentences. End with energy, not a trail-off.
 
 **Length target:** 1,500–2,500 words. Long enough to summarise the topic and demo a real composition; short enough to read in one sitting before the next round.
+
+**Step 2c — Optional screenshots**
+
+If the post is walkthrough-shaped (an install, a setup session, a "here's what I did" demo where visual proof helps the reader) invoke `/hc-screenshot <slug>` after the draft is written. Walk through the post's beats with the writer; capture at the natural moments — the command they ran and its output, the CI check page they're describing, the dashboard state at the verdict moment. Drop the returned embed snippets into the post body at the matching headings.
+
+The skill owns the convention: `public/assets/<slug>/<name>.png` (use `step-NN-<what>.png` for ordered walkthroughs, free-form kebab-case for one-offs), site-absolute paths in the markdown embed, alt text that says what's *informative* about the shot. Browser captures (PR pages, Cloudflare preview, metatags.io) are user-driven from their browser; the skill emits the path + filename for them to save to.
+
+Skip this step entirely for opinion / verdict / retro posts where text carries the load. `link.png` (the social card from Step 2.1) is separate — it always ships; inline screenshots are an addition.
 
 **Step 3 — Verify**
 

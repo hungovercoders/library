@@ -83,6 +83,23 @@ Verify:
 
 Don't sample — check every post. This is the cheap version of running every URL through metatags.io.
 
+**Step 5b — Inline asset references resolve**
+
+For each blog post and training lesson, grep the markdown for site-absolute asset references (`/assets/<slug>/<name>.<ext>`) — typically inline screenshots embedded via `hc-screenshot` — and confirm each referenced file exists under `public/<that-path>`. Flag broken references as **P2** (warning, not block): the build won't fail on a missing image, but the post renders with a broken `<img>` and the reader sees nothing.
+
+```bash
+# from inside src/content/blog/<slug>.md, find every /assets/<slug>/<file>.<ext>
+grep -oE '/assets/[^)"'\'' ]+\.(png|jpg|jpeg|webp|svg|gif)' src/content/blog/<slug>.md \
+  | sort -u \
+  | while read ref; do
+      [ -f "public${ref}" ] || echo "MISSING: $ref (referenced in $post)"
+    done
+```
+
+Same logic for training lessons under `training-repos/<series>/docs/<NN>-<lesson>/README.md`, checking against `public/assets/training/<series>/<lesson>/`.
+
+The existing `image.path` frontmatter check (Step 3) covers the social card (`link.png`) as P0 — that's the unmissable one. This step catches the broader case where a writer added `![diagram](/assets/<slug>/step-04.png)` to the body but forgot to drop the file in. `hc-screenshot`'s own emit step is meant to prevent it, but the check is the belt-and-braces.
+
 **Step 6 — Sitemap and feeds**
 
 - `dist/client/sitemap-index.xml` exists

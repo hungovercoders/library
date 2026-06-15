@@ -13,7 +13,7 @@ Optional context in $ARGUMENTS — e.g. "focus on practical demos, hooks are the
 Read the following files in full before writing anything:
 - `~/.claude/hungovercoders/voice/datagriff-voice-guide.md` — voice, tone, opinion beats, themed headings, all of it. **Section 1a (Truth in first-person) is load-bearing** — re-read it.
 - `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention (one file per topic; slug derived from repo name).
-- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for every first-person claim about this topic. The slug is the current repo name with the `learn.` prefix stripped (e.g. `learn.claude-code` → `voice/facts/claude-code.md`). Load **only this file**, not the whole `voice/facts/` directory.
+- `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for every first-person claim about this topic. The slug is the current repo name with the `learn.` prefix stripped (`learn.<topic>` → `voice/facts/<topic>.md`). Load **only this file**, not the whole `voice/facts/` directory.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — structure reference
 - `AGENTS.md` in the current repo — series conventions, topic, frontmatter rules
 - The repo's **References lesson** at `docs/<NN>-references-and-further-reading/README.md` (if present — by convention the last lesson in the series). It is the canonical reference set for the series and the source list every lesson's "Sources and further reading" section draws from. If the repo doesn't yet have one, propose creating it as the final lesson before writing the rest (see hc-new-series for the template).
@@ -56,7 +56,11 @@ For each stub lesson, write a complete `README.md` following these rules:
 
 *Hands-on lessons* — if the lesson needs a runnable config or code file, create it alongside the README. It must run as-is with no editing required.
 
-*Diagrams and visuals* — if a lesson moment would land harder with a diagram (the cage you're building, a settings hierarchy, a flow of dispatched subagents, a terminal-output mockup), invoke `/hc-diagram` rather than describing the visual idea in prose only. The brand visual system — palette, typography, layout shapes — lives in that skill and stays consistent across the series. For behavioural recordings (hooks firing, agents acting, etc.), reference `CAPTURE-GUIDE.md` if the current repo ships one.
+*Diagrams and visuals* — three peer skills cover the media types, pick the one that fits the moment:
+
+- `/hc-diagram` for structural visuals (the cage you're building, a settings hierarchy, a flow of dispatched subagents, a terminal-output mockup). The brand visual system — palette, typography, layout shapes — lives in that skill and stays consistent across the series.
+- `/hc-screenshot <lesson-slug>` for step-by-step terminal output or UI state shots (a config opened in an editor, the CLI output of a build, the dashboard at a milestone). Convention: `public/assets/<lesson-slug>/<name>.png`, with the skill handling the directory bootstrap and embed-snippet generation.
+- `/hc-recording` for behavioural moments — hooks firing, agents acting, end-to-end runs you need to *see* to believe (vhs primary, asciinema fallback). Same asset-path convention plus the `<video>` markdown template.
 
 **Step 4 — Commit, push, and nudge the site preview**
 
