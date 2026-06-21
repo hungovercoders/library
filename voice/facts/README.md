@@ -41,4 +41,6 @@ When citing a fact, prose review skills use: *"per voice/facts/`<slug>`.md → `
 
 `claude-code.md` — facts from the 2026-06-06 interview about Claude Code.
 
+`slopstopper.md` — facts derived from the 2026-06-21 slopstopper install blog post (author's own prose).
+
 (Other topic files will arrive as `/hc-datagriff-interview` is run for them.)
