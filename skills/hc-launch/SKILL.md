@@ -132,6 +132,8 @@ The post must:
 
 **Length target:** 1,500–2,500 words. Long enough to summarise the topic and demo a real composition; short enough to read in one sitting before the next round.
 
+**AI tells sweep — do this before Step 3.** After the draft is complete, grep the file for `—` (em dash) and aim for zero. Replace each with a comma, colon, semicolon, or a rewritten sentence (see Section 8a of the voice guide for the decision table). Also scan for: "It's worth noting…", adjective stacking ("simple, clean, and idiomatic"), and bullet lists where a paragraph would read better. The em-dash sweep takes 30 seconds; skipping it is how AI fingerprints make it onto the live site.
+
 **Step 2c — Optional screenshots**
 
 If the post is walkthrough-shaped (an install, a setup session, a "here's what I did" demo where visual proof helps the reader) invoke `/hc-screenshot <slug>` after the draft is written. Walk through the post's beats with the writer; capture at the natural moments — the command they ran and its output, the CI check page they're describing, the dashboard state at the verdict moment. Drop the returned embed snippets into the post body at the matching headings.

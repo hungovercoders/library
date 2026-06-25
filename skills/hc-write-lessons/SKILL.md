@@ -54,6 +54,8 @@ For each stub lesson, write a complete `README.md` following these rules:
 
 *Example data* — all synthetic data, customer names, SKUs, and config examples must be themed in this priority order: 1. alcohol (Tiny Rebel craft beer preferred), 2. dogs, 3. food, 4. films, 5. geek stuff, 6. music. Never use generic placeholders (alice/bob, sku-A/B/C).
 
+*AI tells — sweep before finalising each lesson* — after drafting, grep the file for `—` (em dash) and aim for zero. Replace each with a comma, colon, semicolon, or a rewritten sentence (see Section 8a of the voice guide for the decision table). Also check for: "It's worth noting…", adjective stacking ("simple, clean, and idiomatic"), and more than three consecutive bullet lists where paragraphs would serve better.
+
 *Hands-on lessons* — if the lesson needs a runnable config or code file, create it alongside the README. It must run as-is with no editing required.
 
 *Diagrams and visuals* — three peer skills cover the media types, pick the one that fits the moment:

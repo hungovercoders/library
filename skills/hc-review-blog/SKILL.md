@@ -44,6 +44,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Fellow hungovercoder closer | "Well done… fellow hungovercoder" or another peer-to-peer beat. Never ends with the word "Conclusion" |
 | Themed example data | Synthetic data follows priority: alcohol → dogs → food → films → geek → music. **Within a single post, theme stays consistent** (a film post shouldn't carry beer-brand emails) |
 | Corporate filler | No "leverage" (verb, unless ironic), "robust", "best-in-class", "solution" (noun for software), "seamless", "empower", "stakeholder", "journey" (unless literal), "production-grade" |
+| AI tells | Zero em dashes (`—`) or each surviving one justified; no "It's worth noting…", "This is important because…", dramatic two-sentence pairs, or excessive bullet-heavy prose. Grep the file for `—` and count. |
 | British spellings | `flavour`, `colour`, `behaviour`, `organisation`, `prioritisation` etc. — not American spellings |
 | Links | Both the series link (`https://hungovercoders.com/training/<slug>`) and the GitHub repo link present and well-formed |
 | Length | 1,500–2,500 words. Note actual word count vs target |
@@ -70,7 +71,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 18 criteria passing
+- M of 19 criteria passing
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -94,7 +95,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 18 criteria
+- Pass count out of 19 criteria
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first
