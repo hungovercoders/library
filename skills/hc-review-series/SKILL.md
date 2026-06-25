@@ -42,6 +42,7 @@ Score each lesson on:
 | **Fellow hungovercoder closer** | "Well done… fellow hungovercoder" or "On to lesson N, fellow hungovercoder" or another peer-to-peer beat. Never ends with the word "Conclusion" as a heading |
 | **Themed example data** | All synthetic data — customer names, SKUs, project names — uses the priority order: alcohol (Tiny Rebel preferred), dogs, food, films, geek stuff, music. Never alice/bob/sku-A/foo/bar |
 | **Corporate filler check** | No "leverage" (as a verb, except ironically), "robust", "best-in-class", "solution" (as a noun for software), "seamless", "empower", "stakeholder", "journey" (unless literal). British spellings used (`flavour`, `colour`, `behaviour`) |
+| **AI tells check** | Zero em dashes (`—`) or each surviving one justified; no "It's worth noting…", "This is important because…", dramatic two-sentence pairs, or bullet-heavy prose where paragraphs should be. Grep the lesson for `—` and count. |
 | **Length appropriateness** | Concept-only lessons ≈ 500–900 words; hands-on lessons ≈ 1,000–1,500 words. Anything past 2,000 should justify itself |
 | **Hands-on accuracy** | If the lesson references runnable code/config files, those files exist alongside the README in the lesson directory, and they look like they'd run as-is with no editing |
 | **Top framing line** | A sentence or two placed immediately after the want-led opener, explicitly framing hungovercoders as the *guided path* and naming the canonical source the lesson draws from (vendor docs, official course, etc.) |

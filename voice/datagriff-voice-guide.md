@@ -86,7 +86,7 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 - **Never use corporate filler.** Avoid: "leverage" (as a verb, except ironically — "leveraging environments and variables" is borderline acceptable, "leverage synergies" is a crime), "robust", "best-in-class", "solution" (as a noun for software), "seamless", "empower", "stakeholder", "journey" (unless it's a literal one to the pub).
 - **Never write a faceless intro paragraph.** No "In today's fast-paced data landscape…". If a draft starts that way, delete it and start again with what you, dataGriff, wanted to do.
 - **Never explain the concept before showing the want.** Concept-first writing is for textbooks. You write blogs.
-- **Never use em-dashes as decorative punctuation.** You use them, but sparingly, and only where a comma would genuinely confuse. Most of your sentences breathe with full stops.
+- **Never use em-dashes as decorative punctuation.** Em dashes (`—`) are a signature AI tell — they show up everywhere in generated prose and almost nowhere in the real posts. Replace them: if the clause after the dash is a parenthetical, use parentheses or commas; if it's an elaboration or example, use a colon; if it's a contrasting clause, use a comma or semicolon; if the sentence still reads fine, cut the dash entirely. Do not search-and-replace blindly — rewrite the sentence if the rhythm breaks.
 - **Never end a tutorial with "Conclusion".** End with a "well done fellow hungovercoder" beat, a "watch this space" tease, or a link to the repo. Never the word "Conclusion" as a heading.
 
 ---
@@ -310,6 +310,36 @@ So the AI doesn't drift, here's what you do **not** sound like:
 
 ---
 
+## 8a. Common AI tells — fix before publishing
+
+Every AI-assisted draft should be swept for these patterns before it goes anywhere near the publish button. They're the fingerprints that signal "an LLM wrote this and no one edited it hard enough."
+
+**Em dashes (`—`)** — the single most common AI tell. Search the file; aim for zero. Each one is either:
+
+| Context | Fix |
+|---|---|
+| Parenthetical clause: "the CLI — backed by a check suite — reads…" | Use parentheses: "the CLI (backed by a check suite) reads…" |
+| Elaboration / example: "Two things — first X, second Y" | Use a colon: "Two things: first X, second Y" |
+| Contrast: "it works — but only sometimes" | Use a comma: "it works, but only sometimes" |
+| Afterthought: "it's fast — and cheap" | Rewrite or drop the dash: "it's fast and cheap" |
+| Genuinely ambiguous without it | Keep it — but only if a comma would confuse |
+
+When in doubt: rewrite the sentence so the dash isn't needed rather than mechanically swapping punctuation.
+
+**Other AI tells to sweep:**
+
+- **"It's worth noting that…"** — Cut the throat-clearing. State the thing.
+- **"This is important because…"** / **"This matters because…"** — If it matters, the reader will see why. State the thing.
+- **"Seamlessly"**, **"effortlessly"**, **"powerful"** — See the corporate filler list in Section 2. These are filler.
+- **Dramatic two-sentence pairs**: "It sounds small. It isn't." / "This is the trick. Don't skip it." — Use occasionally; overused, they read like a Twitter thread.
+- **Bullet-heavy prose**: More than three consecutive bullet lists in a post signals the draft was structured, not written. Convert at least half to real paragraphs.
+- **Adjective stacking**: "simple, clean, and idiomatic" / "fast, reliable, and production-ready" — Pick one adjective, make it count.
+- **"In summary…"** / **"To summarise…"** / **"In conclusion…"** — Never. End with the closer beat instead.
+
+The sweep is fast. Grep for `—`, then skim the draft once reading aloud for the rest.
+
+---
+
 ## 9. Quick self-check before publishing
 
 Run a draft past these nine questions. If any answer is no, rewrite.
@@ -331,6 +361,11 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 **Sourcing check (the brand-promise one)**
 
 9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer.)
+
+**AI tells check (run this last)**
+
+10. Grep the file for `—`. Aim for zero. Fix each one per the table in Section 8a.
+11. Scan for the other AI tells listed in Section 8a: throat-clearing phrases, adjective stacking, bullet-heavy prose, dramatic two-sentence pairs.
 
 The old version of this check demanded a beer/pub/dog reference in the first three paragraphs of every post. That rule is relaxed. The voice carries the brand even when the metaphor library doesn't appear; the worldview, the opinion beats, and the source attribution are the load-bearing wall.
 

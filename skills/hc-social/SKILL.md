@@ -81,8 +81,9 @@ Single toot, ~400–500 chars. Shape:
 Before printing, scan every draft for:
 
 - **Banned LinkedIn language** in the LinkedIn draft: no "Excited to share", no rockets, no "thrilled", no "passionate about"
-- **No em-dashes as decoration** — em-dashes are fine where a comma would confuse, but not as a substitute for paragraph breaks
+- **No em-dashes as decoration** — aim for zero em dashes in each draft. Short social copy has no room for the parenthetical clauses that make em dashes tempting. Replace with commas, colons, or rewritten sentences (see Section 8a of the voice guide)
 - **No "journey"** (unless literal), no "leverage" (verb, except ironic), no "robust", no "production-grade", no "seamless", no "stakeholder"
+- **No throat-clearing phrases** — "It's worth noting…", "This is important because…". Start with the thing itself.
 - **British spellings**: `flavour`, `colour`, `behaviour`, `organisation`
 - **Voice texture** — each draft should contain at least one self-deprecating or honest beat. Not a manufactured one — pull from the post's actual honest moment
 
