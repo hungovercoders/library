@@ -29,6 +29,27 @@ asciinema rec session.cast    # records a real terminal session
 agg session.cast session.gif  # converts to GIF
 ```
 
+## Headless alternative: render-terminal-frames.mjs
+
+When there's no vhs and no terminal to record (a cloud session, CI), the bundled [`scripts/render-terminal-frames.mjs`](./scripts/render-terminal-frames.mjs) draws a scripted session as PNG frames in the house dark-terminal style, typing each command and revealing its real captured output, and ffmpeg encodes the trio. The output is real; only the typing is reconstructed. Run it from a repo that has `sharp` installed (the site does).
+
+```bash
+# 1. capture real output, one file per command
+slopstopper run hygiene:entry-files > /tmp/step1.txt 2>&1
+# 2. describe the session
+cat > /tmp/steps.json <<'EOF2'
+[{"cmd":"slopstopper run hygiene:entry-files","outputFile":"/tmp/step1.txt","hold":3.5},
+ {"cmd":"sed -n 12,20p .ss/reports/entry-files/entry-file-size-report.md","outputFile":"/tmp/step2.txt","clear":true}]
+EOF2
+# 3. frames, then the trio
+node ~/dev/hungovercoders/library/skills/hc-recording/scripts/render-terminal-frames.mjs /tmp/steps.json "slopstopper-demo — the triage loop" /tmp/frames
+ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -vf "fps=12,scale=1000:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=96:stats_mode=diff[p];[b][p]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" -loop 0 triage.gif
+ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -c:v libx264 -crf 24 -preset slow -pix_fmt yuv420p -movflags +faststart triage.mp4
+ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -c:v libvpx-vp9 -crf 34 -b:v 0 triage.webm
+```
+
+Each step takes `cmd`, `outputFile`, optional `clear` (wipe the screen first) and `hold` (seconds to linger after the output). Long output lines wrap. The title bar text is the second argument.
+
 ## Where the assets live
 
 Drop recordings here:

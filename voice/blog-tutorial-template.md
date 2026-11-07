@@ -53,6 +53,13 @@ tags: [{{ tag1 }}, {{ tag2 }}, hungovercoders]
 - {{ Recommended IDE — usually VS Code }}
 - {{ Optional but recommended things, with one-line reason }}
 
+## {{ Diagram: where this sits }}
+
+{{ For a post about a tool, draw where it sits before you explain it: what feeds
+   it, what it gates, what comes out. One SVG from the design system, up here,
+   so a skim-reader leaves knowing what the thing is for. The prose below it
+   says the same once, not three times. }}
+
 ## {{ Optional: Diagram }}
 
 {{ If the topology matters — infra posts, data pipelines, anything multi-component —
@@ -76,6 +83,10 @@ tags: [{{ tag1 }}, {{ tag2 }}, hungovercoders]
    of prose — your posts are conversational, not bullet-point bingo. }}
 
 ```{{ language }}
+{{ Tables: two short columns or none. A three-column table of long cells is a
+   screen per row on a phone; write one bullet per row instead, detail folded
+   into a sentence. }}
+
 {{ Code block — complete enough to copy/paste and run.
    Short comments where useful. No exposition comments. }}
 ```

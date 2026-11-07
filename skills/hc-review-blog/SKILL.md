@@ -14,6 +14,7 @@ Read in full before reviewing anything:
 - `~/.claude/hungovercoders/voice/facts/README.md` — per-topic facts convention.
 - `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about the post's topic. Resolve the slug from the post's `tags` / `series` frontmatter (e.g. a post tagged `claude-code` → `voice/facts/claude-code.md`). Load **only this file**. If it doesn't exist, every first-person claim with a specific detail in the post is unsourced by default.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md` — mandatory structure including the verdict section
+- `~/.claude/skills/orwell-prose/SKILL.md` — dataGriff's Orwell-style prose pass (six rules plus the AI-tell list). Installed from [dataGriff/skills](https://github.com/dataGriff/skills/blob/main/skills/orwell-prose/SKILL.md); if it isn't on this machine, read it from that URL. It is the standard for the *Orwell prose* criterion below.
 - `src/content.config.ts` (if present) — blog frontmatter schema, so you know what's required
 
 **Mandatory pass — fabrication audit.** Before the eight-point self-check, sweep every first-person claim with a specific detail (number, duration, physical reaction, named moment, named person/place). For each, confirm it's cited in the matching `voice/facts/<topic-slug>.md` (cite as: *per voice/facts/`<slug>`.md → `<fact short title>`*). Flag any that isn't. Unsourced first-person specifics are a P0 review finding — they break the brand promise of honest content.
@@ -45,6 +46,10 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Themed example data | Synthetic data follows priority: alcohol → dogs → food → films → geek → music. **Within a single post, theme stays consistent** (a film post shouldn't carry beer-brand emails) |
 | Corporate filler | No "leverage" (verb, unless ironic), "robust", "best-in-class", "solution" (noun for software), "seamless", "empower", "stakeholder", "journey" (unless literal), "production-grade" |
 | AI tells | Zero em dashes (`—`) or each surviving one justified; no "It's worth noting…", "This is important because…", dramatic two-sentence pairs, or excessive bullet-heavy prose. Grep the file for `—` and count. |
+| Orwell prose | Run the `orwell-prose` skill's checklist over the body: stale figures of speech, long words where a short one says the same, needless words, avoidable passive voice, avoidable jargon, and its AI-tell list (inflated verbs such as *leverage* / *robust* / *seamless*, generic framing, padded pairs like "not just X, but Y", semicolon chains, rhetorical questions, weak intensifiers). Grep for the tell words and for lines with three or more semicolons. Every hit is either rewritten or named as deliberate voice (a "Quick Beer" title, a repeated "Every…" for rhythm). |
+| Headings hygiene | Themed where natural, and none carries a colon, a comma, inline code or an "X, Not Y" pair. The title's signature word appears in at most one heading. |
+| Phone layout | No table wider than two short columns (one bullet per row instead). Every image has alt text that says what's informative. Terminal captures are dark house style, not another project's theme. |
+| Repetition | The thesis is stated once. No paragraph-ending morals in a row, no "which is X" tags, no one-word punchlines. Grep for `, which is` and count the signature word. |
 | British spellings | `flavour`, `colour`, `behaviour`, `organisation`, `prioritisation` etc. — not American spellings |
 | Links | Both the series link (`https://hungovercoders.com/training/<slug>`) and the GitHub repo link present and well-formed |
 | Length | 1,500–2,500 words. Note actual word count vs target |
@@ -71,7 +76,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 19 criteria passing
+- M of 23 criteria passing
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -95,7 +100,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 19 criteria
+- Pass count out of 23 criteria
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first

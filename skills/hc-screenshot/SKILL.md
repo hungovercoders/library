@@ -132,6 +132,12 @@ cat gh-checks-as-text.txt | node ~/dev/hungovercoders/library/skills/hc-screensh
 
 Resolves `sharp` from the cwd (the same engine `generate-share-image.mjs` uses). Colours common terminal markers automatically: green for `✅` / `passed` / `SUCCESS`; red for `❌` / `failed`; amber for `⚠️` / `warn`; blue for shell prompts; indigo for header rules.
 
+**House style.** Dark terminal, the renderer's default palette. Pipe real output in; never type the output by hand. When a post borrows from another project (slopstopper ships cream-themed vhs GIFs, for instance), re-capture the same commands here rather than embedding theirs, so every terminal on hungovercoders.com looks the same. For motion, `hc-recording`'s `render-terminal-frames.mjs` draws the same chrome frame by frame.
+
+**When the live site is blocked.** A cloud session may not reach the site you want to capture. If its repo is public, clone it, serve its static output locally (`python3 -m http.server` in the built directory) and capture that with Playwright. It's the real page at that commit; say so in the alt text if the live version may differ.
+
+**Tap to zoom is handled.** The site wraps every markdown image in a link to its own file (`scripts/rehype-image-links.mjs`), so a dense screenshot opens full size on a phone. Don't add lightboxes or `<a>` tags by hand.
+
 **Honesty caveat for posts that use 4.5.** Synthetic terminal-style captures look real but aren't real screenshots. If your post's pitch leans on showing *what actually happened*, prefer 4a (real chromium) or the macOS modes in Steps 1–3 for terminal moments. Reserve 4.5 for when the alternative is no visual at all — better a clean rendered mockup than a missing image.
 
 **Step 5 — Report**
