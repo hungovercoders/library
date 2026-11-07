@@ -88,6 +88,11 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 - **Never explain the concept before showing the want.** Concept-first writing is for textbooks. You write blogs.
 - **Never use em-dashes as decorative punctuation.** Em dashes (`—`) are a signature AI tell — they show up everywhere in generated prose and almost nowhere in the real posts. Replace them: if the clause after the dash is a parenthetical, use parentheses or commas; if it's an elaboration or example, use a colon; if it's a contrasting clause, use a comma or semicolon; if the sentence still reads fine, cut the dash entirely. Do not search-and-replace blindly — rewrite the sentence if the rhythm breaks.
 - **Never end a tutorial with "Conclusion".** End with a "well done fellow hungovercoder" beat, a "watch this space" tease, or a link to the repo. Never the word "Conclusion" as a heading.
+- **Never use a colon to introduce an elaboration in prose.** "Same input, same verdict: Semgrep…" reads as a slide. Make it two sentences. Colons stay in code, URLs and the odd list intro.
+- **Never tack a "which is X" judgement onto the end of a sentence** ("…which is also fine", "…which is exactly right"). Either the sentence stands on its own or the judgement gets its own sentence.
+- **Never end every paragraph on a moral.** One neat closing line a post is fine; one per paragraph is the clearest machine fingerprint there is. Most paragraphs should end on the fact or the joke.
+- **Never state the thesis twice.** If the opener says what the tool is for, the verdict doesn't say it again in different words.
+- **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
 
 ---
 
@@ -282,6 +287,8 @@ This is where most "AI-sounding" drafts give themselves away. **Your section nam
 - "Quick Beer with FastAPI"
 - "Custom Domain — Dogusaurus"
 
+Heading hygiene, learned the hard way: **no colon, no comma, no code, no "X, Not Y" pair** in a heading. "Pick Your Poison: ui, api or library" becomes "Pick Your Poison". Two "X, Not Y" headings next to each other read as a template. And count the signature word: if the title says "rounds", the headings don't get to say it too. A metaphor word earns one appearance in the title, one in the opener, one in a heading, and no more.
+
 The rule: **whatever the section technically does, find a way to name it after the metaphor.** "Adding validation" becomes "Making sure the beer is actually drinkable". "Configuration" becomes "Setting the table". The headings should make a reader smile while still telling them what's in the section.
 
 You do still use plain headings for pre-reqs lists, troubleshooting, etc. The themed names are mostly for the *narrative* sections — the actual walkthrough steps.
@@ -295,6 +302,9 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
 - **Always link to the repo** at the end so people can grab the working version.
+- **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens full size on tap (the markdown pipeline wraps it), so text-dense screenshots are fine as long as the alt text says what matters.
+- **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
+- **Terminal captures are dark.** The library's terminal renderer and frame recorder draw the house style (see `hc-screenshot` and `hc-recording`); don't drop in another project's light-themed recordings, even when they're convenient.
 
 ---
 
@@ -335,6 +345,12 @@ When in doubt: rewrite the sentence so the dash isn't needed rather than mechani
 - **Bullet-heavy prose**: More than three consecutive bullet lists in a post signals the draft was structured, not written. Convert at least half to real paragraphs.
 - **Adjective stacking**: "simple, clean, and idiomatic" / "fast, reliable, and production-ready" — Pick one adjective, make it count.
 - **"In summary…"** / **"To summarise…"** / **"In conclusion…"** — Never. End with the closer beat instead.
+- **Afterthought tags**: "…, which is also fine", "…, which is right". Cut or promote to a sentence.
+- **One-word punchlines**: "Classic." "Lovely." Twitter cadence. One a post at most.
+- **Anaphora runs**: "That's why X. It's why Y. And it's why Z." Vary the openings.
+- **Three-clause chains**: a sentence doing three jobs joined by "and". Split it.
+
+**Then run the `orwell-prose` skill** (from dataGriff's skills repo, loaded by `hc-review-blog`) over the body. It catches the same tells and adds Orwell's six rules. Expect two or three passes; when a pass changes only single words, stop editing. Polish past that point is itself a tell.
 
 The sweep is fast. Grep for `—`, then skim the draft once reading aloud for the rest.
 

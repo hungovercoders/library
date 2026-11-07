@@ -134,11 +134,15 @@ The post must:
 
 **AI tells sweep — do this before Step 3.** After the draft is complete, grep the file for `—` (em dash) and aim for zero. Replace each with a comma, colon, semicolon, or a rewritten sentence (see Section 8a of the voice guide for the decision table). Also scan for: "It's worth noting…", adjective stacking ("simple, clean, and idiomatic"), and bullet lists where a paragraph would read better. The em-dash sweep takes 30 seconds; skipping it is how AI fingerprints make it onto the live site.
 
+Then the structural tells the grep won't find: explanatory colons in prose (make two sentences), "which is X" tags on the end of sentences, a moral closing every paragraph, the thesis stated more than once, one-word punchline sentences, and a signature word (the title's metaphor) used more than three times. Headings carry no colon, comma, code or "X, Not Y" pair. Tables are two short columns or become bullets. Finally run the `orwell-prose` skill (dataGriff/skills) over the body; two passes is normal, and when a pass changes only single words, stop.
+
 **Step 2c — Optional screenshots**
 
 If the post is walkthrough-shaped (an install, a setup session, a "here's what I did" demo where visual proof helps the reader) invoke `/hc-screenshot <slug>` after the draft is written. Walk through the post's beats with the writer; capture at the natural moments — the command they ran and its output, the CI check page they're describing, the dashboard state at the verdict moment. Drop the returned embed snippets into the post body at the matching headings.
 
 The skill owns the convention: `public/assets/<slug>/<name>.png` (use `step-NN-<what>.png` for ordered walkthroughs, free-form kebab-case for one-offs), site-absolute paths in the markdown embed, alt text that says what's *informative* about the shot. Browser captures (PR pages, Cloudflare preview, metatags.io) are user-driven from their browser; the skill emits the path + filename for them to save to.
+
+House style for captures: terminals are dark, drawn by `hc-screenshot`'s renderer for stills and `hc-recording`'s frame recorder for motion, from real command output. Don't reuse another project's light-themed GIFs. If a live site can't be reached from where you're working, serve its repo locally and capture that; it's the real page. Every markdown image is tappable to full size on the site, so dense screenshots are fine with good alt text.
 
 Skip this step entirely for opinion / verdict / retro posts where text carries the load. `link.png` (the social card from Step 2.1) is separate — it always ships; inline screenshots are an addition.
 
