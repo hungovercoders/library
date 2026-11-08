@@ -188,6 +188,10 @@ Default to the **Quick Beer with X** pattern when you can — it's the most-on-v
 
 ---
 
+## Update posts (a tool you've written about before)
+
+Readers come for what the tool can do now and for the new piece, not for the retrospective. Order and weight accordingly: the where-it-sits diagram, the capabilities, the new thing (with its own screenshots), and only then what went wrong, the verdict and what's next, each kept to a paragraph. A "what went wrong" list of five bold bullets is the model's shape; one paragraph that names each in a sentence is yours. If the second half is longer than the first, cut the second half.
+
 ## Length targets
 
 Based on your existing posts:

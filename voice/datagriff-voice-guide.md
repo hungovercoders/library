@@ -93,6 +93,10 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 - **Never end every paragraph on a moral.** One neat closing line a post is fine; one per paragraph is the clearest machine fingerprint there is. Most paragraphs should end on the fact or the joke.
 - **Never state the thesis twice.** If the opener says what the tool is for, the verdict doesn't say it again in different words.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
+- **Never narrate the writing.** "The idea in one line is…", "Here's the loop in one go…", "so here's the current line-up" all describe the post instead of the subject. Say the thing. Pointing at a picture directly beneath ("This is the one on the PR that…") is fine; announcing a sentence is not.
+- **Never let a label stand in for a sentence.** "Four loops, and what each one carries." is a slide bullet. If it introduces something, it's a sentence with a verb.
+- **Never deliver a list as four clipped sentences in a row.** "A check that couldn't run exits 2. The command is the same in CI. Every red line names a file." reads as a slide read aloud. Join each point to its reason and let the paragraph flow.
+- **Explain a process in the order it happens, and define every term the first time it appears.** A reader meeting "refresh", "the box" or "self-review" cold has to guess. Use the tool's own vocabulary and define it once; renaming a term in prose while the diagram and the screenshots still use the original is worse than the jargon.
 
 ---
 
@@ -287,6 +291,8 @@ This is where most "AI-sounding" drafts give themselves away. **Your section nam
 - "Quick Beer with FastAPI"
 - "Custom Domain — Dogusaurus"
 
+**The title names the idea, not the metaphor.** "Doing the Rounds with a Slopstopper Steward" means nothing to someone who has never heard of either. "Deterministic Gates for an AI Software Factory" tells them what the post is about. The product names and the time frame go in the description and on the share card, where they have room. Test: would a stranger know what this is about from the title and description alone?
+
 Heading hygiene, learned the hard way: **no colon, no comma, no code, no "X, Not Y" pair** in a heading. "Pick Your Poison: ui, api or library" becomes "Pick Your Poison". Two "X, Not Y" headings next to each other read as a template. And count the signature word: if the title says "rounds", the headings don't get to say it too. A metaphor word earns one appearance in the title, one in the opener, one in a heading, and no more.
 
 The rule: **whatever the section technically does, find a way to name it after the metaphor.** "Adding validation" becomes "Making sure the beer is actually drinkable". "Configuration" becomes "Setting the table". The headings should make a reader smile while still telling them what's in the section.
@@ -349,6 +355,8 @@ When in doubt: rewrite the sentence so the dash isn't needed rather than mechani
 - **One-word punchlines**: "Classic." "Lovely." Twitter cadence. One a post at most.
 - **Anaphora runs**: "That's why X. It's why Y. And it's why Z." Vary the openings.
 - **Three-clause chains**: a sentence doing three jobs joined by "and". Split it.
+
+**Agreement check.** Prose, alt text, diagram labels and screenshots must say the same thing. If the prose says the agent appears at exactly two points, the paragraph can't then name a third; if the alt text says five steps are code, the diagram can't paint three of them blue; if the screenshot says "refresh", the alt text can't say "upgrade". Read every number and every renamed term against the picture it sits beside.
 
 **Then run the `orwell-prose` skill** (from dataGriff's skills repo, loaded by `hc-review-blog`) over the body. It catches the same tells and adds Orwell's six rules. Expect two or three passes; when a pass changes only single words, stop editing. Polish past that point is itself a tell.
 

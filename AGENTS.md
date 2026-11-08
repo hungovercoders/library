@@ -38,6 +38,7 @@ All series + blog work happens on a **feature branch in the site repo**, never d
 2. `hc-launch` (re-using the same branch, or creating `blog/<slug>` for a standalone post) writes the blog post + share image, commits, pushes, and ensures a draft PR exists — creating one if not.
 3. `hc-review-blog` and `hc-preflight` run on the branch as gating checks.
 4. When clean, the author **marks the PR ready for review and merges to `main`** — the merge is what publishes; pushes to the branch only update the preview.
+5. A fix after the merge is a new `blog/<what-changed>` branch and a new PR from `main`, never more commits on the merged branch. The post's slug and URL stay as they were; only the content moves.
 
 The `learn.*` repo stays on `main` throughout — it isn't deployed anywhere customer-facing; it's only source content the site fetches at build time. Only the site repo needs branching + PRs.
 
