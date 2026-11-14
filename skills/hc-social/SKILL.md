@@ -46,6 +46,8 @@ The blog and the socials do different jobs. The blog is forever, so its first se
 - Catchy is not invented. The hook is still a claim the post makes; it is the post's biggest idea said plainly, not a new one.
 - Hashtags follow the idea too (`#softwarefactory`, `#specdrivendevelopment`), with one or two for the tool.
 
+**A social post is read cold.** The reader has not seen the blog, so any term the post coined ("the skeleton", "the unit", "the gates") is either replaced by what it is or explained in the same sentence. "The skeleton is built and locked" means nothing on its own; "everything every API needs, the routing, validation, test harness, infrastructure and pipeline, is already built and locked" does.
+
 **Never label the beats.** "The honest bit.", "Would I build on it?", "Honest moment:" read as forced. The beats below are a shape for you, not words for the post: write the content and drop the signpost.
 
 **Step 3 — Draft LinkedIn**
