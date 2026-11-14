@@ -31,15 +31,18 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 
 | Criterion | What good looks like |
 |---|---|
-| Frontmatter completeness | `title`, `date`, `author: dataGriff`, `description`, `tags` (array including `hungovercoders`), `image.path` all present |
+| Frontmatter completeness | `title`, `date`, `author: dataGriff`, `description`, `tags` (an array; not `hungovercoders`, which the site hides), `image.path` all present |
 | Description hygiene | `description` is one sentence with no trailing period |
 | Title pattern | Matches one of: *Quick Beer with X*, *X with Y*, *Deploy X on Y*, *X for/with Z*, *Adding X to Y*. Flag if it defaults to *Quick Beer with X* when the post isn't actually a short single-tool tutorial |
 | Want-led opener | First sentence uses one of the four formulas (The Want / The Rabbit Hole / The Confession / The Cheat). Never a definition or faceless intro |
 | Excerpt | The site lists a post by the first 150 to 220 characters of its body. Print the first 150 characters of the body with links and markup stripped: they must name the subject of the post and what it is for. FAIL if a reader of the listing could not tell what the post is about |
+| Hook length | The first paragraph is about four sentences and a hundred words: what it is, the day, where it fits, the send-off. FAIL if it explains, or says what the next section says |
+| Visual density | No section runs much past 250 words without a diagram, recording, screenshot or code. Count words per section and list any that do. Numbers quoted next to a recording or screenshot match what it shows |
+| Tool limits | Every statement of what a tool cannot do carries the command that showed it or a vendor link. Flag any that is asserted without one |
 | Day-context texture | Opener weaves in a real-world moment (warm afternoon, dogs walked, BBQ, etc.) — at least one concrete personal detail |
 | Pre-Requisites section | Brief plain bullet list, 3–4 items max |
-| Whistle-stop tour | A short section naming the topic's main features, 5–8 bullets, each one sentence. Reader leaves knowing the shape of the topic |
-| Composing demo | One working example that combines at least three of the series' headline features — not a single-feature walkthrough |
+| Whistle-stop tour | *Series launch posts only; mark N/A for a standalone post.* A short section naming the topic's main features, 5–8 bullets, each one sentence. Reader leaves knowing the shape of the topic |
+| Composing demo | *Series launch posts only; mark N/A for a standalone post.* One working example that combines at least three of the series' headline features — not a single-feature walkthrough |
 | Honest moment | Mid-post sentence proving a real person built this ("I'll be honest", "first time I ran this", "this cost me an hour", etc.) |
 | Verdict section | Near-end section answering "would I actually use this?" or "how I actually use this" — with worldview hook |
 | What I'd do differently | One reflective line in the closer |
@@ -52,7 +55,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Phone layout | No table wider than two short columns (one bullet per row instead). Every image has alt text that says what's informative. Terminal captures are dark house style, not another project's theme. |
 | Repetition | The thesis is stated once. No paragraph-ending morals in a row, no "which is X" tags, no one-word punchlines. Grep for `, which is` and count the signature word. |
 | British spellings | `flavour`, `colour`, `behaviour`, `organisation`, `prioritisation` etc. — not American spellings |
-| Links | Both the series link (`https://hungovercoders.com/training/<slug>`) and the GitHub repo link present and well-formed |
+| Links | For a post about a new tool, its launch announcement as well as its docs. For a series post: both the series link (`https://hungovercoders.com/training/<slug>`) and the GitHub repo link present and well-formed |
 | Length | 1,500–2,500 words. Note actual word count vs target |
 | Share image presence | `image.path` points at `/assets/<slug>/link.png`; verify the file exists at `public/assets/<slug>/link.png` |
 
@@ -77,7 +80,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 23 criteria passing
+- M of 26 criteria passing (count N/A separately)
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -101,7 +104,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 23 criteria
+- Pass count out of 26 criteria, with N/A counted separately
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first

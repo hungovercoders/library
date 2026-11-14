@@ -31,7 +31,7 @@ layout: post
 title: "{{ Themed punchy title — see naming rules below }}"
 date: {{ YYYY-MM-DD }}
 author: dataGriff
-tags: [{{ tag1 }}, {{ tag2 }}, hungovercoders]
+tags: [{{ tag1 }}, {{ tag2 }}]
 ---
 
 {{ OPENER PARAGRAPH — 2–4 sentences. The FIRST SENTENCE is the excerpt the
@@ -209,7 +209,7 @@ From your existing posts, tags fall into rough buckets — pick 2–4:
 
 - **Tech**: `azure`, `python`, `terraform`, `docker`, `kafka`, `bento`, `spark`
 - **Discipline**: `data-engineering`, `devops`, `analytics`, `streaming`, `iac`
-- **Always**: `hungovercoders`
+- **Not** `hungovercoders`: the site hides that tag because it would be on every post and say nothing.
 
 Don't over-tag. 3 good tags beat 8 vague ones.
 

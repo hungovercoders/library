@@ -92,6 +92,10 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 - **Never tack a "which is X" judgement onto the end of a sentence** ("…which is also fine", "…which is exactly right"). Either the sentence stands on its own or the judgement gets its own sentence.
 - **Never end every paragraph on a moral.** One neat closing line a post is fine; one per paragraph is the clearest machine fingerprint there is. Most paragraphs should end on the fact or the joke.
 - **Never state the thesis twice.** If the opener says what the tool is for, the verdict doesn't say it again in different words.
+- **Never let this guide's own vocabulary into a post.** "AI in shot", "honest moment", "opinion beat" and "day context" are names for practices. A heading called "The Agent in Shot" means nothing to a reader; say what the section is about ("Proving It on a Fresh Agent").
+- **Never leave a line leaning on something the reader hasn't just read.** A punchline ("Three things and a referee.") or a callback ("exactly as last week") needs what it refers to in the same paragraph, or a link on the words. If it needs neither to make sense, keep it; otherwise cut it.
+- **Never say what a tool can't do without trying it.** "It can't invoke a function" went into a draft and a template on an agent's say-so, and was wrong. A limit needs the command that showed it, or a link to the vendor saying so. If it was not tried, say that instead.
+- **No swearing.** The voice is pub, not sweary. "Legged it", not "buggered off". If a line only works with the swear word, ask dataGriff.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
 
 ---
@@ -264,6 +268,8 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 
 Read the first 150 characters on their own. If they don't name the subject, rewrite the sentence.
 
+**The first paragraph is the hook, and it is short.** Four sentences, about a hundred words: what the post is, the day it happened, where it fits (the series, last week's post), and the send-off. It entertains and informs, and it does not explain. Anything that explains belongs in the section that covers it, so the hook never says what the next section is about to say.
+
 Every opener ends with a transition into action. Examples from your real posts:
 
 - *"Read on fellow hungovercoder and find out how to shift left with scripts…"*
@@ -309,8 +315,10 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
 - **Always link to the repo** at the end so people can grab the working version.
-- **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens full size on tap (the markdown pipeline wraps it), so text-dense screenshots are fine as long as the alt text says what matters.
+- **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens over the article on tap, zoomed and pannable, so text-dense screenshots are fine as long as the alt text says what matters.
 - **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
+- **No wall of text.** No section runs much past 250 words without something to look at: a diagram, a recording, a screenshot or code. A paragraph that lists what several things do is a diagram. Bullets describing stages or states are a diagram. Draw it, then cut the paragraph to the one sentence the picture can't say.
+- **Numbers in the prose come from the same run as the picture.** If a recording shows 23 resources, the sentence under it does not say 15. When a recording or screenshot is re-taken, re-read every number near it, and quote one real run rather than a typical figure.
 - **Terminal captures are dark.** The library's terminal renderer and frame recorder draw the house style (see `hc-screenshot` and `hc-recording`); don't drop in another project's light-themed recordings, even when they're convenient.
 
 ---
@@ -369,7 +377,7 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Voice checks**
 
-1. Does the first sentence contain a **want** in the first person, and do its first 150 characters **say what the post is about**? They are the excerpt on the site's listings.
+1. Does the first sentence contain a **want** in the first person, and do its first 150 characters **say what the post is about**? They are the excerpt on the site's listings. Is the first paragraph **four sentences or so**, with nothing the next section repeats?
 2. Does the post feel like it was **written by a real person from the South Wales valleys**, not a vendor docs site? Self-deprecation, honest moments, voice texture — even if no beer reference appears.
 3. Do the section headings sound **themed where natural**, not generic? (Themed when they fit; plain when forcing themed would feel awkward.)
 4. Is there a **fellow hungovercoder** moment somewhere in the post — or another honest peer-to-peer beat if "fellow hungovercoder" doesn't fit?

@@ -33,11 +33,12 @@ Questions, in order:
 
 1. **The want.** "What did you actually want when you first reached for `<topic>`? Not the marketing pitch — the specific itch that made you try it. One or two sentences in your own words."
 2. **The first use.** "Tell me about a specific time you used it for real — a moment, not a general pattern. What were you working on, what did you try, what happened?"
-3. **The honest moment.** "What's a real `first time I tried this it broke / surprised me / made no sense` story? Anything that tripped you up that an honest blog post would mention?"
-4. **The verdict.** "If a fellow hungovercoder asked you today — would you use it again? What for, what not for? Where does it sit in your kit?"
-5. **Would do differently.** "Knowing what you know now, what would you do differently if you were starting again with this?"
-6. **Hard rules.** "Anything I should NEVER attribute to you on this topic? Specific claims that aren't true, or framings you'd reject? Numbers / durations / feelings you've never said?"
-7. **Permission posture.** "Default permission for these facts — *use anywhere*, *use with softening qualifier*, *do not use publicly without checking*, or something else?"
+3. **The day.** "Where and when did you actually build or use it? The room, the weather, the dog, what you should have been doing instead. One line is plenty; it becomes the second sentence of the post."
+4. **The honest moment.** "What's a real `first time I tried this it broke / surprised me / made no sense` story? Anything that tripped you up that an honest blog post would mention?"
+5. **The verdict.** "If a fellow hungovercoder asked you today — would you use it again? What for, what not for? Where does it sit in your kit?"
+6. **Would do differently.** "Knowing what you know now, what would you do differently if you were starting again with this?"
+7. **Hard rules.** "Anything I should NEVER attribute to you on this topic? Specific claims that aren't true, or framings you'd reject? Numbers / durations / feelings you've never said?"
+8. **Permission posture.** "Default permission for these facts — *use anywhere*, *use with softening qualifier*, *do not use publicly without checking*, or something else?"
 
 After each answer, paraphrase it back briefly and ask *"Right? Anything to sharpen?"* before moving on.
 
