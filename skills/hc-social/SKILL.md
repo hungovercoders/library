@@ -37,14 +37,29 @@ Read the resolved blog post file in full. Extract:
 
 Confirm the share image exists at `public/assets/<slug>/link.png` — that's the card LinkedIn and X will preview. If it's missing, surface that and stop the user before posting.
 
+**Step 2b — Find the hook, which is not the blog's**
+
+The blog and the socials do different jobs. The blog is forever, so its first sentence is literal: it names the thing (see the excerpt rule in the voice guide). A social post has one line to stop a scroll, so it leads with the **idea people are talking about**, and the tool is the detail further down.
+
+- Ask what the post is an example *of*: software factories, spec-driven development, determinism for agents, shifting left. That is the hook.
+- The named tool or cloud service ("an AWS Lambda API", "the AWS Emulator") comes later, as the proof. "I wanted a template for AWS Lambda APIs" opens the blog; "Ask an agent for an API and you get a slightly different one every time. A software factory can't run on that." opens the social.
+- Catchy is not invented. The hook is still a claim the post makes; it is the post's biggest idea said plainly, not a new one.
+- Hashtags follow the idea too (`#softwarefactory`, `#specdrivendevelopment`), with one or two for the tool.
+
+**A social post is read cold.** The reader has not seen the blog, so any term the post coined ("the skeleton", "the unit", "the gates") is either replaced by what it is or explained in the same sentence. "The skeleton is built and locked" means nothing on its own; "everything every API needs, the routing, validation, test harness, infrastructure and pipeline, is already built and locked" does.
+
+**A social post does not carry every beat.** The shapes below list the honest moment and the verdict because the post has them, not because each social draft must. Ask of every paragraph whether it helps a stranger decide to click. A story that needs the post's context to land (which tool was misjudged, what a first version did) stays in the post. Keep it positive: no caveat or negative unless leaving it out would mislead. "Not a product yet" is not needed when the copy never called it a product. Honesty in social copy means not overclaiming; the caveats and the verdict live in the post, which is what the link is for. End on the strongest thing the post has, usually the numbers or the send-off.
+
+**Never label the beats.** "The honest bit.", "Would I build on it?", "Honest moment:" read as forced. The beats below are a shape for you, not words for the post: write the content and drop the signpost.
+
 **Step 3 — Draft LinkedIn**
 
 LinkedIn audience: technical professionals, hiring managers, the wider tech community. The voice guide's "what dataGriff is not — LinkedIn" rule applies: **no emoji rockets, no "Excited to share that…"** openers. But you can keep the self-deprecation and the worldview — that's what makes the post stand out from the LinkedIn slurry.
 
 Shape:
-- **Hook** (1–2 lines): the post's want, or its verdict in a sharper form. State the thing you built and the take you formed.
-- **The substance** (2–4 short paragraphs, ~250–400 words total): one paragraph naming what the topic actually ships, one paragraph on the working demo, one paragraph carrying the honest moment, one paragraph with the verdict. Use line breaks between paragraphs — LinkedIn rewards whitespace.
-- **The takeaway**: a single line distilling the worldview hook from the post's verdict (small/cheap/yours, one-hungovered-person-on-a-Tuesday, etc.).
+- **Hook** (1–2 lines): the idea from Step 2b, said so it stops a scroll. Not the tool, and not the blog's first sentence.
+- **The substance** (2–4 short paragraphs, ~250–400 words total): one paragraph on the idea and what was done about it, one on how it works, one with the real numbers or the working demo. An honest moment or the verdict goes in only if it stands on its own without the post and adds to the case for clicking. Use line breaks between paragraphs — LinkedIn rewards whitespace.
+- **The takeaway**: a single positive line to end on, such as the post's send-off ("Bring your own business logic.") or its worldview hook (small/cheap/yours, one-hungovered-person-on-a-Tuesday).
 - **The link**: `Full write-up: <canonical URL>` on its own line.
 - **Tags**: 3–5 hashtags, all lower-case, technical (`#bento`, `#streaming`, `#dataengineering`, `#claudecode`). Skip `#hungovercoders` — it's not discoverable on LinkedIn.
 
@@ -56,23 +71,23 @@ X audience: same tech crowd but skimming. Voice can be more pub-energy here — 
 
 Draft **a thread of 4–6 tweets**, each under 280 characters. Shape:
 
-1. **Hook tweet** — the want, or "I built X. Here's what I learned." Strong opening hook with a single concrete promise. End with a hook for the thread ("🧵" is banned by the voice guide; use "Thread —" or "Walking through this:" or no marker at all).
+1. **Hook tweet** — the idea from Step 2b, not the tool. Strong opening hook with a single concrete promise. End with a hook for the thread ("🧵" is banned by the voice guide; use "Thread —" or "Walking through this:" or no marker at all).
 2. **Tweet 2** — what the topic actually is, in one tight sentence.
 3. **Tweet 3** — the demo / what got built. Mention the composition ("Three things working together: X, Y, Z").
-4. **Tweet 4** — the honest moment, kept short.
-5. **Tweet 5** — the verdict, distilled. The "I'd use this for X, not Y" beat.
+4. **Tweet 4** — what is solved for the reader, in their terms, not the post's coined ones.
+5. **Tweet 5** — the real numbers, or the strongest proof the post has.
 6. **Tweet 6 (closer)** — link to the blog: `Full thing: <canonical URL>` and optionally the series link if it's a launch post.
 
-Also draft a **single-tweet variant** for the user who prefers not to thread: 280 chars, hook + verdict + link.
+Also draft a **single-tweet variant** for the user who prefers not to thread: 280 chars, hook + the proof + link.
 
 **Step 5 — Draft Mastodon**
 
 Mastodon audience: technical, federated, often Linux/open-source-curious. Voice the same as X but a touch more technical, less performative. The 500-character cap gives breathing room.
 
 Single toot, ~400–500 chars. Shape:
-- Opening sentence with the want
+- Opening sentence with the idea from Step 2b (Mastodon can name the tech sooner than LinkedIn, but still leads with the idea)
 - One sentence on what was built
-- One sentence carrying the honest moment or verdict
+- One positive closing line (the send-off, or the strongest proof)
 - Link to the blog
 - 2–3 hashtags (`#bento`, `#dataengineering`, `#streaming` — Mastodon search runs on hashtags more than X does)
 
@@ -85,7 +100,9 @@ Before printing, scan every draft for:
 - **No "journey"** (unless literal), no "leverage" (verb, except ironic), no "robust", no "production-grade", no "seamless", no "stakeholder"
 - **No throat-clearing phrases** — "It's worth noting…", "This is important because…". Start with the thing itself.
 - **British spellings**: `flavour`, `colour`, `behaviour`, `organisation`
-- **Voice texture** — each draft should contain at least one self-deprecating or honest beat. Not a manufactured one — pull from the post's actual honest moment
+- **Voice texture** — each draft should sound like dataGriff, with a self-deprecating or honest line where one fits naturally. Not a manufactured one, and not the post's honest moment retold if it needs the post to make sense
+
+**Then run the `orwell-prose` skill over every draft.** Short copy collects AI tells faster than a blog does. Look hardest for stock idioms ("heavy lifting", "under the bonnet", "all the way down"), fragments used as decoration ("Two files.", "Not the agent."), and a run of sentences all the same short length. Keep a fragment only when it is dataGriff's own phrase from the post.
 
 Rewrite any draft that fails until it passes.
 
