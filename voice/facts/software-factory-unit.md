@@ -44,6 +44,7 @@
   - The emulated JWT authoriser checks a token's shape, issuer and audience, not its signature. IAM is not enforced as on AWS; the emulator's guide says not to test security on it.
   - Moving the tests onto the emulator's Lambda found one difference: a cancelled DynamoDB transaction reached the function without usable cancellation reasons, so a name clash returned 500 until the store told errors by name.
   - The run recorded in the post now: 23 resources, 53 scenarios, 290 steps, 396 generated fuzz cases; the `task ci` step took 2 minutes 21 seconds (56 seconds with the stand-in).
+  - dataGriff on the speed of the full run, in their own words: "mention in the blog how quick the process is, the ci and testing I mean considering what it's doing, full environment, tests etc. mega confidence fast". Timings from the recorded run: scenarios 24.0 seconds, fuzz 47.25 seconds, the whole `task ci` step 2 minutes 21 seconds, including downloading and verifying the emulator.
   - dataGriff asked for a pre-push hook for fast feedback, with the skills turning on the right checks as the repository matures. `task check` runs the fast gates for the stage in `.stage` (template, spec, implemented); about 7 seconds warm on the implemented example (template issue #27).
 - **Permissions:** not stated (question skipped). Treat as usable within content about this template and the software factory idea; check before using elsewhere.
 - **Source:** Interview on 2026-11-14, plus dataGriff's own messages in the build session that day.
