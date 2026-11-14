@@ -98,6 +98,8 @@ Before printing, scan every draft for:
 - **British spellings**: `flavour`, `colour`, `behaviour`, `organisation`
 - **Voice texture** — each draft should contain at least one self-deprecating or honest beat. Not a manufactured one — pull from the post's actual honest moment
 
+**Then run the `orwell-prose` skill over every draft.** Short copy collects AI tells faster than a blog does. Look hardest for stock idioms ("heavy lifting", "under the bonnet", "all the way down"), fragments used as decoration ("Two files.", "Not the agent."), and a run of sentences all the same short length. Keep a fragment only when it is dataGriff's own phrase from the post.
+
 Rewrite any draft that fails until it passes.
 
 **Step 7 — Report**
