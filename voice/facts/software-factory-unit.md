@@ -33,6 +33,7 @@
   - *"it is no longer a template then, it is an API"*
   - *"I'd use the pattern now"*
   - *"everything at moment is prepub and demos"*
+- **Fact (the day, in dataGriff's words, 2026-11-14):** *"The day context can just be an itch I needed to scratch. Actually built all this walking around Bute park on my phone when I should have been looking at trees or at least ensuring my dog hadn't buggered off after a squirrel"*
 - **Build record (AI in shot, attributable to the agent, not to dataGriff's feelings):**
   - Claude Code built the template in one session on 2026-11-14. The agent's sandbox would not run AWS Emulator, so every feature and fuzz run happened on GitHub Actions.
   - Two fresh agents implemented the example spec from the `implement-api` skill alone; CI was green on the first run both times.
