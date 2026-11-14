@@ -350,7 +350,7 @@ When in doubt: rewrite the sentence so the dash isn't needed rather than mechani
 - **Anaphora runs**: "That's why X. It's why Y. And it's why Z." Vary the openings.
 - **Three-clause chains**: a sentence doing three jobs joined by "and". Split it.
 
-**Then run the `orwell-prose` skill** (from dataGriff's skills repo, loaded by `hc-review-blog`) over the body. It catches the same tells and adds Orwell's six rules. Expect two or three passes; when a pass changes only single words, stop editing. Polish past that point is itself a tell.
+**Then run the `orwell-prose` skill** (in this library as `skills/orwell-prose`, copied from dataGriff's skills repo, and loaded by `hc-review-blog`) over the body. It catches the same tells and adds Orwell's six rules. Expect two or three passes; when a pass changes only single words, stop editing. Polish past that point is itself a tell.
 
 The sweep is fast. Grep for `—`, then skim the draft once reading aloud for the rest.
 
