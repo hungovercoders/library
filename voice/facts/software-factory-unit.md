@@ -38,6 +38,8 @@
   - Two fresh agents implemented the example spec from the `implement-api` skill alone; CI was green on the first run both times.
   - A two-agent lifecycle test changed the spec of the implemented example and caught the implementation up, green first time. It exposed that the compatibility gate could not see a rule that changed while the contract's shape stayed the same; the gate now compares the feature files too.
   - The first `terraform apply` against the emulator in CI finished with "Apply complete! Resources: 15 added, 0 changed, 0 destroyed."
+  - The current apply creates 23 resources (alarms and the authoriser were added after the first run). The run recorded in the post passed 50 scenarios, 278 steps and 411 generated fuzz cases.
+  - After dataGriff asked how the features and the contract relate, a gate was added (`responses:check`, template issue #25) that fails when the contract documents a response no scenario received. Its first CI run found one in the example: `retire_beer 400`. The fix was a wider scenario, not code.
   - AWS Emulator 1.0.365 accepts Lambda and API Gateway definitions but cannot invoke a function, so the Lambda bundle runs behind a local stand-in for API Gateway.
 - **Permissions:** not stated (question skipped). Treat as usable within content about this template and the software factory idea; check before using elsewhere.
 - **Source:** Interview on 2026-11-14, plus dataGriff's own messages in the build session that day.
