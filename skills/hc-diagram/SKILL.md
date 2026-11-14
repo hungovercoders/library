@@ -62,6 +62,7 @@ Output requirements (every single one is mandatory):
 - Every colour value drawn from the `svg-design-system.md` palette tokens — no off-palette hexes
 - Every `font-family` declared with the full fallback chain (Lora → Georgia → Cambria → serif; Atkinson → system-ui → sans-serif; JetBrains Mono → Menlo → Consolas → monospace)
 - File size under 20KB
+- Both clarity rules from the design system: every box is connected to the rest and the flow reads in one direction, with no reading instructions needed in the prose; no box holds more than five lines of text
 - No external assets, no `<use>` cross-file refs, no animations, no scripts, no embedded raster, no logo
 
 **Step 6 — Write to the agreed path**

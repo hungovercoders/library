@@ -71,6 +71,13 @@ Weights: `400` (regular) or `700` (bold). Don't use intermediate weights — the
 | Title bar / header band | `20–28px` tall | |
 | Body band | `30–38px` tall | One label + one body line fits comfortably at 11–13px font sizes |
 
+## Clarity rules
+
+Tokens make a diagram on-brand; these two make it readable.
+
+1. **Everything connects, and it reads one way.** Every box is joined to the rest by an arrow or by containment (a band the others sit on or in), and the main flow runs in one direction, left to right or top to bottom. A box with no connection is a list item, not part of the diagram: connect it or cut it. The test is the prose around it. If the post has to tell the reader how to read the diagram ("read it left to right", "start with the box on the left"), fix the diagram, not the prose.
+2. **Five lines of text per box, at most**, counting its title line. A box that needs more is two boxes, or its detail belongs in the prose. A header pill, and a label on an arrow, do not count.
+
 ## Accessibility (non-negotiable)
 
 Every SVG must include:
@@ -152,8 +159,9 @@ Structure:
 2. Pick the layout shape that fits the concept best; if unclear, sketch which one would best answer *"what would a reader take away in a glance?"*
 3. Read the matching canonical example from `voice/svg-examples/<shape>.svg`
 4. Draft fresh SVG using the tokens above — don't copy-paste the example verbatim; reproduce the patterns with content specific to the new diagram
-5. Write the alt-text as you go, not after — it forces you to be honest about whether each visual element earns its place
-6. Save under 20KB. If you're over, you're probably duplicating styles inline instead of using a `<style>` block, or you've inlined raster data (which you should never do)
+5. Check the two clarity rules: every box connected, one reading direction, no box over five lines of text
+6. Write the alt-text as you go, not after — it forces you to be honest about whether each visual element earns its place
+7. Save under 20KB. If you're over, you're probably duplicating styles inline instead of using a `<style>` block, or you've inlined raster data (which you should never do)
 
 ## What not to do
 
