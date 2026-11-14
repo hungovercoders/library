@@ -23,6 +23,7 @@ skills/       Claude Code skills. Each is a directory containing a SKILL.md, sym
                 hc-review-blog     independent voice/structural review of a single blog post
                 hc-preflight       site-wide pre-publish health check (build, OG, sitemap, etc.)
                 hc-social          draft LinkedIn / X / Mastodon copy in voice for a post
+                orwell-prose       Orwell's six rules + AI tells; a copy, source is dataGriff/skills
                 hc-diagram         author on-brand SVG diagrams using the visual design system
 
 install-skills.sh   Symlinks skills/* into ~/.claude/skills/ and voice/* into

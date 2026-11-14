@@ -41,6 +41,7 @@ skills/             Claude Code skills installed into ~/.claude/skills/ by insta
   hc-review-blog/SKILL.md     Voice/structural review of a single blog post (independent pass)
   hc-preflight/SKILL.md       Site-wide pre-publish health check — frontmatter, OG, sitemap, build
   hc-social/SKILL.md          Draft LinkedIn, X, and Mastodon copy for a blog post in voice
+  orwell-prose/SKILL.md       Orwell's six rules plus the AI-tell list (a copy from dataGriff/skills)
 
 AGENTS.md           Agent orientation when landing in this repo.
 install-skills.sh   One-shot installer — symlinks skills and voice content to user-level paths.
