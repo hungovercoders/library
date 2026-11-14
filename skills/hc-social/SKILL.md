@@ -58,8 +58,8 @@ LinkedIn audience: technical professionals, hiring managers, the wider tech comm
 
 Shape:
 - **Hook** (1–2 lines): the idea from Step 2b, said so it stops a scroll. Not the tool, and not the blog's first sentence.
-- **The substance** (2–4 short paragraphs, ~250–400 words total): one paragraph naming what the topic actually ships, one paragraph on the working demo, one paragraph carrying the honest moment, one paragraph with the verdict. Use line breaks between paragraphs — LinkedIn rewards whitespace.
-- **The takeaway**: a single line distilling the worldview hook from the post's verdict (small/cheap/yours, one-hungovered-person-on-a-Tuesday, etc.).
+- **The substance** (2–4 short paragraphs, ~250–400 words total): one paragraph on the idea and what was done about it, one on how it works, one with the real numbers or the working demo. An honest moment or the verdict goes in only if it stands on its own without the post and adds to the case for clicking. Use line breaks between paragraphs — LinkedIn rewards whitespace.
+- **The takeaway**: a single positive line to end on, such as the post's send-off ("Bring your own business logic.") or its worldview hook (small/cheap/yours, one-hungovered-person-on-a-Tuesday).
 - **The link**: `Full write-up: <canonical URL>` on its own line.
 - **Tags**: 3–5 hashtags, all lower-case, technical (`#bento`, `#streaming`, `#dataengineering`, `#claudecode`). Skip `#hungovercoders` — it's not discoverable on LinkedIn.
 
@@ -74,11 +74,11 @@ Draft **a thread of 4–6 tweets**, each under 280 characters. Shape:
 1. **Hook tweet** — the idea from Step 2b, not the tool. Strong opening hook with a single concrete promise. End with a hook for the thread ("🧵" is banned by the voice guide; use "Thread —" or "Walking through this:" or no marker at all).
 2. **Tweet 2** — what the topic actually is, in one tight sentence.
 3. **Tweet 3** — the demo / what got built. Mention the composition ("Three things working together: X, Y, Z").
-4. **Tweet 4** — the honest moment, kept short.
-5. **Tweet 5** — the verdict, distilled. The "I'd use this for X, not Y" beat.
+4. **Tweet 4** — what is solved for the reader, in their terms, not the post's coined ones.
+5. **Tweet 5** — the real numbers, or the strongest proof the post has.
 6. **Tweet 6 (closer)** — link to the blog: `Full thing: <canonical URL>` and optionally the series link if it's a launch post.
 
-Also draft a **single-tweet variant** for the user who prefers not to thread: 280 chars, hook + verdict + link.
+Also draft a **single-tweet variant** for the user who prefers not to thread: 280 chars, hook + the proof + link.
 
 **Step 5 — Draft Mastodon**
 
@@ -87,7 +87,7 @@ Mastodon audience: technical, federated, often Linux/open-source-curious. Voice 
 Single toot, ~400–500 chars. Shape:
 - Opening sentence with the idea from Step 2b (Mastodon can name the tech sooner than LinkedIn, but still leads with the idea)
 - One sentence on what was built
-- One sentence carrying the honest moment or verdict
+- One positive closing line (the send-off, or the strongest proof)
 - Link to the blog
 - 2–3 hashtags (`#bento`, `#dataengineering`, `#streaming` — Mastodon search runs on hashtags more than X does)
 
