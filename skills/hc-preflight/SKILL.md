@@ -45,7 +45,7 @@ For every `.md` file in `src/content/blog/` (excluding `_drafts/`), check:
 | `date` present and parses as a date | P0 |
 | `author` present (typically `dataGriff`) | P1 |
 | `description` present, non-empty, and **no trailing period** | P1 |
-| `tags` is an array containing `hungovercoders` | P1 |
+| `tags` is a non-empty array (the site hides a `hungovercoders` tag, so it is not required) | P1 |
 | `image.path` present and starts with `/assets/<slug>/` | P0 |
 | `image.path` file exists at `public/<image.path>` (i.e. `public/assets/<slug>/link.png`) | P0 |
 | Filename matches `YYYY-MM-DD-<slug>.md` | P1 |

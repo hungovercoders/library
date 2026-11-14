@@ -146,7 +146,9 @@ The skill owns the convention: `public/assets/<slug>/<name>.png` (use `step-NN-<
 
 House style for captures: terminals are dark, drawn by `hc-screenshot`'s renderer for stills and `hc-recording`'s frame recorder for motion, from real command output. Don't reuse another project's light-themed GIFs. If a live site can't be reached from where you're working, serve its repo locally and capture that; it's the real page. Every markdown image is tappable to full size on the site, so dense screenshots are fine with good alt text.
 
-Skip this step entirely for opinion / verdict / retro posts where text carries the load. `link.png` (the social card from Step 2.1) is separate — it always ships; inline screenshots are an addition.
+Then check the density: no section should run much past 250 words without a diagram, a recording, a screenshot or code. A paragraph listing what several things do, or bullets describing stages, should be an `/hc-diagram` instead. Any number in the prose near a capture must be the number the capture shows.
+
+Skip the screenshots for opinion / verdict / retro posts where text carries the load; the density check still applies. `link.png` (the social card from Step 2.1) is separate — it always ships; inline screenshots are an addition.
 
 **Step 3 — Verify**
 
