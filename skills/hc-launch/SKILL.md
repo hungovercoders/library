@@ -106,6 +106,8 @@ The post must:
    - *The Confession*: "I've been meaning to [thing] for a while now…"
    - *The Cheat*: "This blog is a bit of a cheat — it's pretty much the same as my previous post but this time…"
 
+   **The first sentence is the site's excerpt.** The blog listing and home page show the first 150 to 220 characters of the body, not the `description`. Whichever formula you pick, the first sentence must say what the post is about - the thing, what it is for, the named tool - so read its first 150 characters on their own before moving on. The day context goes in the second sentence, not the first.
+
    Weave the day context (warm afternoon, dogs walked, BBQ, whatever it is) into whichever opener fits — that's the texture that proves a real person wrote it. 1–2 paragraphs maximum, ending on a transition into action.
 
 4. **A whistle-stop tour of the topic** — one short section that names the topic's main features or concepts with one sentence each. Five to eight bullets, derived from the lesson titles and descriptions surveyed in Step 1. The reader leaves knowing the shape of the topic, not just the slice the demo touched. This is the "summary" half of the post.

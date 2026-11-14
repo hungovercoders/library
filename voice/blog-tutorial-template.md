@@ -34,7 +34,10 @@ author: dataGriff
 tags: [{{ tag1 }}, {{ tag2 }}, hungovercoders]
 ---
 
-{{ OPENER PARAGRAPH — 2–4 sentences. Pick one opener formula from the Voice
+{{ OPENER PARAGRAPH — 2–4 sentences. The FIRST SENTENCE is the excerpt the
+   site shows on its listings (the first 150–220 characters of the body), so
+   it must say what the post is about: the thing, what it is for, the named
+   tool. Day context and back story come second. Pick one opener formula from the Voice
    Guide: The Want / The Rabbit Hole / The Confession / The Cheat. Must contain
    a first-person want, and ideally one beer/dog/self-deprecating reference.
    End on a transition like "Read on fellow hungovercoder…" or "dataGriff SMASH!" }}
