@@ -73,7 +73,7 @@ site/public/assets/<YYYY-MM-DD-post-slug>/<name>.{gif,mp4,webm}
 The lesson markdown references it as an absolute site path:
 
 ```markdown
-<video autoplay loop muted playsinline class="lesson-recording">
+<video autoplay loop muted playsinline controls class="lesson-recording">
   <source src="/assets/training/<series>/<lesson>/<name>.mp4" type="video/mp4">
   <source src="/assets/training/<series>/<lesson>/<name>.webm" type="video/webm">
   <img src="/assets/training/<series>/<lesson>/<name>.gif" alt="One sentence describing what the recording shows — the behaviour, the outcome, the proof. Not 'recording of terminal'.">
@@ -81,6 +81,8 @@ The lesson markdown references it as an absolute site path:
 ```
 
 The `<video>` tag is preferred (smaller files at the same quality, looped, autoplay-safe with `muted`). The `<img>` fallback inside picks up if a browser doesn't support inline video.
+
+**`controls` is not optional.** A recording that autoplays and loops with no way to stop it fails readers who need the motion to stop, and nobody can pause on a frame to read the output. Native controls cover both, with the keyboard too. Never embed a recording without them.
 
 ## Naming convention
 
