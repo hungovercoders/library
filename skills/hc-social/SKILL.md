@@ -48,6 +48,8 @@ The blog and the socials do different jobs. The blog is forever, so its first se
 
 **A social post is read cold.** The reader has not seen the blog, so any term the post coined ("the skeleton", "the unit", "the gates") is either replaced by what it is or explained in the same sentence. "The skeleton is built and locked" means nothing on its own; "everything every API needs, the routing, validation, test harness, infrastructure and pipeline, is already built and locked" does.
 
+**A social post does not carry every beat.** The shapes below list the honest moment and the verdict because the post has them, not because each social draft must. Ask of every paragraph whether it helps a stranger decide to click. A story that needs the post's context to land (which tool was misjudged, what a first version did) stays in the post. One plain caveat is enough honesty for a social post ("a pattern worth nicking, not a product yet"); the detail of the caveat is what the link is for.
+
 **Never label the beats.** "The honest bit.", "Would I build on it?", "Honest moment:" read as forced. The beats below are a shape for you, not words for the post: write the content and drop the signpost.
 
 **Step 3 — Draft LinkedIn**
@@ -98,7 +100,7 @@ Before printing, scan every draft for:
 - **No "journey"** (unless literal), no "leverage" (verb, except ironic), no "robust", no "production-grade", no "seamless", no "stakeholder"
 - **No throat-clearing phrases** — "It's worth noting…", "This is important because…". Start with the thing itself.
 - **British spellings**: `flavour`, `colour`, `behaviour`, `organisation`
-- **Voice texture** — each draft should contain at least one self-deprecating or honest beat. Not a manufactured one — pull from the post's actual honest moment
+- **Voice texture** — each draft should sound like dataGriff, with a self-deprecating or honest line where one fits naturally. Not a manufactured one, and not the post's honest moment retold if it needs the post to make sense
 
 **Then run the `orwell-prose` skill over every draft.** Short copy collects AI tells faster than a blog does. Look hardest for stock idioms ("heavy lifting", "under the bonnet", "all the way down"), fragments used as decoration ("Two files.", "Not the agent."), and a run of sentences all the same short length. Keep a fragment only when it is dataGriff's own phrase from the post.
 
