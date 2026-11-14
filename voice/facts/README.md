@@ -43,4 +43,6 @@ When citing a fact, prose review skills use: *"per voice/facts/`<slug>`.md → `
 
 `slopstopper.md` — facts derived from the 2026-06-21 slopstopper install blog post (author's own prose).
 
+`software-factory-unit.md` — facts from the 2026-11-14 interview about the BDD and contract driven Lambda template and the "repeatable unit of a software factory" idea.
+
 (Other topic files will arrive as `/hc-datagriff-interview` is run for them.)
