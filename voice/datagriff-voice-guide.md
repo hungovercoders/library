@@ -257,6 +257,13 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 3. **The Confession** — "I've been meaning to [do thing] for a while…" (Use for "finally getting round to it" posts.)
 4. **The Cheat** — "This blog is a bit of a cheat as it's pretty much the same as my previous post but this time…" (Use sparingly and only when honest.)
 
+**The first sentence is also the preview.** The site's blog listing and home page show the first 150 to 220 characters of the post body as its excerpt, not the `description`. So the first sentence has to say what the post is: the thing, what it is for, and the named tool if there is one, still as a first-person want. The day, the dog and the back story come second.
+
+- Too slow: *"I wanted to solve whatever I could once, so that AI never has to solve it again from scratch."* A reader of the listing cannot tell what the post is about.
+- Does the job: *"I wanted a template for AWS Lambda APIs that solves whatever it can once, so that AI only ever writes the business logic and the new AWS Emulator proves it before it goes anywhere near an account."*
+
+Read the first 150 characters on their own. If they don't name the subject, rewrite the sentence.
+
 Every opener ends with a transition into action. Examples from your real posts:
 
 - *"Read on fellow hungovercoder and find out how to shift left with scripts…"*
@@ -362,7 +369,7 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Voice checks**
 
-1. Does the first sentence contain a **want** in the first person?
+1. Does the first sentence contain a **want** in the first person, and do its first 150 characters **say what the post is about**? They are the excerpt on the site's listings.
 2. Does the post feel like it was **written by a real person from the South Wales valleys**, not a vendor docs site? Self-deprecation, honest moments, voice texture — even if no beer reference appears.
 3. Do the section headings sound **themed where natural**, not generic? (Themed when they fit; plain when forcing themed would feel awkward.)
 4. Is there a **fellow hungovercoder** moment somewhere in the post — or another honest peer-to-peer beat if "fellow hungovercoder" doesn't fit?

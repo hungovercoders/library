@@ -35,6 +35,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Description hygiene | `description` is one sentence with no trailing period |
 | Title pattern | Matches one of: *Quick Beer with X*, *X with Y*, *Deploy X on Y*, *X for/with Z*, *Adding X to Y*. Flag if it defaults to *Quick Beer with X* when the post isn't actually a short single-tool tutorial |
 | Want-led opener | First sentence uses one of the four formulas (The Want / The Rabbit Hole / The Confession / The Cheat). Never a definition or faceless intro |
+| Excerpt | The site lists a post by the first 150 to 220 characters of its body. Print the first 150 characters of the body with links and markup stripped: they must name the subject of the post and what it is for. FAIL if a reader of the listing could not tell what the post is about |
 | Day-context texture | Opener weaves in a real-world moment (warm afternoon, dogs walked, BBQ, etc.) — at least one concrete personal detail |
 | Pre-Requisites section | Brief plain bullet list, 3–4 items max |
 | Whistle-stop tour | A short section naming the topic's main features, 5–8 bullets, each one sentence. Reader leaves knowing the shape of the topic |
