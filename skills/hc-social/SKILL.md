@@ -37,12 +37,23 @@ Read the resolved blog post file in full. Extract:
 
 Confirm the share image exists at `public/assets/<slug>/link.png` — that's the card LinkedIn and X will preview. If it's missing, surface that and stop the user before posting.
 
+**Step 2b — Find the hook, which is not the blog's**
+
+The blog and the socials do different jobs. The blog is forever, so its first sentence is literal: it names the thing (see the excerpt rule in the voice guide). A social post has one line to stop a scroll, so it leads with the **idea people are talking about**, and the tool is the detail further down.
+
+- Ask what the post is an example *of*: software factories, spec-driven development, determinism for agents, shifting left. That is the hook.
+- The named tool or cloud service ("an AWS Lambda API", "the AWS Emulator") comes later, as the proof. "I wanted a template for AWS Lambda APIs" opens the blog; "Ask an agent for an API and you get a slightly different one every time. A software factory can't run on that." opens the social.
+- Catchy is not invented. The hook is still a claim the post makes; it is the post's biggest idea said plainly, not a new one.
+- Hashtags follow the idea too (`#softwarefactory`, `#specdrivendevelopment`), with one or two for the tool.
+
+**Never label the beats.** "The honest bit.", "Would I build on it?", "Honest moment:" read as forced. The beats below are a shape for you, not words for the post: write the content and drop the signpost.
+
 **Step 3 — Draft LinkedIn**
 
 LinkedIn audience: technical professionals, hiring managers, the wider tech community. The voice guide's "what dataGriff is not — LinkedIn" rule applies: **no emoji rockets, no "Excited to share that…"** openers. But you can keep the self-deprecation and the worldview — that's what makes the post stand out from the LinkedIn slurry.
 
 Shape:
-- **Hook** (1–2 lines): the post's want, or its verdict in a sharper form. State the thing you built and the take you formed.
+- **Hook** (1–2 lines): the idea from Step 2b, said so it stops a scroll. Not the tool, and not the blog's first sentence.
 - **The substance** (2–4 short paragraphs, ~250–400 words total): one paragraph naming what the topic actually ships, one paragraph on the working demo, one paragraph carrying the honest moment, one paragraph with the verdict. Use line breaks between paragraphs — LinkedIn rewards whitespace.
 - **The takeaway**: a single line distilling the worldview hook from the post's verdict (small/cheap/yours, one-hungovered-person-on-a-Tuesday, etc.).
 - **The link**: `Full write-up: <canonical URL>` on its own line.
@@ -56,7 +67,7 @@ X audience: same tech crowd but skimming. Voice can be more pub-energy here — 
 
 Draft **a thread of 4–6 tweets**, each under 280 characters. Shape:
 
-1. **Hook tweet** — the want, or "I built X. Here's what I learned." Strong opening hook with a single concrete promise. End with a hook for the thread ("🧵" is banned by the voice guide; use "Thread —" or "Walking through this:" or no marker at all).
+1. **Hook tweet** — the idea from Step 2b, not the tool. Strong opening hook with a single concrete promise. End with a hook for the thread ("🧵" is banned by the voice guide; use "Thread —" or "Walking through this:" or no marker at all).
 2. **Tweet 2** — what the topic actually is, in one tight sentence.
 3. **Tweet 3** — the demo / what got built. Mention the composition ("Three things working together: X, Y, Z").
 4. **Tweet 4** — the honest moment, kept short.
@@ -70,7 +81,7 @@ Also draft a **single-tweet variant** for the user who prefers not to thread: 28
 Mastodon audience: technical, federated, often Linux/open-source-curious. Voice the same as X but a touch more technical, less performative. The 500-character cap gives breathing room.
 
 Single toot, ~400–500 chars. Shape:
-- Opening sentence with the want
+- Opening sentence with the idea from Step 2b (Mastodon can name the tech sooner than LinkedIn, but still leads with the idea)
 - One sentence on what was built
 - One sentence carrying the honest moment or verdict
 - Link to the blog
