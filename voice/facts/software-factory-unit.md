@@ -59,15 +59,16 @@
 - **Fact (the data copy):** *"My concern potentially with the download as a pattern is a copy of data and in future could be sensitive?"* Then *"Keep it as JSON. Try the uncompressed route and report back if this solves the copy problem for all data tasks. We could have gzip configurable for appropriate environments and use cases"* and *"Ok let's go uncompressed as default so there are no workarounds."*
 - **Fact (principles he set in the session):** *"Use deterministic tools and methods until can't."* *"Go asyncapi native by default, we should limit workarounds unless absolutely necessary. Report back if it does become too problematic."*
 - **Fact (the README):** *"Make the readme more engaging and easier to read. It's a product"* and *"Happy to extend readme budget if it improves the product"*.
-- **Fact (verdict):** Not given. The only reaction on record is "super exciting". Ask before writing a verdict in his voice.
-- **Fact (would do differently):** Not given. Do not manufacture one.
+- **Fact (verdict, in his words, 2026-11-15):** *"I think it's worth using and the concept is what we should all strive for and expect from our software. Also the test driven specs still hold their own in new formats."* A statement about the pattern and the concept, not a claim that the template is production-proven.
+- **Fact (would do differently, in his words, 2026-11-15):** *"I may be need to explore other options than commit to event bridge blindly. But it's cheap and lightweight. I'd like cloud events and ordering to be easier."* He named no alternative; do not name one for him.
 - **Never claim:**
   - Anything about the birthday curry beyond his sentence above: whose birthday, where, what he ate, who noticed. The Bute Park walk is the day context of 2026-11-14 only.
   - That any of this has been deployed to a real AWS account. It has not.
   - That a fresh agent has built an API from the template since the queue, events and data were added. None has.
   - That events arrive in order, or exactly once. Subscribers are told to tell a repeat by `id` and order by `time`.
   - That the events on the bus are bare CloudEvents. On the classic bus the CloudEvent is inside EventBridge's `detail`.
-  - A feeling about any one contract or component. He named none beyond the excitement above.
+  - A feeling about any one contract or component beyond what is quoted here.
+  - Which alternative to EventBridge he would pick. He named none.
 - **Allowed framings:** (verbatim)
   - *"can represent all interfaces using same setup"*
   - *"drive events and data contracts with the testable specs again"*
