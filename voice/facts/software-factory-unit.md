@@ -49,3 +49,40 @@
   - dataGriff asked for a pre-push hook for fast feedback, with the skills turning on the right checks as the repository matures. `task check` runs the fast gates for the stage in `.stage` (template, spec, implemented); about 7 seconds warm on the implemented example (template issue #27).
 - **Permissions:** not stated (question skipped). Treat as usable within content about this template and the software factory idea; check before using elsewhere.
 - **Source:** Interview on 2026-11-14, plus dataGriff's own messages in the build session that day.
+
+## every-interface-in-and-out-the-itch-continued
+- **Date / period:** dataGriff's own messages in the Claude Code build session of 2026-11-14 and 2026-11-15, when the queue, the published events, the data contract and the tags were added to `template-aws-api`. No interview was run; nothing here is more than he typed.
+- **Fact (want):** *"can represent all interfaces using same setup and drive events and data contracts with the testable specs again which is super exciting! The itch continued!"*
+- **Fact (honest moment, his questions):** He asked *"What event bridge is being used? Classic or the new custom?"* and later *"Are they really cloud events if in an envelope?"* The answers are in the build record below.
+- **Fact (the data copy):** *"My concern potentially with the download as a pattern is a copy of data and in future could be sensitive?"* Then *"Keep it as JSON. Try the uncompressed route and report back if this solves the copy problem for all data tasks. We could have gzip configurable for appropriate environments and use cases"* and *"Ok let's go uncompressed as default so there are no workarounds."*
+- **Fact (principles he set in the session):** *"Use deterministic tools and methods until can't."* *"Go asyncapi native by default, we should limit workarounds unless absolutely necessary. Report back if it does become too problematic."*
+- **Fact (the README):** *"Make the readme more engaging and easier to read. It's a product"* and *"Happy to extend readme budget if it improves the product"*.
+- **Fact (verdict):** Not given. The only reaction on record is "super exciting". Ask before writing a verdict in his voice.
+- **Fact (would do differently):** Not given. Do not manufacture one.
+- **Never claim:**
+  - Where he was or what he was doing on 2026-11-15. The Bute Park walk is the day context of 2026-11-14 only.
+  - That any of this has been deployed to a real AWS account. It has not.
+  - That a fresh agent has built an API from the template since the queue, events and data were added. None has.
+  - That events arrive in order, or exactly once. Subscribers are told to tell a repeat by `id` and order by `time`.
+  - That the events on the bus are bare CloudEvents. On the classic bus the CloudEvent is inside EventBridge's `detail`.
+  - A feeling about any one contract or component. He named none beyond the excitement above.
+- **Allowed framings:** (verbatim)
+  - *"can represent all interfaces using same setup"*
+  - *"drive events and data contracts with the testable specs again"*
+  - *"super exciting"*
+  - *"The itch continued"*
+  - *"a copy of data and in future could be sensitive"*
+  - *"uncompressed as default so there are no workarounds"*
+  - *"limit workarounds unless absolutely necessary"*
+  - *"Use deterministic tools and methods until can't"*
+  - *"It's a product"*
+- **Build record (AI in shot, attributable to the agent, not to dataGriff's feelings):**
+  - Claude Code added four optional components to the template: `asyncapi`, `consume` (an SQS queue in), `publish` (events out through an outbox, a DynamoDB stream and a forwarder to EventBridge) and `data` (events to S3 through Firehose under an ODCS v3.2.0 data contract). Each can be removed and restored with a task; the template's own check removes and restores all of them on every change.
+  - This time the agent's sandbox ran AWS Emulator, so the stack and every scenario ran locally as well as on GitHub Actions.
+  - The agent built the events on a classic EventBridge bus without looking at the new custom event bus. dataGriff's question surfaced it. The agent then probed AWS Emulator 1.0.365 and 1.0.385: the new bus can be created, but `PutRawEvents`, the call that publishes a CloudEvent as it is, returns NotImplemented on both. The move is template issue #84.
+  - The data test first downloaded the events to test them. After dataGriff's concern it runs the Data Contract CLI (1.2.10) against the bucket in place. The CLI failed on gzipped files in place, which is why uncompressed is the default.
+  - `task emulator:gaps` (template issue #47) lists 14 gaps in the emulator, each with a test: 3 workarounds, 6 limits and 5 that block the new bus. All 14 reported "still needed" on 1.0.365 in about three minutes. On 1.0.385 one, `stream-retry-limit`, reported closed.
+  - The run quoted in the 2026-11-15 post, in the agent's sandbox on `example/implementation`: 64 resources applied, 67 scenarios, 571 steps, 127 unit tests, 396 generated fuzz cases all passed with no issues found in 83.83 seconds.
+  - The recording in that post is real requests against the example on the emulator on 2026-11-15, replayed with the library's frame renderer: a beer added over HTTP, a rating sent as a CloudEvent on the queue, the beer read back with one rating averaging 4, both events followed on the bus, and the rating queried from S3.
+- **Permissions:** not stated. Treat as usable within content about this template and the software factory idea; check before using elsewhere.
+- **Source:** dataGriff's messages in the build session, 2026-11-14 to 2026-11-15.
