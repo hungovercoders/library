@@ -55,6 +55,7 @@
 - **Fact (want):** *"can represent all interfaces using same setup and drive events and data contracts with the testable specs again which is super exciting! The itch continued!"*
 - **Fact (the day and the want, 2026-11-15, in his words):** *"I was at a birthday curry today but I was basically battling cloud events sneakily and wanting to prove a true full stack API which for me includes events and data contracts."*
 - **Fact (the two days, in his words, 2026-11-16):** *"The work started with a birthday curry yesterday and ended watching the X files this evening. Happy enough now with tech stack xyz that all works locally"* The curry was 2026-11-15, The X-Files the evening of 2026-11-16. "xyz" was his placeholder; the post names the stack (SQS, EventBridge, Firehose, S3, DuckDB) as a matter of fact, not as his list.
+- **Fact (the episode, in his words, 2026-11-16):** *"coincidentally it's the one in series 2 about the soldiers who can't sleep"*. That is "Sleepless", series 2 episode 4; the post links its Wikipedia page. He did not say what the coincidence was with: do not explain it for him.
 - **Fact (the difficult bits, in his words):** *"The difficult bits have been cloud events, ordering and compression gzip for data contract cli."*
 - **Fact (honest moment, his questions):** He asked *"What event bridge is being used? Classic or the new custom?"* and later *"Are they really cloud events if in an envelope?"* The answers are in the build record below.
 - **Fact (the data copy):** *"My concern potentially with the download as a pattern is a copy of data and in future could be sensitive?"* Then *"Keep it as JSON. Try the uncompressed route and report back if this solves the copy problem for all data tasks. We could have gzip configurable for appropriate environments and use cases"* and *"Ok let's go uncompressed as default so there are no workarounds."*
@@ -63,7 +64,7 @@
 - **Fact (verdict, in his words, 2026-11-15):** *"I think it's worth using and the concept is what we should all strive for and expect from our software. Also the test driven specs still hold their own in new formats."* A statement about the pattern and the concept, not a claim that the template is production-proven.
 - **Fact (would do differently, in his words, 2026-11-15):** *"I may be need to explore other options than commit to event bridge blindly. But it's cheap and lightweight. I'd like cloud events and ordering to be easier."* He named no alternative; do not name one for him.
 - **Never claim:**
-  - Anything about the birthday curry beyond his sentences here: whose birthday, where, what he ate, who noticed. Nor which episode of The X-Files, or who he watched it with. The Bute Park walk is the day context of 2026-11-14 only.
+  - Anything about the birthday curry beyond his sentences here: whose birthday, where, what he ate, who noticed. Nor who he watched The X-Files with, or what he thought of the episode. The Bute Park walk is the day context of 2026-11-14 only.
   - That any of this has been deployed to a real AWS account. It has not.
   - That a fresh agent has built an API from the template since the queue, events and data were added. None has.
   - That events arrive in order, or exactly once. Subscribers are told to tell a repeat by `id` and order by `time`.
