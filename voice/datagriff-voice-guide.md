@@ -62,6 +62,8 @@ If neither is possible for a given paragraph, the prose **switches to second per
 - **Physical reactions** — "I felt my chest tighten", "the keyboard shortcut wearing into my thumb", "my hands shook"
 - **Specific moments** — "the first time I ran this", "that Tuesday morning", "the day I realised"
 - **Feelings** — "I'll be honest, I was nervous", "the kind of relief I hadn't felt since"
+- **Preferences and trade-off verdicts** — "the one I was most keen on", "I'd rather have a bigger bucket than a workaround", "I'll take five minutes for that". A judgement in his voice is a claim about what he thinks; a draft that needs one asks him or states the trade-off impersonally.
+- **A stance about the post itself** — calling it a cheat, a confession, a rant. The Cheat and The Confession openers say something about him and the post, so they need his word like any other fact. A draft called a follow-up "a bit of a cheat"; it wasn't, it was *"the natural next steps I was busting to try and prove"*.
 - **Named people, places, or real-life events from dataGriff's life** unless he's named them — pub names he claims to drink at, friend or colleague names, conferences he claims to have attended, employers, projects he worked on at past jobs. All off-limits unless they're in the matching `voice/facts/<slug>.md`. (This rule applies to *real-life* named entities only. Affectionately-named *tools* — "the mighty gitpod", "the super Marvel API", "the awesome book Succeeding with OKRs" — are encouraged elsewhere in this guide and are fine.)
 
 If a draft contains any of these patterns and the fact isn't in the matching `voice/facts/<topic-slug>.md`, the draft is failing this rule. Rewrite impersonal, capture the fact via interview, or remove the claim.
@@ -95,6 +97,8 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 - **Never let this guide's own vocabulary into a post.** "AI in shot", "honest moment", "opinion beat" and "day context" are names for practices. A heading called "The Agent in Shot" means nothing to a reader; say what the section is about ("Proving It on a Fresh Agent").
 - **Never leave a line leaning on something the reader hasn't just read.** A punchline ("Three things and a referee.") or a callback ("exactly as last week") needs what it refers to in the same paragraph, or a link on the words. If it needs neither to make sense, keep it; otherwise cut it.
 - **Never say what a tool can't do without trying it.** "It can't invoke a function" went into a draft and a template on an agent's say-so, and was wrong. A limit needs the command that showed it, or a link to the vendor saying so. If it was not tried, say that instead.
+- **Never coin a running metaphor of your own.** A draft called four interfaces "doors" and carried it through six sentences and a heading; it was not his word and he didn't like it. If the image isn't in the metaphor library below or in his own messages, use the plain word.
+- **Never say "yesterday" or "last week" about another post.** Name the day ("Saturday's post"). A post's date moves while it is being written, and every relative reference then points at the wrong day. "Yesterday" is for what he did, in the day context, and gets re-checked when the date changes.
 - **No swearing.** The voice is pub, not sweary. "Legged it", not "buggered off". If a line only works with the swear word, ask dataGriff.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
 
@@ -268,6 +272,8 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 
 Read the first 150 characters on their own. If they don't name the subject, rewrite the sentence.
 
+**For a follow-up, the preview names what this post adds.** A second post on the same template opened by describing the template; the listing showed nothing about the events and data contracts it was there for. The first sentence of a follow-up leads with the new thing and gets the old one in as the place it was added to.
+
 **The first paragraph is the hook, and it is short.** Four sentences, about a hundred words: what the post is, the day it happened, where it fits (the series, last week's post), and the send-off. It entertains and informs, and it does not explain. Anything that explains belongs in the section that covers it, so the hook never says what the next section is about to say.
 
 Every opener ends with a transition into action. Examples from your real posts:
@@ -319,6 +325,9 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
 - **No wall of text.** No section runs much past 250 words without something to look at: a diagram, a recording, a screenshot or code. A paragraph that lists what several things do is a diagram. Bullets describing stages or states are a diagram. Draw it, then cut the paragraph to the one sentence the picture can't say.
 - **Numbers in the prose come from the same run as the picture.** If a recording shows 23 resources, the sentence under it does not say 15. When a recording or screenshot is re-taken, re-read every number near it, and quote one real run rather than a typical figure.
+- **Compare like with like.** Two timings side by side measure the same thing: a step against a step, a whole CI job against a whole CI job. If only unlike figures exist, name each for what it is and say the comparison is rough.
+- **What the post says the tooling does is checked against what was merged.** A sentence written while something is being built describes the design of that hour. Before publishing, re-read every such claim against the final behaviour; a review often changes it after the paragraph is written.
+- **Prove it before you write that it's unproven.** A caveat such as "a fresh agent hasn't tried this yet" is a prompt to ask whether it can be tried now. If one run would settle it, run it and report what happened, in place of the caveat.
 - **Terminal captures are dark.** The library's terminal renderer and frame recorder draw the house style (see `hc-screenshot` and `hc-recording`); don't drop in another project's light-themed recordings, even when they're convenient.
 
 ---
