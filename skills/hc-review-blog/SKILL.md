@@ -35,10 +35,14 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Description hygiene | `description` is one sentence with no trailing period |
 | Title pattern | Matches one of: *Quick Beer with X*, *X with Y*, *Deploy X on Y*, *X for/with Z*, *Adding X to Y*. Flag if it defaults to *Quick Beer with X* when the post isn't actually a short single-tool tutorial |
 | Want-led opener | First sentence uses one of the four formulas (The Want / The Rabbit Hole / The Confession / The Cheat). Never a definition or faceless intro |
-| Excerpt | The site lists a post by the first 150 to 220 characters of its body. Print the first 150 characters of the body with links and markup stripped: they must name the subject of the post and what it is for. FAIL if a reader of the listing could not tell what the post is about |
+| Excerpt | For a follow-up post, the excerpt names what this post adds, not only the thing it follows. The site lists a post by the first 150 to 220 characters of its body. Print the first 150 characters of the body with links and markup stripped: they must name the subject of the post and what it is for. FAIL if a reader of the listing could not tell what the post is about |
 | Hook length | The first paragraph is about four sentences and a hundred words: what it is, the day, where it fits, the send-off. FAIL if it explains, or says what the next section says |
 | Visual density | No section runs much past 250 words without a diagram, recording, screenshot or code. Count words per section and list any that do. Numbers quoted next to a recording or screenshot match what it shows |
 | Tool limits | Every statement of what a tool cannot do carries the command that showed it or a vendor link. Flag any that is asserted without one |
+| Unproven caveats | For each "not proven", "hasn't been tried" or "untested": could one run settle it now? List those that could, as things to do before publishing rather than things to say |
+| Own tooling | Every claim about what the author's own tool, gate or workflow does matches what is merged, not an earlier design. Check each against the repository |
+| Like for like | Any two figures compared measure the same thing (step against step, job against job). Flag a comparison that mixes them without saying so |
+| Relative days | No "yesterday" or "last week" pointing at another post; the day is named. Any "yesterday" or "today" in the day context matches the post's `date` |
 | Day-context texture | Opener weaves in a real-world moment (warm afternoon, dogs walked, BBQ, etc.) — at least one concrete personal detail |
 | Pre-Requisites section | Brief plain bullet list, 3–4 items max |
 | Whistle-stop tour | *Series launch posts only; mark N/A for a standalone post.* A short section naming the topic's main features, 5–8 bullets, each one sentence. Reader leaves knowing the shape of the topic |
@@ -53,6 +57,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Orwell prose | Run the `orwell-prose` skill's checklist over the body: stale figures of speech, long words where a short one says the same, needless words, avoidable passive voice, avoidable jargon, and its AI-tell list (inflated verbs such as *leverage* / *robust* / *seamless*, generic framing, padded pairs like "not just X, but Y", semicolon chains, rhetorical questions, weak intensifiers). Grep for the tell words and for lines with three or more semicolons. Every hit is either rewritten or named as deliberate voice (a "Quick Beer" title, a repeated "Every…" for rhythm). |
 | Headings hygiene | Themed where natural, and none carries a colon, a comma, inline code or an "X, Not Y" pair. The title's signature word appears in at most one heading. |
 | Phone layout | No table wider than two short columns (one bullet per row instead). Every image has alt text that says what's informative. Terminal captures are dark house style, not another project's theme. |
+| Borrowed metaphor | No running metaphor that is not in the voice guide's library or the author's own words. Grep for any image used three times or more and ask where it came from |
 | Repetition | The thesis is stated once. No paragraph-ending morals in a row, no "which is X" tags, no one-word punchlines. Grep for `, which is` and count the signature word. |
 | British spellings | `flavour`, `colour`, `behaviour`, `organisation`, `prioritisation` etc. — not American spellings |
 | Links | For a post about a new tool, its launch announcement as well as its docs. For a series post: both the series link (`https://hungovercoders.com/training/<slug>`) and the GitHub repo link present and well-formed |
@@ -80,7 +85,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 26 criteria passing (count N/A separately)
+- M of 32 criteria passing (count N/A separately)
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -104,7 +109,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 26 criteria, with N/A counted separately
+- Pass count out of 32 criteria, with N/A counted separately
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first

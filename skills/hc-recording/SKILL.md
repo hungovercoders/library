@@ -48,7 +48,13 @@ ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -c:v libx264 -crf 24 -preset slow 
 ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -c:v libvpx-vp9 -crf 34 -b:v 0 triage.webm
 ```
 
-Each step takes `cmd`, `outputFile`, optional `clear` (wipe the screen first) and `hold` (seconds to linger after the output). Long output lines wrap. The title bar text is the second argument.
+Each step takes `cmd`, `outputFile`, optional `clear` (wipe the screen first) and `hold` (seconds to linger after the output).
+
+Two things learned the hard way:
+
+- **The step the recording is for gets a screen of its own.** A last command typed at the bottom of a full screen is missed: set `clear` on it, and give it the longest `hold`.
+- **A re-recording gets a new file name.** Browsers and image proxies keep the old file under the old name, so the author looks at the page and sees the recording they asked to change. Rename it and update the embed.
+ Long output lines wrap. The title bar text is the second argument.
 
 ## Where the assets live
 
