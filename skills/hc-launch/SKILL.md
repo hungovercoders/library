@@ -38,7 +38,7 @@ Read in full:
 - `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about this topic. Slug derived from the launching series' repo name (strip the `learn.` prefix: `learn.<topic>` → `<topic>.md`). Load **only this file**.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md`
 
-**Truth check before writing.** If the matching `voice/facts/<topic-slug>.md` doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the launch post with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics — a launch post is a high-visibility surface where invented details corrode the brand promise fastest.
+**Truth check before writing.** If the post comes out of a build session, first harvest his own messages from that session into `voice/facts/<topic-slug>.md` (see "Facts from a build session" in `voice/facts/README.md`), and keep the command and output for every limit a tool turned out to have. If the matching `voice/facts/<topic-slug>.md` still doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the launch post with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics — a launch post is a high-visibility surface where invented details corrode the brand promise fastest.
 
 Then survey the **whole** series — the blog has to summarise the topic, not just the bit the demo touches:
 
@@ -145,6 +145,8 @@ If the post is walkthrough-shaped (an install, a setup session, a "here's what I
 The skill owns the convention: `public/assets/<slug>/<name>.png` (use `step-NN-<what>.png` for ordered walkthroughs, free-form kebab-case for one-offs), site-absolute paths in the markdown embed, alt text that says what's *informative* about the shot. Browser captures (PR pages, Cloudflare preview, metatags.io) are user-driven from their browser; the skill emits the path + filename for them to save to.
 
 House style for captures: terminals are dark, drawn by `hc-screenshot`'s renderer for stills and `hc-recording`'s frame recorder for motion, from real command output. Don't reuse another project's light-themed GIFs. If a live site can't be reached from where you're working, serve its repo locally and capture that; it's the real page. Every markdown image is tappable to full size on the site, so dense screenshots are fine with good alt text.
+
+Nothing personal goes in the post or its captures: section 1b of the voice guide. Real emails, account IDs and anything containing one are swapped for the stand-ins in code blocks and command output, and every capture is looked at before it is committed.
 
 Then check the density: no section should run much past 250 words without a diagram, a recording, a screenshot or code. A paragraph listing what several things do, or bullets describing stages, should be an `/hc-diagram` instead. Any number in the prose near a capture must be the number the capture shows.
 

@@ -48,7 +48,7 @@ ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -c:v libx264 -crf 24 -preset slow 
 ffmpeg -framerate 15 -i /tmp/frames/f%04d.png -c:v libvpx-vp9 -crf 34 -b:v 0 triage.webm
 ```
 
-Each step takes `cmd`, `outputFile`, optional `clear` (wipe the screen first) and `hold` (seconds to linger after the output).
+Each step takes `cmd`, `outputFile`, optional `clear` (wipe the screen first) and `hold` (seconds to linger after the output). Frames are 1100 by 620, which shows 25 lines. When the point of the recording is output that has to be seen whole, set `FRAME_HEIGHT` (in pixels) on the command to make the frames taller.
 
 Two things learned the hard way:
 
@@ -113,6 +113,10 @@ ffmpeg -i source.mov -vf "fps=12,scale=720:-1:flags=lanczos" -loop 0 hook-blocks
 | GIF | < 500KB | 1MB |
 
 Behavioural recordings are the most expensive asset per lesson — keep them honest.
+
+## Nothing personal in the frames
+
+Section 1b of the voice guide applies to every recording. Record from a shell whose prompt shows no username, cloud profile or private path, and swap real emails and account identifiers in the captured output for the stand-ins (`me@example.com`, `123456789012`) before rendering frames. A recording is many frames, so scrub the input and then watch the result through once before committing it.
 
 ## Commit and reference
 

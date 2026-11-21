@@ -72,6 +72,30 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 
 ---
 
+## 1b. Nothing personal, nothing from an account (load-bearing)
+
+Nothing published carries dataGriff's personal details or anything that identifies an account he owns. This covers post and lesson text, code blocks, alt text, screenshots, recordings, diagrams and share images.
+
+**Never publish:**
+
+- Email addresses, other than the public `info@hungovercoders.com`.
+- Cloud account identifiers and anything that contains one: an AWS account ID, an ARN, an ECR address, a bucket named after the account, an Azure subscription or tenant ID, a Cloudflare account ID.
+- Access keys, tokens, connection strings and passwords, including expired ones.
+- IP addresses, phone numbers, home addresses.
+- A shell prompt, window title or file path that shows a local username, a named cloud profile or a private repository.
+
+**Use a stand-in instead:** `me@example.com` for an email, `123456789012` for an AWS account ID, `my-profile` for a named profile, `my-bucket` for a bucket. Change the real value for the stand-in; don't blur it, because a blur can be read.
+
+**The only edit a capture may have is a privacy swap.** A real value changed for its stand-in is expected, and the post says it was done. Anything else, a label that has since been renamed, a number that has moved, a line that reads badly, is a retake.
+
+**Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it. An email capture is cropped above its footer, where the unsubscribe link carries the address and the account.
+
+**A repository's history is published with it.** Making a repo public shows every earlier commit, every earlier version of every image, and the name and email on each commit. Check all three before it is linked from a post.
+
+The `dataGriff` handle, the `hungovercoders` organisation and its public repositories are public and fine to use.
+
+---
+
 ## 2. The voice rules
 
 ### Always
@@ -98,6 +122,7 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 - **Never leave a line leaning on something the reader hasn't just read.** A punchline ("Three things and a referee.") or a callback ("exactly as last week") needs what it refers to in the same paragraph, or a link on the words. If it needs neither to make sense, keep it; otherwise cut it.
 - **Never say what a tool can't do without trying it.** "It can't invoke a function" went into a draft and a template on an agent's say-so, and was wrong. A limit needs the command that showed it, or a link to the vendor saying so. If it was not tried, say that instead.
 - **Never coin a running metaphor of your own.** A draft called four interfaces "doors" and carried it through six sentences and a heading; it was not his word and he didn't like it. If the image isn't in the metaphor library below or in his own messages, use the plain word.
+- **Never narrate the conversation with the AI.** Write what he wanted, not what he asked: *"I wanted the cheapest thing that could run this in production"*, not *"I asked for the cheapest thing… and the answer was a container"*. Using AI is not hidden, and a line saying which bits Claude Code did is welcome, but a reader finds a retold chat an odd read.
 - **Never say "yesterday" or "last week" about another post.** Name the day ("Saturday's post"). A post's date moves while it is being written, and every relative reference then points at the wrong day. "Yesterday" is for what he did, in the day context, and gets re-checked when the date changes.
 - **No swearing.** The voice is pub, not sweary. "Legged it", not "buggered off". If a line only works with the swear word, ask dataGriff.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
@@ -320,7 +345,10 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Always include the complete file at the end** of a section when you've been adding to it piece by piece. Readers should never have to assemble the final code from fragments.
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
-- **Always link to the repo** at the end so people can grab the working version.
+- **Always link to the repo** at the end so people can grab the working version. The repo is public, with a README, before the post that links to it goes out.
+- **Show the script, don't only name it.** If the post runs `scripts/deploy.sh`, the reader sees what that runs. Long files go in a collapsed `<details>` block, quoted exactly as they are in the repo, at the point they are used. Saying "my script does it" with nothing to open is smoke and mirrors.
+- **It can be followed as written.** A reader at a terminal has every file, variable, tool and login a command needs by the time the post tells them to run it. Something built is rebuilt after what it was built from changes, and whatever was stood up is torn down by the end.
+- **Keep the receipts.** The moment a tool turns out not to do something, save the command and its output. The post needs both next to the claim, and they are hard to recover later.
 - **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens over the article on tap, zoomed and pannable, so text-dense screenshots are fine as long as the alt text says what matters.
 - **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
 - **No wall of text.** No section runs much past 250 words without something to look at: a diagram, a recording, a screenshot or code. A paragraph that lists what several things do is a diagram. Bullets describing stages or states are a diagram. Draw it, then cut the paragraph to the one sentence the picture can't say.

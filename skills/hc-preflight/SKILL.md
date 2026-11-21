@@ -100,6 +100,42 @@ Same logic for training lessons under `training-repos/<series>/docs/<NN>-<lesson
 
 The existing `image.path` frontmatter check (Step 3) covers the social card (`link.png`) as P0 — that's the unmissable one. This step catches the broader case where a writer added `![diagram](/assets/<slug>/step-04.png)` to the body but forgot to drop the file in. `hc-screenshot`'s own emit step is meant to prevent it, but the check is the belt-and-braces.
 
+**Step 5c — Personal and account details**
+
+The rule is section 1b of `~/.claude/hungovercoders/voice/datagriff-voice-guide.md`. Any real hit is **P0**.
+
+Text first. Search every published post and every linked training lesson, then read each hit; stand-ins such as `me@example.com` and `123456789012`, and the public `info@hungovercoders.com`, are fine:
+
+```bash
+grep -rnE '\b[0-9]{12}\b|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[a-z]{2,}|AKIA[0-9A-Z]{16}' \
+  src/content/blog --exclude-dir=_drafts training-repos/*/docs 2>/dev/null
+```
+
+Then images, which a text search cannot see. List the images this branch adds or changes and open each one with the Read tool:
+
+```bash
+git diff --name-only --diff-filter=AM origin/main...HEAD -- public/assets \
+  | grep -E '\.(png|jpg|jpeg|webp|gif|svg)$'
+```
+
+Look at shell prompts, browser address bars, cloud console corners, email headers and anything typed into a form. For a video, open its poster frame and the GIF. Report each finding with the file path and what is showing; the fix is to crop, mask or retake, never to blur.
+
+**Step 5d — Linked repositories are public and presentable**
+
+A post that sends readers to a repo they cannot open is broken. For every `github.com/<owner>/<repo>` link in a post this branch adds or changes, without credentials:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' https://github.com/<owner>/<repo>
+curl -s -o /dev/null -w '%{http_code}\n' https://raw.githubusercontent.com/<owner>/<repo>/HEAD/README.md
+curl -s -o /dev/null -w '%{http_code}\n' https://raw.githubusercontent.com/<owner>/<repo>/HEAD/LICENSE
+```
+
+- The repo answers 404: it is private or missing. **P0** if the post's steps depend on files in it, **P1** if it is only a "the code is here" link.
+- No README at the root: **P1**. No licence: **P2**.
+- If the post names files in the repo (`scripts/…`, `infra/…`), confirm they are on its default branch, not only on a working branch: **P1** when they are not.
+
+If a request is refused by a proxy rather than answered by GitHub, report "not checked" and do not guess. A repo about to be made public also has its history published; section 1b of the voice guide says what to check first.
+
 **Step 6 — Sitemap and feeds**
 
 - `dist/client/sitemap-index.xml` exists
@@ -121,7 +157,7 @@ The existing `image.path` frontmatter check (Step 3) covers the social card (`li
 
 Group findings by severity:
 
-- **P0 — must fix before publish.** Build failures, missing required frontmatter, missing OG images that would fall back to placeholder, duplicate training orders.
+- **P0 — must fix before publish.** A personal or account detail in text or an image, build failures, missing required frontmatter, missing OG images that would fall back to placeholder, duplicate training orders.
 - **P1 — should fix before publish.** Trailing periods on descriptions, mismatched order vs directory, missing tags, missing British spellings if egregious.
 - **P2 — worth fixing soon.** Build warnings, uncommitted changes, schema drift.
 
