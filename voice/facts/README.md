@@ -45,6 +45,6 @@ When citing a fact, prose review skills use: *"per voice/facts/`<slug>`.md → `
 
 `software-factory-unit.md` — facts from the 2026-11-14 interview about the BDD and contract driven Lambda template and the "repeatable unit of a software factory" idea. Also holds his own words from the 2026-11-15 session that added the queue, events and data contract.
 
-`harlequin.md` — facts for part three of the DuckDB series (`learn.harlequin`), from his own messages and screenshots in the 2026-11-20 to 21 build session. No verdict yet.
+`harlequin.md` — facts for part three of the DuckDB series (`learn.harlequin`), from his own messages and screenshots in the 2026-11-20 to 21 build session.
 
 (Other topic files will arrive as `/hc-datagriff-interview` is run for them.)

@@ -25,8 +25,9 @@
 - **Fact (privacy):** His first terminal capture showed his AWS account id inside the bucket name. He said: *"ensure any images or blog posts are scrubbed of any personal details (my email, aws accounts or anything along those lines anywhere!!)"*. The scripts mask the id as a result.
 - **Fact (how to tell it):** On reading *"I asked for the cheapest thing… and the answer was a container"* he said: *"Change this to I wanted instead of I asked. I don't want to hide I'm using AI, but at this point writing about a conversation I had is an odd read for a consumer."* His questions above are therefore written as wants.
 - **Fact (who did what):** Claude Code wrote the Terraform, the Dockerfile and the scripts, and did the emulator investigation in its sandbox. He ran the real-AWS deploy, runs and captures, and ran the emulator locally for the three-environment capture.
-- **Fact (verdict):** Not given. He has not said whether he would use this for real.
-- **Fact (would do differently):** Not asked. Do not manufacture one.
+- **Fact (verdict, 2026-11-21):** *"It's a bit messy still but the introduction of the emulator is great to get more production like testing done locally, just a shame can't register a container in registry and literally do everything in an emulated environment, no other service fit either."*
+- **Fact (would do differently):** *"I'd use a script runner like taskfile if did it again like I do usually and use a GitHub action for ci for emulator and then deploy. That's my next blog on this series!"*
+- **Fact (the comparison capture):** The three-environment capture had its four label lines redrawn after the script was renamed from rungs to environments. Told a review treated that as blocking, he said: *"Happy with screenshot as is."* His decision; do not reopen it.
 - **Never claim:**
   - Any feeling about the work: nervous, relieved, excited, surprised, unsure. He expressed none.
   - That he personally hit the emulator's limits (the stuck bucket, the security group error, the ECR push, the ECS task, the Lambda runtime, the missing export folder). Those happened in Claude Code's sandbox.
@@ -45,4 +46,4 @@
   - *"all three environments doing the same query showing same results"*
   - *"just to prove the environment"*
 - **Permissions:** use anywhere within the DuckDB series content.
-- **Source:** Claude Code session, 2026-11-20 to 2026-11-21 (his messages and screenshots). An `/hc-datagriff-interview harlequin` is still needed for the verdict and the would-do-differently line.
+- **Source:** Claude Code session, 2026-11-20 to 2026-11-21 (his messages and screenshots). Verdict and would-do-differently given in the same session.
