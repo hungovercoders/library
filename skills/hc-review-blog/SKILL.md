@@ -62,6 +62,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | British spellings | `flavour`, `colour`, `behaviour`, `organisation`, `prioritisation` etc. — not American spellings |
 | Links | For a post about a new tool, its launch announcement as well as its docs. For a series post: both the series link (`https://hungovercoders.com/training/<slug>`) and the GitHub repo link present and well-formed |
 | Length | 1,500–2,500 words. Note actual word count vs target |
+| Personal and account details | Voice guide section 1b. Grep the post for email addresses, 12-digit numbers and `AKIA` key prefixes, and read each hit. Then open every image the post embeds (`public/assets/<slug>/`) with the Read tool and look at shell prompts, address bars, console corners and email headers. FAIL on any real email, account identifier, key, IP address or local username. A FAIL here blocks publishing whatever else passes |
 | Share image presence | `image.path` points at `/assets/<slug>/link.png`; verify the file exists at `public/assets/<slug>/link.png` |
 
 **Step 4 — Uniqueness check against the previous 2–3 posts**
@@ -85,7 +86,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 32 criteria passing (count N/A separately)
+- M of 33 criteria passing (count N/A separately)
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -109,7 +110,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 32 criteria, with N/A counted separately
+- Pass count out of 33 criteria, with N/A counted separately
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first

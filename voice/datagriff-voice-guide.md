@@ -72,6 +72,26 @@ The "An AI can generate the walkthrough; it can't generate the lived take" line 
 
 ---
 
+## 1b. Nothing personal, nothing from an account (load-bearing)
+
+Nothing published carries dataGriff's personal details or anything that identifies an account he owns. This covers post and lesson text, code blocks, alt text, screenshots, recordings, diagrams and share images.
+
+**Never publish:**
+
+- Email addresses, other than the public `info@hungovercoders.com`.
+- Cloud account identifiers and anything that contains one: an AWS account ID, an ARN, an ECR address, a bucket named after the account, an Azure subscription or tenant ID, a Cloudflare account ID.
+- Access keys, tokens, connection strings and passwords, including expired ones.
+- IP addresses, phone numbers, home addresses.
+- A shell prompt, window title or file path that shows a local username, a named cloud profile or a private repository.
+
+**Use a stand-in instead:** `me@example.com` for an email, `123456789012` for an AWS account ID, `my-profile` for a named profile, `my-bucket` for a bucket. Change the real value for the stand-in; don't blur it, because a blur can be read.
+
+**Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it.
+
+The `dataGriff` handle, the `hungovercoders` organisation and its public repositories are public and fine to use.
+
+---
+
 ## 2. The voice rules
 
 ### Always

@@ -114,6 +114,10 @@ ffmpeg -i source.mov -vf "fps=12,scale=720:-1:flags=lanczos" -loop 0 hook-blocks
 
 Behavioural recordings are the most expensive asset per lesson — keep them honest.
 
+## Nothing personal in the frames
+
+Section 1b of the voice guide applies to every recording. Record from a shell whose prompt shows no username, cloud profile or private path, and swap real emails and account identifiers in the captured output for the stand-ins (`me@example.com`, `123456789012`) before rendering frames. A recording is many frames, so scrub the input and then watch the result through once before committing it.
+
 ## Commit and reference
 
 Once a recording is in `site/public/assets/training/<series>/<lesson-slug>/`:
