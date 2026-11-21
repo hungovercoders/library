@@ -120,6 +120,22 @@ git diff --name-only --diff-filter=AM origin/main...HEAD -- public/assets \
 
 Look at shell prompts, browser address bars, cloud console corners, email headers and anything typed into a form. For a video, open its poster frame and the GIF. Report each finding with the file path and what is showing; the fix is to crop, mask or retake, never to blur.
 
+**Step 5d — Linked repositories are public and presentable**
+
+A post that sends readers to a repo they cannot open is broken. For every `github.com/<owner>/<repo>` link in a post this branch adds or changes, without credentials:
+
+```bash
+curl -s -o /dev/null -w '%{http_code}\n' https://github.com/<owner>/<repo>
+curl -s -o /dev/null -w '%{http_code}\n' https://raw.githubusercontent.com/<owner>/<repo>/HEAD/README.md
+curl -s -o /dev/null -w '%{http_code}\n' https://raw.githubusercontent.com/<owner>/<repo>/HEAD/LICENSE
+```
+
+- The repo answers 404: it is private or missing. **P0** if the post's steps depend on files in it, **P1** if it is only a "the code is here" link.
+- No README at the root: **P1**. No licence: **P2**.
+- If the post names files in the repo (`scripts/…`, `infra/…`), confirm they are on its default branch, not only on a working branch: **P1** when they are not.
+
+If a request is refused by a proxy rather than answered by GitHub, report "not checked" and do not guess. A repo about to be made public also has its history published; section 1b of the voice guide says what to check first.
+
 **Step 6 — Sitemap and feeds**
 
 - `dist/client/sitemap-index.xml` exists

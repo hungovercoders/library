@@ -38,7 +38,7 @@ Read in full:
 - `~/.claude/hungovercoders/voice/facts/<topic-slug>.md` — the source of truth for first-person claims about this topic. Slug derived from the launching series' repo name (strip the `learn.` prefix: `learn.<topic>` → `<topic>.md`). Load **only this file**.
 - `~/.claude/hungovercoders/voice/blog-tutorial-template.md`
 
-**Truth check before writing.** If the matching `voice/facts/<topic-slug>.md` doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the launch post with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics — a launch post is a high-visibility surface where invented details corrode the brand promise fastest.
+**Truth check before writing.** If the post comes out of a build session, first harvest his own messages from that session into `voice/facts/<topic-slug>.md` (see "Facts from a build session" in `voice/facts/README.md`), and keep the command and output for every limit a tool turned out to have. If the matching `voice/facts/<topic-slug>.md` still doesn't exist or has no entries, stop and tell the user. Offer two paths: (1) call `/hc-datagriff-interview <topic>` to capture real anecdotes first, or (2) write the launch post with impersonal framing for the `I wanted…` and `honest moment` beats. Do not proceed by inventing personal specifics — a launch post is a high-visibility surface where invented details corrode the brand promise fastest.
 
 Then survey the **whole** series — the blog has to summarise the topic, not just the bit the demo touches:
 

@@ -35,6 +35,10 @@ Each topic file:
 - **Source:** <interview date, or other source>
 ```
 
+## Facts from a build session
+
+An interview is not the only source. What he types while the work is being done is his word too: what he wanted, the question he asked, the thing that stopped him, the verdict he gave. When a post comes out of a build session, harvest those messages into the topic file before drafting, quoted verbatim and dated, with the source recorded as the session. Mark what he did himself and what the agent did in its own sandbox, and put the second under **Never claim**. Leave verdict, would-do-differently and day-context as "not given" until he gives them.
+
 When citing a fact, prose review skills use: *"per voice/facts/`<slug>`.md → `<fact short title>`"*.
 
 ## What's in here

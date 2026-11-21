@@ -41,6 +41,8 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Tool limits | Every statement of what a tool cannot do carries the command that showed it or a vendor link. Flag any that is asserted without one |
 | Unproven caveats | For each "not proven", "hasn't been tried" or "untested": could one run settle it now? List those that could, as things to do before publishing rather than things to say |
 | Own tooling | Every claim about what the author's own tool, gate or workflow does matches what is merged, not an earlier design. Check each against the repository |
+| Quoted code | Every code block that quotes a file from the repo matches that file. Diff each one against its source and report any difference; a block trimmed for the page says it is trimmed. A post that describes scripts shows them, in a collapsed `<details>` block when they are long, and does not ask the reader to take them on trust |
+| Followable | Read the post as someone at a terminal who has done the earlier parts. Every command has what it needs by the time it is run: the files exist or the post says where to get them, variables are set, the tool is installed, the login has happened, and anything built is rebuilt after the thing it was built from changes. Anything stood up is torn down by the end. List each step that would stop a reader if followed literally, and FAIL on any |
 | Like for like | Any two figures compared measure the same thing (step against step, job against job). Flag a comparison that mixes them without saying so |
 | Relative days | No "yesterday" or "last week" pointing at another post; the day is named. Any "yesterday" or "today" in the day context matches the post's `date` |
 | Day-context texture | Opener weaves in a real-world moment (warm afternoon, dogs walked, BBQ, etc.) — at least one concrete personal detail |
@@ -61,7 +63,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Repetition | The thesis is stated once. No paragraph-ending morals in a row, no "which is X" tags, no one-word punchlines. Grep for `, which is` and count the signature word. |
 | British spellings | `flavour`, `colour`, `behaviour`, `organisation`, `prioritisation` etc. — not American spellings |
 | Links | For a post about a new tool, its launch announcement as well as its docs. For a series post: the GitHub repo link present and well-formed. The series link (`https://hungovercoders.com/training/<slug>`) is required only when the series has a training page, which means its `learn.*` repo is listed in the site's `scripts/fetch-training-repos.sh`. For a blog-only series, where it is not, a training link would be dead: do not ask for one, and do not fail the post for lacking it |
-| Length | 1,500–2,500 words. Note actual word count vs target |
+| Length | 1,500–2,500 words, counted with the collapsed `<details>` blocks left out: code a reader has to open is reference, not reading. Report three numbers, the whole file, the file without those blocks, and prose only, and score on the second |
 | Personal and account details | Voice guide section 1b. Grep the post for email addresses, 12-digit numbers and `AKIA` key prefixes, and read each hit. Then open every image the post embeds (`public/assets/<slug>/`) with the Read tool and look at shell prompts, address bars, console corners and email headers. FAIL on any real email, account identifier, key, IP address or local username. A FAIL here blocks publishing whatever else passes |
 | Share image presence | `image.path` points at `/assets/<slug>/link.png`; verify the file exists at `public/assets/<slug>/link.png` |
 
@@ -86,7 +88,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 33 criteria passing (count N/A separately)
+- M of 35 criteria passing (count N/A separately)
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -110,7 +112,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 33 criteria, with N/A counted separately
+- Pass count out of 35 criteria, with N/A counted separately
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first

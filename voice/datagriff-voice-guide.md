@@ -86,7 +86,11 @@ Nothing published carries dataGriff's personal details or anything that identifi
 
 **Use a stand-in instead:** `me@example.com` for an email, `123456789012` for an AWS account ID, `my-profile` for a named profile, `my-bucket` for a bucket. Change the real value for the stand-in; don't blur it, because a blur can be read.
 
-**Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it.
+**The only edit a capture may have is a privacy swap.** A real value changed for its stand-in is expected, and the post says it was done. Anything else, a label that has since been renamed, a number that has moved, a line that reads badly, is a retake.
+
+**Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it. An email capture is cropped above its footer, where the unsubscribe link carries the address and the account.
+
+**A repository's history is published with it.** Making a repo public shows every earlier commit, every earlier version of every image, and the name and email on each commit. Check all three before it is linked from a post.
 
 The `dataGriff` handle, the `hungovercoders` organisation and its public repositories are public and fine to use.
 
@@ -341,7 +345,10 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Always include the complete file at the end** of a section when you've been adding to it piece by piece. Readers should never have to assemble the final code from fragments.
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
-- **Always link to the repo** at the end so people can grab the working version.
+- **Always link to the repo** at the end so people can grab the working version. The repo is public, with a README, before the post that links to it goes out.
+- **Show the script, don't only name it.** If the post runs `scripts/deploy.sh`, the reader sees what that runs. Long files go in a collapsed `<details>` block, quoted exactly as they are in the repo, at the point they are used. Saying "my script does it" with nothing to open is smoke and mirrors.
+- **It can be followed as written.** A reader at a terminal has every file, variable, tool and login a command needs by the time the post tells them to run it. Something built is rebuilt after what it was built from changes, and whatever was stood up is torn down by the end.
+- **Keep the receipts.** The moment a tool turns out not to do something, save the command and its output. The post needs both next to the claim, and they are hard to recover later.
 - **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens over the article on tap, zoomed and pannable, so text-dense screenshots are fine as long as the alt text says what matters.
 - **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
 - **No wall of text.** No section runs much past 250 words without something to look at: a diagram, a recording, a screenshot or code. A paragraph that lists what several things do is a diagram. Bullets describing stages or states are a diagram. Draw it, then cut the paragraph to the one sentence the picture can't say.
