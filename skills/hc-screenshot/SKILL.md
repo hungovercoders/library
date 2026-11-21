@@ -183,6 +183,8 @@ Twelve anticipatory checks — most ran clean…
 
 Inline images render full-width in the site's blog layout. No `<figure>` tag needed; the alt text is the caption-equivalent for screen readers and search engines.
 
+**Nothing personal in the frame.** Section 1b of the voice guide applies to every capture. Before capturing, swap real emails and account identifiers in the command output for the stand-ins (`me@example.com`, `123456789012`), and keep the shell prompt, window title and browser address bar out of the shot or free of usernames, profile names and account IDs. After capturing, open the PNG and look. A capture that shows one is retaken or cropped before it is committed.
+
 **What this skill does NOT do.**
 - It does not generate the 1200×630 social card (`link.png`). That's `scripts/generate-share-image.mjs`, invoked separately by `hc-launch`.
 - It does not edit, crop, or annotate captures. Use Preview.app or another tool for that; the captured PNG is what ships.
