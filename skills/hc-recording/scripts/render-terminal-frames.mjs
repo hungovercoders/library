@@ -11,7 +11,8 @@ const sharp = createRequire(`${process.cwd()}/__resolve__`)('sharp');
 const [,, stepsFile, title, framesDir] = process.argv;
 const steps = JSON.parse(readFileSync(stepsFile, 'utf8'));
 mkdirSync(framesDir, { recursive: true });
-const width = 1100, height = 620, fontSize = 15, lineHeight = fontSize * 1.45, padX = 28, padTop = 56;
+// FRAME_HEIGHT makes room for output that has to be seen whole; the default suits most sessions.
+const width = 1100, height = Number(process.env.FRAME_HEIGHT ?? 620), fontSize = 15, lineHeight = fontSize * 1.45, padX = 28, padTop = 56;
 const maxLines = Math.floor((height - padTop - 20) / lineHeight);
 const escape = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const colorise = line => {
