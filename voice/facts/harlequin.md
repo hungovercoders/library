@@ -23,6 +23,7 @@
   - `error: cannot pull with rebase: You have unstaged changes`, from a changed `infra/.terraform.lock.hcl`.
   - `zsh: command not found: aws-emulator` when he went to start the emulator.
 - **Fact (privacy):** His first terminal capture showed his AWS account id inside the bucket name. He said: *"ensure any images or blog posts are scrubbed of any personal details (my email, aws accounts or anything along those lines anywhere!!)"*. The scripts mask the id as a result.
+- **Fact (how to tell it):** On reading *"I asked for the cheapest thing… and the answer was a container"* he said: *"Change this to I wanted instead of I asked. I don't want to hide I'm using AI, but at this point writing about a conversation I had is an odd read for a consumer."* His questions above are therefore written as wants.
 - **Fact (who did what):** Claude Code wrote the Terraform, the Dockerfile and the scripts, and did the emulator investigation in its sandbox. He ran the real-AWS deploy, runs and captures, and ran the emulator locally for the three-environment capture.
 - **Fact (verdict):** Not given. He has not said whether he would use this for real.
 - **Fact (would do differently):** Not asked. Do not manufacture one.
