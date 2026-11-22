@@ -47,7 +47,7 @@ When citing a fact, prose review skills use: *"per voice/facts/`<slug>`.md → `
 
 `slopstopper.md` — facts derived from the 2026-06-21 slopstopper install blog post (author's own prose).
 
-`software-factory-unit.md` — facts from the 2026-11-14 interview about the BDD and contract driven Lambda template and the "repeatable unit of a software factory" idea. Also holds his own words from the 2026-11-15 session that added the queue, events and data contract.
+`software-factory-unit.md` — facts from the 2026-11-14 interview about the BDD and contract driven Lambda template and the "repeatable unit of a software factory" idea. Also holds his own words from the 2026-11-15 session that added the queue, events and data contract. And from the 2026-11-21 to 22 session behind the testing trophy post.
 
 `harlequin.md` — facts for part three of the DuckDB series (`learn.harlequin`), from his own messages and screenshots in the 2026-11-20 to 21 build session.
 
