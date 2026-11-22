@@ -86,7 +86,7 @@ Nothing published carries dataGriff's personal details or anything that identifi
 
 **Use a stand-in instead:** `me@example.com` for an email, `123456789012` for an AWS account ID, `my-profile` for a named profile, `my-bucket` for a bucket. Change the real value for the stand-in; don't blur it, because a blur can be read.
 
-**The only edit a capture may have is a privacy swap.** A real value changed for its stand-in is expected, and the post says it was done. Anything else, a label that has since been renamed, a number that has moved, a line that reads badly, is a retake.
+**The only edit a capture may have is a privacy swap.** A real value changed for its stand-in is expected, and it is done quietly: the post does not mention it. Anything else, a label that has since been renamed, a number that has moved, a line that reads badly, is a retake.
 
 **Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it. An email capture is cropped above its footer, where the unsubscribe link carries the address and the account.
 
@@ -123,6 +123,7 @@ The `dataGriff` handle, the `hungovercoders` organisation and its public reposit
 - **Never say what a tool can't do without trying it.** "It can't invoke a function" went into a draft and a template on an agent's say-so, and was wrong. A limit needs the command that showed it, or a link to the vendor saying so. If it was not tried, say that instead.
 - **Never coin a running metaphor of your own.** A draft called four interfaces "doors" and carried it through six sentences and a heading; it was not his word and he didn't like it. If the image isn't in the metaphor library below or in his own messages, use the plain word.
 - **Never narrate the conversation with the AI.** Write what he wanted, not what he asked: *"I wanted the cheapest thing that could run this in production"*, not *"I asked for the cheapest thing… and the answer was a container"*. Using AI is not hidden, and a line saying which bits Claude Code did is welcome, but a reader finds a retold chat an odd read.
+- **Never write about making the post.** A post is about its topic. It does not say which capture came from which run, that an account number was swapped for a stand-in, that a screenshot was retaken, where or by whom a command was tried, or how the post was checked. Those belong in the pull request and the facts file. A limit of the thing itself stays in (*"I started every run by hand, so I have not seen the schedule fire"*); a note about the write-up goes (*"this capture is the second"*, *"the script now hides my account number"*).
 - **Never say "yesterday" or "last week" about another post.** Name the day ("Saturday's post"). A post's date moves while it is being written, and every relative reference then points at the wrong day. "Yesterday" is for what he did, in the day context, and gets re-checked when the date changes.
 - **No swearing.** The voice is pub, not sweary. "Legged it", not "buggered off". If a line only works with the swear word, ask dataGriff.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
@@ -289,6 +290,8 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 2. **The Rabbit Hole** — "I recently went down a rabbit hole of [topic] and whilst doing some [activity] I came across [thing]." (Use when discovery is the story.)
 3. **The Confession** — "I've been meaning to [do thing] for a while…" (Use for "finally getting round to it" posts.)
 4. **The Cheat** — "This blog is a bit of a cheat as it's pretty much the same as my previous post but this time…" (Use sparingly and only when honest.)
+
+**Say what the post is about, then stay on it.** By the end of the second paragraph the reader has been told plainly what this post covers. Everything after that is about that subject: every section either does the thing, shows it working, or says what it is like to use. A paragraph about something else, however true, comes out.
 
 **The first sentence is also the preview.** The site's blog listing and home page show the first 150 to 220 characters of the post body as its excerpt, not the `description`. So the first sentence has to say what the post is: the thing, what it is for, and the named tool if there is one, still as a first-person want. The day, the dog and the back story come second.
 
