@@ -10,6 +10,7 @@
 - **Fact (non-functional requirements as testable specs, 2026-11-21):** *"How will nfrs be tested? Is there a way we can leverage a testable spec like the others? Some may be part of contracts already e.g data retention in data contract. Is there anything else we can reuse? We don't want to duplicate or cause inconsistencies in our specs"* and *"Treat like other specs and testable"*.
 - **Fact (determinism, 2026-11-21):** *"Will we use the Oslo tooling as well to maintain our determinism where possible mantra?"*
 - **Fact (angle and reader, chosen from options on 2026-11-22):** the test pyramid rebuilt from specs, for tech leads and architects, assuming the reader has seen the two earlier posts.
+- **Fact (opener, 2026-11-22):** Offered the choice of keeping the want-led opener or switching to *"I went looking for the test pyramid in my spec driven Lambda template and found a trophy"*, he said *"Switch"*.
 - **Fact (day context):** not given.
 - **Fact (verdict):** not given for the testing itself. The earlier verdicts in this file still stand (*"I'd use the pattern now"*, *"the concept is what we should all strive for and expect from our software"*).
 - **Fact (would do differently):** not given. Do not manufacture one.
