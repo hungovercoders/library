@@ -349,6 +349,7 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
 - **Always link to the repo** at the end so people can grab the working version. The repo is public, with a README, before the post that links to it goes out.
+- **Link to the section, not only the post.** When a step leans on something an earlier post set up (*"the test we added in part 2"*, *"the beer list"*), link those words to the heading that did it, `/blog/<slug>/#<heading-anchor>`, so a reader who skipped it lands on the instructions. Check each anchor exists in the built page.
 - **Show the script, don't only name it.** If the post runs `scripts/deploy.sh`, the reader sees what that runs. Long files go in a collapsed `<details>` block, quoted exactly as they are in the repo, at the point they are used. Saying "my script does it" with nothing to open is smoke and mirrors.
 - **It can be followed as written.** A reader at a terminal has every file, variable, tool and login a command needs by the time the post tells them to run it. Something built is rebuilt after what it was built from changes, and whatever was stood up is torn down by the end.
 - **Keep the receipts.** The moment a tool turns out not to do something, save the command and its output. The post needs both next to the claim, and they are hard to recover later.
