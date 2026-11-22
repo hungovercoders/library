@@ -1,7 +1,7 @@
 ---
 name: hc-review-blog
 description: Voice and structural review of a single hungovercoders blog post against the dataGriff voice guide and blog template
-allowed-tools: Read, Glob, Grep, Bash(ls:*), Bash(wc:*), Bash(mkdir:*), Write
+allowed-tools: Read, Glob, Grep, Bash(ls:*), Bash(wc:*), Bash(mkdir:*), Bash(node scripts/check-openers.mjs:*), Write
 argument-hint: <optional path or slug — defaults to the most recent post in src/content/blog>
 ---
 
@@ -74,6 +74,7 @@ List `src/content/blog/*.md` (excluding `_drafts/`), sort by date descending, ta
 
 - This post reuses the most recent post's title pattern (e.g. two consecutive *Quick Beer with X*)
 - This post reuses the most recent post's opener formula
+- This post starts with the same two words as any of the three posts before it. Do not judge this by eye: run `node scripts/check-openers.mjs` in the site repo (Bash) and quote its output. A non-zero exit is a FAIL, and the report lists the opening words it printed with `--list`
 - This post reuses ≥ 2 themed headings from the most recent post
 
 The voice guide is explicit: opinion-beat and closer repetition is brand consistency, but title pattern and opener repetition is monotony.

@@ -53,6 +53,10 @@ For every `.md` file in `src/content/blog/` (excluding `_drafts/`), check:
 
 Report each violation with the exact file path and the offending line.
 
+**Step 3b — Openers vary**
+
+Run `node scripts/check-openers.mjs`. It fails when the newest post starts with the same two words as any of the three before it. A failure is P1: the listing reads as one template. Put the output of `node scripts/check-openers.mjs --list` in the report so the author can see the run of openers.
+
 **Step 4 — Training lesson frontmatter sweep**
 
 If `training-repos/` contains any linked repos, walk every `training-repos/*/docs/*/README.md` and check:

@@ -288,10 +288,12 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 
 ### Openers (pick one per post)
 
-1. **The Want** — "I wanted to [do thing] so that [reason]. Below describes how I [did thing]." (Most common. Default to this.)
+1. **The Want** — "I wanted to [do thing] so that [reason]. Below describes how I [did thing]." (The most common, so the one to ration. Four posts in a row opened "I wanted" before anyone noticed.)
 2. **The Rabbit Hole** — "I recently went down a rabbit hole of [topic] and whilst doing some [activity] I came across [thing]." (Use when discovery is the story.)
 3. **The Confession** — "I've been meaning to [do thing] for a while…" (Use for "finally getting round to it" posts.)
 4. **The Cheat** — "This blog is a bit of a cheat as it's pretty much the same as my previous post but this time…" (Use sparingly and only when honest.)
+
+**Vary the first words.** The listings show the start of every post, so the same two opening words on consecutive posts read as one template. A want does not have to start "I wanted": *"Events and data contracts were the natural next steps for…"* and *"I went looking for the test pyramid in my template and found a trophy"* are both wants. The site's `task blog:openers` (`scripts/check-openers.mjs`) fails a post whose first two words match any of the three posts before it. A new stance about the post (a rabbit hole, a confession, a cheat) still needs his word, as section 1a says; a different sentence built from facts already on file does not.
 
 **Say what the post is about, then stay on it.** By the end of the second paragraph the reader has been told plainly what this post covers. Everything after that is about that subject: every section either does the thing, shows it working, or says what it is like to use. A paragraph about something else, however true, comes out.
 
