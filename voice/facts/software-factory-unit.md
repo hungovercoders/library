@@ -32,6 +32,7 @@
   - The run quoted in the post is one `task ci` on the Beer Catalogue example's implementation step, in the agent's sandbox on 2026-11-22: 183 unit tests, 10 Terraform plan tests, 68 scenarios, 579 steps, 469 generated fuzz cases with no issues found in 64.32 seconds.
   - A Terraform plan test written for retention failed on its first run. The data contract says `unit: y`, Terraform's `yamldecode` reads a bare `y` as boolean true, and the code compared the unit with the string "y", so two years of retention came out as two days. The fix reads either form.
   - The gate that checks every operation has a scenario counted an `@operation` tag anywhere in a feature file, including in a comment. It showed up when the template gained a starter feature file made entirely of comments. Only tag lines count now.
+  - Both fixes were a few lines: one expression in `infra/data.tf`, and a short `operationTags` function in `scripts/contracts.ts`.
   - The suite's shape as counted: static checks at the base (lint, compatibility, types, plan tests), a modest unit layer mostly belonging to the skeleton, a fat integration middle on AWS Emulator, and nothing on real AWS.
   - Not in the suite: consumer-driven contract tests, and any test against a deployed stack.
 - **Permissions:** not stated. Treat as usable within content about this template and the software factory idea; check before using elsewhere.
