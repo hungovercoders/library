@@ -11,16 +11,17 @@
 - **Fact (determinism, 2026-11-21):** *"Will we use the Oslo tooling as well to maintain our determinism where possible mantra?"*
 - **Fact (angle and reader, chosen from options on 2026-11-22):** the test pyramid rebuilt from specs, for tech leads and architects, assuming the reader has seen the two earlier posts.
 - **Fact (opener, 2026-11-22):** Offered the choice of keeping the want-led opener or switching to *"I went looking for the test pyramid in my spec driven Lambda template and found a trophy"*, he said *"Switch"*.
-- **Fact (day context):** not given.
+- **Fact (day context, in his words, 2026-11-22):** *"Man utd have been battered 4-0 by Liverpool but I think my made up specs to test framework is a winner. Instead of consoling my teams demise with a bottle of wine I decided to research the test patterns and techniques that underpinned my thinking, as I'd pretty much just made stuff up so far"*
 - **Fact (verdict):** not given for the testing itself. The earlier verdicts in this file still stand (*"I'd use the pattern now"*, *"the concept is what we should all strive for and expect from our software"*).
 - **Fact (would do differently):** asked for one on 2026-11-22, he said *"Leave out what I'd do differently"*. The testing post carries none on purpose. Do not manufacture one.
 - **Never claim:**
   - Expertise in testing theory. He said he has little and is running at the concepts.
   - That he classified the suite as a trophy on his own. The agent explained the pyramid, the trophy and the honeycomb, proposed "trophy" and the tagline, and he chose them.
   - That he found either bug below. The template's own gates found them while the agent was building.
-  - A day, a place or a feeling for this stretch of work. None was given.
+  - Anything about the match beyond his sentence: where he watched it, who with, the scorers, or how he felt beyond "my teams demise". Nor that he drank the wine; he said he did not.
   - That anything has run against a real AWS account.
 - **Allowed framings:** (verbatim)
+  - *"battered 4-0 by Liverpool"*, *"my made up specs to test framework is a winner"*, *"consoling my teams demise with a bottle of wine"*, *"I'd pretty much just made stuff up so far"*
   - *"I want to understand the test pyramid myself"*
   - *"running at the concepts but have little expertise"*
   - *"the design pattern of what I've done"*
