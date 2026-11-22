@@ -90,7 +90,7 @@ Nothing published carries dataGriff's personal details or anything that identifi
 
 **Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it. An email capture is cropped above its footer, where the unsubscribe link carries the address and the account.
 
-**A repository's history is published with it.** Making a repo public shows every earlier commit, every earlier version of every image, and the name and email on each commit. Check all three before it is linked from a post.
+**A repository's history is published with it.** Making a repo public shows every earlier commit, every earlier version of every image, and the name and email on each commit. Check all three before it is linked from a post. For the same reason, squash-merge a post's pull request when a capture was replaced while drafting, so the earlier version stays out of `main`.
 
 The `dataGriff` handle, the `hungovercoders` organisation and its public repositories are public and fine to use.
 
@@ -135,6 +135,8 @@ The `dataGriff` handle, the `hungovercoders` organisation and its public reposit
 The metaphors below are *the wrapper* the brand wears. They're the texture and the colour. **They are not the brand itself** — the brand is the worldview and the honesty about working in this place at this time. The metaphors serve the brand, not the other way round.
 
 **Use them when they fit; don't manufacture them when they don't.** Some posts will be soaked in beer references because the post invites them. Other posts will have none, and that's fine — they'll still be on-voice because the worldview, the opinion beats, and the honest tone do the load-bearing work. The earlier version of this guide demanded a beer/pub/dog reference in the first three paragraphs of every post; that rule is relaxed. The new rule is: *the worldview is implicit in every post; metaphors appear when they fit the content, not as decoration*.
+**Where they go.** About one touch per major section is enough to say who is writing. Put it where the reader has just finished a step, never in the middle of an instruction, and leave the stretches where they are concentrating plain. Do not hang a self-deprecating label on a neutral fact to raise a smile (*"fairly lazy hungovercoder"* for a tool that wasn't installed was cut as forced). When a sentence states a fact in his voice and reads flat, the fix is to ask him for the line, not to decorate it. Check that an idiom says what is meant: money kept aside goes in a back pocket, not on a back burner.
+
 
 That said, when metaphors *do* fit, these are the families to reach for. Consistency across the year — using the same metaphor families repeatedly — is what builds recognisable texture.
 
@@ -293,6 +295,8 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 
 **Say what the post is about, then stay on it.** By the end of the second paragraph the reader has been told plainly what this post covers. Everything after that is about that subject: every section either does the thing, shows it working, or says what it is like to use. A paragraph about something else, however true, comes out.
 
+**A later part of a series recaps the earlier ones.** The second paragraph gives each earlier part one sentence and a link, then says what this part adds. A reader arriving cold should know where they are without opening another tab.
+
 **The first sentence is also the preview.** The site's blog listing and home page show the first 150 to 220 characters of the post body as its excerpt, not the `description`. So the first sentence has to say what the post is: the thing, what it is for, and the named tool if there is one, still as a first-person want. The day, the dog and the back story come second.
 
 - Too slow: *"I wanted to solve whatever I could once, so that AI never has to solve it again from scratch."* A reader of the listing cannot tell what the post is about.
@@ -356,6 +360,8 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens over the article on tap, zoomed and pannable, so text-dense screenshots are fine as long as the alt text says what matters.
 - **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
 - **No wall of text.** No section runs much past 250 words without something to look at: a diagram, a recording, a screenshot or code. A paragraph that lists what several things do is a diagram. Bullets describing stages or states are a diagram. Draw it, then cut the paragraph to the one sentence the picture can't say.
+- **A problem the reader cannot see gets a picture.** When a section fixes something invisible (a file that vanishes with a container, a request that never arrives), draw the before and the after and put it ahead of the code. Say where each thing lives: *"raw events in S3"*, not *"parquet files"*.
+- **A deliberate break explains itself.** Before the output of a demo that breaks something on purpose, say what is being changed, why that makes it fail, and what to look for. Give the commands too. A reader should never have to ask what was done or why it failed.
 - **Numbers in the prose come from the same run as the picture.** If a recording shows 23 resources, the sentence under it does not say 15. When a recording or screenshot is re-taken, re-read every number near it, and quote one real run rather than a typical figure.
 - **Compare like with like.** Two timings side by side measure the same thing: a step against a step, a whole CI job against a whole CI job. If only unlike figures exist, name each for what it is and say the comparison is rough.
 - **What the post says the tooling does is checked against what was merged.** A sentence written while something is being built describes the design of that hour. Before publishing, re-read every such claim against the final behaviour; a review often changes it after the paragraph is written.
