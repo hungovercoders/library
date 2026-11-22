@@ -2,6 +2,46 @@
 
 > Reminder: these facts are the source of truth for first-person claims about the BDD and contract driven Lambda template (`template-aws-api`) and the "repeatable unit of a software factory" idea in any hungovercoders content. Never invent specifics not listed here.
 
+## the-test-shape-and-why-specs-suit-an-agent
+- **Date / period:** dataGriff's own messages in the Claude Code session of 2026-11-21 and 2026-11-22, when SLOs, rate limits, plan tests and the examples-as-folders layout were added to `template-aws-api`, and the testing post was drafted. No interview was run; nothing here is more than he typed.
+- **Fact (want, why a dedicated post, 2026-11-22):** *"Could I write a blog post about this test driven setup? I want a dedicated post about this concept and how AI leverages it. I've done two posts covering a lot but I want to talk about this specifically."*
+- **Fact (want, in his words, 2026-11-22):** *"I want to understand the test pyramid myself. I'm running at the concepts but have little expertise. I want to talk about the design pattern of what I've done. Tdd and ai and why deterministic specs are powerful"*
+- **Fact (his questions):** *"Do we have contract, bdd and integration tests in these codebases?"* and *"What is my test shape? What's my tagline?"* He then chose *"Go with the trophy and the first tagline"*. The tagline is *"AI does the typing. The specs do the marking."*
+- **Fact (non-functional requirements as testable specs, 2026-11-21):** *"How will nfrs be tested? Is there a way we can leverage a testable spec like the others? Some may be part of contracts already e.g data retention in data contract. Is there anything else we can reuse? We don't want to duplicate or cause inconsistencies in our specs"* and *"Treat like other specs and testable"*.
+- **Fact (determinism, 2026-11-21):** *"Will we use the Oslo tooling as well to maintain our determinism where possible mantra?"*
+- **Fact (angle and reader, chosen from options on 2026-11-22):** the test pyramid rebuilt from specs, for tech leads and architects, assuming the reader has seen the two earlier posts.
+- **Fact (opener, 2026-11-22):** Offered the choice of keeping the want-led opener or switching to *"I went looking for the test pyramid in my spec driven Lambda template and found a trophy"*, he said *"Switch"*.
+- **Fact (day context, in his words, 2026-11-22):** *"Man utd have been battered 4-0 by Liverpool but I think my made up specs to test framework is a winner. Instead of consoling my teams demise with a bottle of wine I decided to research the test patterns and techniques that underpinned my thinking, as I'd pretty much just made stuff up so far"*
+- **Fact (reflection, in his words, 2026-11-22):** *"It seems weird that spec driven development never used specs that we already had considering their testable too. Also AI has me explore testing patterns so quickly and really helped my learning"*. He asked for the last two sections of the post to become a single reflection on the pattern.
+- **Fact (verdict):** not given for the testing itself. The earlier verdicts in this file still stand (*"I'd use the pattern now"*, *"the concept is what we should all strive for and expect from our software"*).
+- **Fact (would do differently):** asked for one on 2026-11-22, he said *"Leave out what I'd do differently"*. The testing post carries none on purpose. Do not manufacture one.
+- **Never claim:**
+  - Which spec driven development tools or people he means, or why they did not use existing specs. He named none and gave no reason.
+  - Expertise in testing theory. He said he has little and is running at the concepts.
+  - That he classified the suite as a trophy on his own. The agent explained the pyramid, the trophy and the honeycomb, proposed "trophy" and the tagline, and he chose them.
+  - That he found either bug below. The template's own gates found them while the agent was building.
+  - Anything about the match beyond his sentence: where he watched it, who with, the scorers, or how he felt beyond "my teams demise". Nor that he drank the wine; he said he did not.
+  - That anything has run against a real AWS account.
+- **Allowed framings:** (verbatim)
+  - *"battered 4-0 by Liverpool"*, *"my made up specs to test framework is a winner"*, *"consoling my teams demise with a bottle of wine"*, *"I'd pretty much just made stuff up so far"*
+  - *"I want to understand the test pyramid myself"*
+  - *"running at the concepts but have little expertise"*
+  - *"the design pattern of what I've done"*
+  - *"Tdd and ai and why deterministic specs are powerful"*
+  - *"What is my test shape?"*
+  - *"leverage a testable spec like the others"*
+  - *"We don't want to duplicate or cause inconsistencies in our specs"*
+  - *"our determinism where possible mantra"*
+- **Build record (AI in shot, attributable to the agent, not to dataGriff's feelings):**
+  - The run quoted in the post is one `task ci` on the Beer Catalogue example's implementation step, in the agent's sandbox on 2026-11-22: 183 unit tests, 10 Terraform plan tests, 68 scenarios, 579 steps, 469 generated fuzz cases with no issues found in 64.32 seconds.
+  - A Terraform plan test written for retention failed on its first run. The data contract says `unit: y`, Terraform's `yamldecode` reads a bare `y` as boolean true, and the code compared the unit with the string "y", so two years of retention came out as two days. The fix reads either form.
+  - The gate that checks every operation has a scenario counted an `@operation` tag anywhere in a feature file, including in a comment. It showed up when the template gained a starter feature file made entirely of comments. Only tag lines count now.
+  - Both fixes were a few lines: one expression in `infra/data.tf`, and a short `operationTags` function in `scripts/contracts.ts`.
+  - The suite's shape as counted: static checks at the base (lint, compatibility, types, plan tests), a modest unit layer mostly belonging to the skeleton, a fat integration middle on AWS Emulator, and nothing on real AWS.
+  - Not in the suite: consumer-driven contract tests, and any test against a deployed stack.
+- **Permissions:** not stated. Treat as usable within content about this template and the software factory idea; check before using elsewhere.
+- **Source:** dataGriff's messages in the build session, 2026-11-21 to 2026-11-22.
+
 ## solve-it-once-then-let-determinism-do-the-work
 - **Date / period:** Interview on 2026-11-14, the day the template was built in a Claude Code session.
 - **Fact (want):** *"I'm aiming to solve what I can once so AI doesn't solve again from scratch. I want to leverage deterministic processes as much as possible and AI only needs to be used for novel non deterministic actions, or to follow explicit deterministic processes as per skills. I want to ensure isolation and portability for ease of testing and confidence at CI stage too."*

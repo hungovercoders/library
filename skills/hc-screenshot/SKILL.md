@@ -130,7 +130,7 @@ cat gh-checks-as-text.txt | node ~/dev/hungovercoders/library/skills/hc-screensh
     --title "github.com/owner/repo · PR #N · checks" --width 1400 --browser
 ```
 
-Resolves `sharp` from the cwd (the same engine `generate-share-image.mjs` uses). Colours common terminal markers automatically: green for `✅` / `passed` / `SUCCESS`; red for `❌` / `failed`; amber for `⚠️` / `warn`; blue for shell prompts; indigo for header rules.
+Resolves `sharp` from the cwd (the same engine `generate-share-image.mjs` uses). Colours common terminal markers automatically: green for `✅` / `passed` / `SUCCESS`; red for `❌` / `failed`; amber for `⚠️` / `warn`; blue for shell prompts; indigo for header rules. A failure wins over a success on the same line, and a count of nothing is neither: `0 passed, 1 failed` is red and `10 passed, 0 failed` is green. A line wider than the window wraps onto the next row and keeps its colour, so nothing runs off the right edge.
 
 **House style.** Dark terminal, the renderer's default palette. Pipe real output in; never type the output by hand. When a post borrows from another project (slopstopper ships cream-themed vhs GIFs, for instance), re-capture the same commands here rather than embedding theirs, so every terminal on hungovercoders.com looks the same. For motion, `hc-recording`'s `render-terminal-frames.mjs` draws the same chrome frame by frame.
 

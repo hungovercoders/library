@@ -57,6 +57,8 @@ List the most recent 2–3 files in `src/content/blog/` (sort by date in filenam
 
 The new post **must use a different title pattern and a different opener formula from the most recent post**, and should reach for different themed section headings. Repetition of opinion beats and the "fellow hungovercoder" closer is brand consistency; repetition of title patterns, openers, and themed headings is monotony. The voice guide documents five title patterns and four opener formulas precisely so the corpus varies across them.
 
+Then run `node scripts/check-openers.mjs --list` in the site repo. It prints the first two words of the last eight posts. The new post's first two words **must not match any of the three most recent**, whatever formula it uses: a want can be worded without starting "I wanted". `task blog:openers` is the gate, and it runs on the pull request too.
+
 **Step 2 — Write the blog post**
 
 **Pick the title pattern first.** Choose from the five documented patterns based on the post's actual shape:
@@ -155,6 +157,8 @@ Skip the screenshots for opinion / verdict / retro posts where text carries the 
 **Step 3 — Verify**
 
 Run `npm run build` from the site directory. Confirm the post renders without errors.
+
+Run `task blog:openers` (or `node scripts/check-openers.mjs`). If it fails, the post opens with the same two words as one of the three before it: reword the first sentence from the facts file and run it again.
 
 Then confirm the social-sharing metadata is set correctly. Grep the built HTML for the post's OG tags:
 

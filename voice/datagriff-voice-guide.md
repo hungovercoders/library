@@ -288,10 +288,12 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 
 ### Openers (pick one per post)
 
-1. **The Want** — "I wanted to [do thing] so that [reason]. Below describes how I [did thing]." (Most common. Default to this.)
+1. **The Want** — "I wanted to [do thing] so that [reason]. Below describes how I [did thing]." (The most common, so the one to ration. Four posts in a row opened "I wanted" before anyone noticed.)
 2. **The Rabbit Hole** — "I recently went down a rabbit hole of [topic] and whilst doing some [activity] I came across [thing]." (Use when discovery is the story.)
 3. **The Confession** — "I've been meaning to [do thing] for a while…" (Use for "finally getting round to it" posts.)
 4. **The Cheat** — "This blog is a bit of a cheat as it's pretty much the same as my previous post but this time…" (Use sparingly and only when honest.)
+
+**Vary the first words.** The listings show the start of every post, so the same two opening words on consecutive posts read as one template. A want does not have to start "I wanted": *"Events and data contracts were the natural next steps for…"* and *"I went looking for the test pyramid in my template and found a trophy"* are both wants. The site's `task blog:openers` (`scripts/check-openers.mjs`) fails a post whose first two words match any of the three posts before it. A new stance about the post (a rabbit hole, a confession, a cheat) still needs his word, as section 1a says; a different sentence built from facts already on file does not.
 
 **Say what the post is about, then stay on it.** By the end of the second paragraph the reader has been told plainly what this post covers. Everything after that is about that subject: every section either does the thing, shows it working, or says what it is like to use. A paragraph about something else, however true, comes out.
 
@@ -352,6 +354,7 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Always include the complete file at the end** of a section when you've been adding to it piece by piece. Readers should never have to assemble the final code from fragments.
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
+- **Sources go where they do not interrupt.** A lesson, and a post with a short sign-off, puts `## Sources and further reading` before the closer. A blog post whose last section is a few paragraphs of reflection puts the sources after it, as the very last section, so the list of links does not sit between the argument and its ending. The sign-off (*"watch this space"*, the repo link) still closes the reflection, not the sources.
 - **Always link to the repo** at the end so people can grab the working version. The repo is public, with a README, before the post that links to it goes out.
 - **Link to the section, not only the post.** When a step leans on something an earlier post set up (*"the test we added in part 2"*, *"the beer list"*), link those words to the heading that did it, `/blog/<slug>/#<heading-anchor>`, so a reader who skipped it lands on the instructions. Check each anchor exists in the built page.
 - **Show the script, don't only name it.** If the post runs `scripts/deploy.sh`, the reader sees what that runs. Long files go in a collapsed `<details>` block, quoted exactly as they are in the repo, at the point they are used. Saying "my script does it" with nothing to open is smoke and mirrors.
@@ -438,7 +441,7 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Sourcing check (the brand-promise one)**
 
-9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer.)
+9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer, or last of all in a blog post whose closing section is a reflection.)
 
 **AI tells check (run this last)**
 
