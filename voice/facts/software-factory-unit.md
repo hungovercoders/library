@@ -13,7 +13,7 @@
 - **Fact (opener, 2026-11-22):** Offered the choice of keeping the want-led opener or switching to *"I went looking for the test pyramid in my spec driven Lambda template and found a trophy"*, he said *"Switch"*.
 - **Fact (day context):** not given.
 - **Fact (verdict):** not given for the testing itself. The earlier verdicts in this file still stand (*"I'd use the pattern now"*, *"the concept is what we should all strive for and expect from our software"*).
-- **Fact (would do differently):** not given. Do not manufacture one.
+- **Fact (would do differently):** asked for one on 2026-11-22, he said *"Leave out what I'd do differently"*. The testing post carries none on purpose. Do not manufacture one.
 - **Never claim:**
   - Expertise in testing theory. He said he has little and is running at the concepts.
   - That he classified the suite as a trophy on his own. The agent explained the pyramid, the trophy and the honeycomb, proposed "trophy" and the tagline, and he chose them.
