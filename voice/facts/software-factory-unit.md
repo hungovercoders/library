@@ -12,9 +12,11 @@
 - **Fact (angle and reader, chosen from options on 2026-11-22):** the test pyramid rebuilt from specs, for tech leads and architects, assuming the reader has seen the two earlier posts.
 - **Fact (opener, 2026-11-22):** Offered the choice of keeping the want-led opener or switching to *"I went looking for the test pyramid in my spec driven Lambda template and found a trophy"*, he said *"Switch"*.
 - **Fact (day context, in his words, 2026-11-22):** *"Man utd have been battered 4-0 by Liverpool but I think my made up specs to test framework is a winner. Instead of consoling my teams demise with a bottle of wine I decided to research the test patterns and techniques that underpinned my thinking, as I'd pretty much just made stuff up so far"*
+- **Fact (reflection, in his words, 2026-11-22):** *"It seems weird that spec driven development never used specs that we already had considering their testable too. Also AI has me explore testing patterns so quickly and really helped my learning"*. He asked for the last two sections of the post to become a single reflection on the pattern.
 - **Fact (verdict):** not given for the testing itself. The earlier verdicts in this file still stand (*"I'd use the pattern now"*, *"the concept is what we should all strive for and expect from our software"*).
 - **Fact (would do differently):** asked for one on 2026-11-22, he said *"Leave out what I'd do differently"*. The testing post carries none on purpose. Do not manufacture one.
 - **Never claim:**
+  - Which spec driven development tools or people he means, or why they did not use existing specs. He named none and gave no reason.
   - Expertise in testing theory. He said he has little and is running at the concepts.
   - That he classified the suite as a trophy on his own. The agent explained the pyramid, the trophy and the honeycomb, proposed "trophy" and the tagline, and he chose them.
   - That he found either bug below. The template's own gates found them while the agent was building.
