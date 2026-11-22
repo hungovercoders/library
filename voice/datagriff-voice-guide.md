@@ -86,11 +86,11 @@ Nothing published carries dataGriff's personal details or anything that identifi
 
 **Use a stand-in instead:** `me@example.com` for an email, `123456789012` for an AWS account ID, `my-profile` for a named profile, `my-bucket` for a bucket. Change the real value for the stand-in; don't blur it, because a blur can be read.
 
-**The only edit a capture may have is a privacy swap.** A real value changed for its stand-in is expected, and the post says it was done. Anything else, a label that has since been renamed, a number that has moved, a line that reads badly, is a retake.
+**The only edit a capture may have is a privacy swap.** A real value changed for its stand-in is expected, and it is done quietly: the post does not mention it. Anything else, a label that has since been renamed, a number that has moved, a line that reads badly, is a retake.
 
 **Images are where it leaks.** A terminal capture shows the prompt. A browser capture shows the address bar and the signed-in account. A cloud console shows the account ID in a corner. Look at every image before it is committed, and crop, mask or retake it. An email capture is cropped above its footer, where the unsubscribe link carries the address and the account.
 
-**A repository's history is published with it.** Making a repo public shows every earlier commit, every earlier version of every image, and the name and email on each commit. Check all three before it is linked from a post.
+**A repository's history is published with it.** Making a repo public shows every earlier commit, every earlier version of every image, and the name and email on each commit. Check all three before it is linked from a post. For the same reason, squash-merge a post's pull request when a capture was replaced while drafting, so the earlier version stays out of `main`.
 
 The `dataGriff` handle, the `hungovercoders` organisation and its public repositories are public and fine to use.
 
@@ -123,6 +123,7 @@ The `dataGriff` handle, the `hungovercoders` organisation and its public reposit
 - **Never say what a tool can't do without trying it.** "It can't invoke a function" went into a draft and a template on an agent's say-so, and was wrong. A limit needs the command that showed it, or a link to the vendor saying so. If it was not tried, say that instead.
 - **Never coin a running metaphor of your own.** A draft called four interfaces "doors" and carried it through six sentences and a heading; it was not his word and he didn't like it. If the image isn't in the metaphor library below or in his own messages, use the plain word.
 - **Never narrate the conversation with the AI.** Write what he wanted, not what he asked: *"I wanted the cheapest thing that could run this in production"*, not *"I asked for the cheapest thing… and the answer was a container"*. Using AI is not hidden, and a line saying which bits Claude Code did is welcome, but a reader finds a retold chat an odd read.
+- **Never write about making the post.** A post is about its topic. It does not say which capture came from which run, that an account number was swapped for a stand-in, that a screenshot was retaken, where or by whom a command was tried, or how the post was checked. Those belong in the pull request and the facts file. A limit of the thing itself stays in (*"I started every run by hand, so I have not seen the schedule fire"*); a note about the write-up goes (*"this capture is the second"*, *"the script now hides my account number"*).
 - **Never say "yesterday" or "last week" about another post.** Name the day ("Saturday's post"). A post's date moves while it is being written, and every relative reference then points at the wrong day. "Yesterday" is for what he did, in the day context, and gets re-checked when the date changes.
 - **No swearing.** The voice is pub, not sweary. "Legged it", not "buggered off". If a line only works with the swear word, ask dataGriff.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
@@ -134,6 +135,8 @@ The `dataGriff` handle, the `hungovercoders` organisation and its public reposit
 The metaphors below are *the wrapper* the brand wears. They're the texture and the colour. **They are not the brand itself** — the brand is the worldview and the honesty about working in this place at this time. The metaphors serve the brand, not the other way round.
 
 **Use them when they fit; don't manufacture them when they don't.** Some posts will be soaked in beer references because the post invites them. Other posts will have none, and that's fine — they'll still be on-voice because the worldview, the opinion beats, and the honest tone do the load-bearing work. The earlier version of this guide demanded a beer/pub/dog reference in the first three paragraphs of every post; that rule is relaxed. The new rule is: *the worldview is implicit in every post; metaphors appear when they fit the content, not as decoration*.
+**Where they go.** About one touch per major section is enough to say who is writing. Put it where the reader has just finished a step, never in the middle of an instruction, and leave the stretches where they are concentrating plain. Do not hang a self-deprecating label on a neutral fact to raise a smile (*"fairly lazy hungovercoder"* for a tool that wasn't installed was cut as forced). When a sentence states a fact in his voice and reads flat, the fix is to ask him for the line, not to decorate it. Check that an idiom says what is meant: money kept aside goes in a back pocket, not on a back burner.
+
 
 That said, when metaphors *do* fit, these are the families to reach for. Consistency across the year — using the same metaphor families repeatedly — is what builds recognisable texture.
 
@@ -290,6 +293,10 @@ The rambling sentence is allowed. It's a feature. It's the bit where you mention
 3. **The Confession** — "I've been meaning to [do thing] for a while…" (Use for "finally getting round to it" posts.)
 4. **The Cheat** — "This blog is a bit of a cheat as it's pretty much the same as my previous post but this time…" (Use sparingly and only when honest.)
 
+**Say what the post is about, then stay on it.** By the end of the second paragraph the reader has been told plainly what this post covers. Everything after that is about that subject: every section either does the thing, shows it working, or says what it is like to use. A paragraph about something else, however true, comes out.
+
+**A later part of a series recaps the earlier ones.** The second paragraph gives each earlier part one sentence and a link, then says what this part adds. A reader arriving cold should know where they are without opening another tab.
+
 **The first sentence is also the preview.** The site's blog listing and home page show the first 150 to 220 characters of the post body as its excerpt, not the `description`. So the first sentence has to say what the post is: the thing, what it is for, and the named tool if there is one, still as a first-person want. The day, the dog and the back story come second.
 
 - Too slow: *"I wanted to solve whatever I could once, so that AI never has to solve it again from scratch."* A reader of the listing cannot tell what the post is about.
@@ -346,12 +353,15 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
 - **Always link to the repo** at the end so people can grab the working version. The repo is public, with a README, before the post that links to it goes out.
+- **Link to the section, not only the post.** When a step leans on something an earlier post set up (*"the test we added in part 2"*, *"the beer list"*), link those words to the heading that did it, `/blog/<slug>/#<heading-anchor>`, so a reader who skipped it lands on the instructions. Check each anchor exists in the built page.
 - **Show the script, don't only name it.** If the post runs `scripts/deploy.sh`, the reader sees what that runs. Long files go in a collapsed `<details>` block, quoted exactly as they are in the repo, at the point they are used. Saying "my script does it" with nothing to open is smoke and mirrors.
 - **It can be followed as written.** A reader at a terminal has every file, variable, tool and login a command needs by the time the post tells them to run it. Something built is rebuilt after what it was built from changes, and whatever was stood up is torn down by the end.
 - **Keep the receipts.** The moment a tool turns out not to do something, save the command and its output. The post needs both next to the claim, and they are hard to recover later.
 - **Write for the phone first.** A three-column table of long cells is a screen per row on a phone; make it one bullet per row with the detail folded into a sentence. Keep tables to two short columns or don't use one. Every image on the site opens over the article on tap, zoomed and pannable, so text-dense screenshots are fine as long as the alt text says what matters.
 - **Put a "where this sits" diagram near the top** of any post about a tool. Readers who only glance should still leave knowing what the thing is for. Draw it with the SVG design system; the prose then says the same thing the picture does, once.
 - **No wall of text.** No section runs much past 250 words without something to look at: a diagram, a recording, a screenshot or code. A paragraph that lists what several things do is a diagram. Bullets describing stages or states are a diagram. Draw it, then cut the paragraph to the one sentence the picture can't say.
+- **A problem the reader cannot see gets a picture.** When a section fixes something invisible (a file that vanishes with a container, a request that never arrives), draw the before and the after and put it ahead of the code. Say where each thing lives: *"raw events in S3"*, not *"parquet files"*.
+- **A deliberate break explains itself.** Before the output of a demo that breaks something on purpose, say what is being changed, why that makes it fail, and what to look for. Give the commands too. A reader should never have to ask what was done or why it failed.
 - **Numbers in the prose come from the same run as the picture.** If a recording shows 23 resources, the sentence under it does not say 15. When a recording or screenshot is re-taken, re-read every number near it, and quote one real run rather than a typical figure.
 - **Compare like with like.** Two timings side by side measure the same thing: a step against a step, a whole CI job against a whole CI job. If only unlike figures exist, name each for what it is and say the comparison is rough.
 - **What the post says the tooling does is checked against what was merged.** A sentence written while something is being built describes the design of that hour. Before publishing, re-read every such claim against the final behaviour; a review often changes it after the paragraph is written.

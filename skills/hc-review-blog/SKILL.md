@@ -42,6 +42,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Unproven caveats | For each "not proven", "hasn't been tried" or "untested": could one run settle it now? List those that could, as things to do before publishing rather than things to say |
 | Own tooling | Every claim about what the author's own tool, gate or workflow does matches what is merged, not an earlier design. Check each against the repository |
 | Quoted code | Every code block that quotes a file from the repo matches that file. Diff each one against its source and report any difference; a block trimmed for the page says it is trimmed. A post that describes scripts shows them, in a collapsed `<details>` block when they are long, and does not ask the reader to take them on trust |
+| On topic | The opening says plainly what the post covers, by the end of the second paragraph, and every section after it is about that. FAIL on any sentence about how the post was made: which capture came from which run, identifiers swapped for stand-ins, retakes, where or by whom a command was tried, how the post was reviewed. A limit of the thing itself is on topic; a note about the write-up is not. Quote each one |
 | Followable | Read the post as someone at a terminal who has done the earlier parts. Every command has what it needs by the time it is run: the files exist or the post says where to get them, variables are set, the tool is installed, the login has happened, and anything built is rebuilt after the thing it was built from changes. Anything stood up is torn down by the end. List each step that would stop a reader if followed literally, and FAIL on any |
 | Like for like | Any two figures compared measure the same thing (step against step, job against job). Flag a comparison that mixes them without saying so |
 | Relative days | No "yesterday" or "last week" pointing at another post; the day is named. Any "yesterday" or "today" in the day context matches the post's `date` |
@@ -88,7 +89,7 @@ Create `~/.claude/reviews/` if missing. Write the report to `~/.claude/reviews/b
 
 - File: <absolute path>
 - Word count: <N> (target 1,500–2,500)
-- M of 35 criteria passing (count N/A separately)
+- M of 36 criteria passing (count N/A separately)
 - Headline verdict in one sentence
 
 ## Criterion-by-criterion findings
@@ -112,7 +113,7 @@ For each criterion: PASS / FAIL with a quote-and-why on every FAIL.
 
 Print to chat:
 - Headline verdict (passing / needs work)
-- Pass count out of 35 criteria, with N/A counted separately
+- Pass count out of 36 criteria, with N/A counted separately
 - The top 3 priority issues with file location and exact text to change
 - Path to the full report
 - One-line suggestion for what to fix first

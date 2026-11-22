@@ -136,6 +136,13 @@ curl -s -o /dev/null -w '%{http_code}\n' https://raw.githubusercontent.com/<owne
 
 If a request is refused by a proxy rather than answered by GitHub, report "not checked" and do not guess. A repo about to be made public also has its history published; section 1b of the voice guide says what to check first.
 
+**Step 5e — Secrets scan and reading time**
+
+Two things the pipeline or the reader will catch if this step does not.
+
+- **Run the repo's secrets scan before pushing** (`task ss:security:secrets` in the site repo). A post that quotes scripts or config can trip it on something harmless, such as a public key fingerprint. A real secret is **P0**. A false positive is **P1**: allow that one value in `.gitleaks.toml` with a comment saying what it is and why it is public, never the whole file.
+- **Read the reading time on each new post's built page** (`grep -o '[0-9]* min read' dist/client/blog/<slug>/index.html`) and compare it with the two posts before it. A figure well above what the prose justifies, or over about 20 minutes, is **P1**: it puts readers off, and it usually means collapsed code is being counted as reading.
+
 **Step 6 — Sitemap and feeds**
 
 - `dist/client/sitemap-index.xml` exists
