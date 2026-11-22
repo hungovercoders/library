@@ -53,7 +53,7 @@ Read the post in full. Use `wc -w` for word count. Then score against the criter
 | Honest moment | Mid-post sentence proving a real person built this ("I'll be honest", "first time I ran this", "this cost me an hour", etc.) |
 | Verdict section | Near-end section answering "would I actually use this?" or "how I actually use this" — with worldview hook |
 | What I'd do differently | One reflective line in the closer |
-| Fellow hungovercoder closer | "Well done… fellow hungovercoder" or another peer-to-peer beat. Never ends with the word "Conclusion" |
+| Fellow hungovercoder closer | "Well done… fellow hungovercoder" or another peer-to-peer beat. Never ends with the word "Conclusion". The sources section may come after it, as the last section, when the closing section is a reflection of a few paragraphs: do not fail a post for that order |
 | Themed example data | Synthetic data follows priority: alcohol → dogs → food → films → geek → music. **Within a single post, theme stays consistent** (a film post shouldn't carry beer-brand emails) |
 | Corporate filler | No "leverage" (verb, unless ironic), "robust", "best-in-class", "solution" (noun for software), "seamless", "empower", "stakeholder", "journey" (unless literal), "production-grade" |
 | AI tells | Zero em dashes (`—`) or each surviving one justified; no "It's worth noting…", "This is important because…", dramatic two-sentence pairs, or excessive bullet-heavy prose. Grep the file for `—` and count. |

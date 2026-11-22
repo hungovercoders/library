@@ -354,6 +354,7 @@ You do still use plain headings for pre-reqs lists, troubleshooting, etc. The th
 - **Always include the complete file at the end** of a section when you've been adding to it piece by piece. Readers should never have to assemble the final code from fragments.
 - **Comment the code, but keep comments short and human.** No "// This function performs the operation".
 - **Diagrams welcome.** You include them when the topology matters (Terraform Azure post). Mermaid is fine.
+- **Sources go where they do not interrupt.** A lesson, and a post with a short sign-off, puts `## Sources and further reading` before the closer. A blog post whose last section is a few paragraphs of reflection puts the sources after it, as the very last section, so the list of links does not sit between the argument and its ending. The sign-off (*"watch this space"*, the repo link) still closes the reflection, not the sources.
 - **Always link to the repo** at the end so people can grab the working version. The repo is public, with a README, before the post that links to it goes out.
 - **Link to the section, not only the post.** When a step leans on something an earlier post set up (*"the test we added in part 2"*, *"the beer list"*), link those words to the heading that did it, `/blog/<slug>/#<heading-anchor>`, so a reader who skipped it lands on the instructions. Check each anchor exists in the built page.
 - **Show the script, don't only name it.** If the post runs `scripts/deploy.sh`, the reader sees what that runs. Long files go in a collapsed `<details>` block, quoted exactly as they are in the repo, at the point they are used. Saying "my script does it" with nothing to open is smoke and mirrors.
@@ -440,7 +441,7 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Sourcing check (the brand-promise one)**
 
-9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer.)
+9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer, or last of all in a blog post whose closing section is a reflection.)
 
 **AI tells check (run this last)**
 
