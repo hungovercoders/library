@@ -118,7 +118,7 @@ The `dataGriff` handle, the `hungovercoders` organisation and its public reposit
 - **Never tack a "which is X" judgement onto the end of a sentence** ("…which is also fine", "…which is exactly right"). Either the sentence stands on its own or the judgement gets its own sentence.
 - **Never end every paragraph on a moral.** One neat closing line a post is fine; one per paragraph is the clearest machine fingerprint there is. Most paragraphs should end on the fact or the joke.
 - **Never state the thesis twice.** If the opener says what the tool is for, the verdict doesn't say it again in different words.
-- **Never let this guide's own vocabulary into a post.** "AI in shot", "honest moment", "opinion beat" and "day context" are names for practices. A heading called "The Agent in Shot" means nothing to a reader; say what the section is about ("Proving It on a Fresh Agent").
+- **Never let this guide's own vocabulary into a post.** "AI in shot", "honest moment", "opinion beat", "day context" and "guided path" are names for practices. A heading called "The Agent in Shot" means nothing to a reader; say what the section is about ("Proving It on a Fresh Agent").
 - **Never leave a line leaning on something the reader hasn't just read.** A punchline ("Three things and a referee.") or a callback ("exactly as last week") needs what it refers to in the same paragraph, or a link on the words. If it needs neither to make sense, keep it; otherwise cut it.
 - **Never say what a tool can't do without trying it.** "It can't invoke a function" went into a draft and a template on an agent's say-so, and was wrong. A limit needs the command that showed it, or a link to the vendor saying so. If it was not tried, say that instead.
 - **Never coin a running metaphor of your own.** A draft called four interfaces "doors" and carried it through six sentences and a heading; it was not his word and he didn't like it. If the image isn't in the metaphor library below or in his own messages, use the plain word.
@@ -127,6 +127,11 @@ The `dataGriff` handle, the `hungovercoders` organisation and its public reposit
 - **Never say "yesterday" or "last week" about another post.** Name the day ("Saturday's post"). A post's date moves while it is being written, and every relative reference then points at the wrong day. "Yesterday" is for what he did, in the day context, and gets re-checked when the date changes.
 - **No swearing.** The voice is pub, not sweary. "Legged it", not "buggered off". If a line only works with the swear word, ask dataGriff.
 - **No crowd slang.** Punters, bouncers, lads: not the voice. The pub texture is drinks, rounds, the morning after, not the people at the door.
+- **Never write shorthand that leaves the reader to work out the claim.** Four of these went into one post and each came back as "odd" or "sounds AI": *"a spec does two jobs for the room it takes"*, *"the brief and the mark can't disagree"*, *"somebody still has to write the sum"*, *"it's the guided path"*. Each sounds tidy and says nothing until it is unpacked. Write the unpacked version: *"what the agent was told and what it is judged on can't disagree"*, *"the agent still has to write the code that works out the average"*.
+- **Never open a section on "So" or on a question to yourself.** *"So what is my test shape?"* Start with the thing.
+- **Never leave a pronoun without an owner.** *"First it reads them"* opened a paragraph with nothing for "it" to point at. If the last noun before "it" is not the one meant, name it again.
+- **Never let a paragraph arrive from nowhere.** Each paragraph follows from the one before it. A true fact about something the section has not mentioned (the rate limit, straight after an example about ratings) gets a lead-in or comes out.
+- **Never pad the Pre-Requisites.** List what the reader needs or would want open. *"Nothing to install, this one is for reading"* is not a pre-requisite.
 
 ---
 
@@ -308,7 +313,9 @@ Read the first 150 characters on their own. If they don't name the subject, rewr
 
 **For a follow-up, the preview names what this post adds.** A second post on the same template opened by describing the template; the listing showed nothing about the events and data contracts it was there for. The first sentence of a follow-up leads with the new thing and gets the old one in as the place it was added to.
 
-**The first paragraph is the hook, and it is short.** Four sentences, about a hundred words: what the post is, the day it happened, where it fits (the series, last week's post), and the send-off. It entertains and informs, and it does not explain. Anything that explains belongs in the section that covers it, so the hook never says what the next section is about to say.
+**The opening section is the hook, and it is short paragraphs.** About a hundred words before any recap: what the post is, then the day it happened, each in its own paragraph of a sentence or two. One block of five sentences reads as a wall. Where the post fits (the series, the earlier posts) follows, and the send-off (*"Read on fellow hungovercoder."*) is the last line of the opening section, on its own, after the recap. The hook entertains and informs, and it does not explain. Anything that explains belongs in the section that covers it, so the hook never says what the next section is about to say.
+
+**The day is written on the day.** The day context is in the present, as if the post were being written there and then: *"Man Utd have just been battered 4-0 by Liverpool, and instead of consoling my team's demise with a bottle of wine I've decided to research…"*, not *"had just been battered… I decided"*. The rest of that sentence takes the same tense.
 
 Every opener ends with a transition into action. Examples from your real posts:
 
@@ -414,6 +421,8 @@ When in doubt: rewrite the sentence so the dash isn't needed rather than mechani
 - **One-word punchlines**: "Classic." "Lovely." Twitter cadence. One a post at most.
 - **Anaphora runs**: "That's why X. It's why Y. And it's why Z." Vary the openings.
 - **Three-clause chains**: a sentence doing three jobs joined by "and". Split it.
+- **Tidy shorthand**: a neat phrase that never says what it means ("does two jobs for the room it takes", "somebody still has to write the sum"). Say the plain thing. Several Orwell passes went over these without flagging them, so look for them by hand.
+- **A section that opens on "So" or a rhetorical question**, and **a pronoun with no clear owner**. Both are in Section 2.
 
 **Then run the `orwell-prose` skill** (in this library as `skills/orwell-prose`, copied from dataGriff's skills repo, and loaded by `hc-review-blog`) over the body. It catches the same tells and adds Orwell's six rules. Expect two or three passes; when a pass changes only single words, stop editing. Polish past that point is itself a tell.
 
@@ -427,7 +436,7 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Voice checks**
 
-1. Does the first sentence contain a **want** in the first person, and do its first 150 characters **say what the post is about**? They are the excerpt on the site's listings. Is the first paragraph **four sentences or so**, with nothing the next section repeats?
+1. Does the first sentence contain a **want** in the first person, and do its first 150 characters **say what the post is about**? They are the excerpt on the site's listings. Is the opening section **short paragraphs**, with the send-off as its last line and nothing the next section repeats?
 2. Does the post feel like it was **written by a real person from the South Wales valleys**, not a vendor docs site? Self-deprecation, honest moments, voice texture — even if no beer reference appears.
 3. Do the section headings sound **themed where natural**, not generic? (Themed when they fit; plain when forcing themed would feel awkward.)
 4. Is there a **fellow hungovercoder** moment somewhere in the post — or another honest peer-to-peer beat if "fellow hungovercoder" doesn't fit?
@@ -441,7 +450,7 @@ Run a draft past these nine questions. If any answer is no, rewrite.
 
 **Sourcing check (the brand-promise one)**
 
-9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference? (Top framing line up near the opener; `## Sources and further reading` section before the closer, or last of all in a blog post whose closing section is a reflection.)
+9. Does the lesson cite at least one **authoritative source** the reader can go and read directly — and frame the post as the *guided path*, not the canonical reference, without using those two words in the post? (Top framing line up near the opener; `## Sources and further reading` section before the closer, or last of all in a blog post whose closing section is a reflection.)
 
 **AI tells check (run this last)**
 
