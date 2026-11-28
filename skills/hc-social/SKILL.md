@@ -50,6 +50,8 @@ The blog and the socials do different jobs. The blog is forever, so its first se
 
 **A social post does not carry every beat.** The shapes below list the honest moment and the verdict because the post has them, not because each social draft must. Ask of every paragraph whether it helps a stranger decide to click. A story that needs the post's context to land (which tool was misjudged, what a first version did) stays in the post. Keep it positive: no caveat or negative unless leaving it out would mislead. "Not a product yet" is not needed when the copy never called it a product. Honesty in social copy means not overclaiming; the caveats and the verdict live in the post, which is what the link is for. End on the strongest thing the post has, usually the numbers or the send-off.
 
+**Every paragraph follows from the one before.** A social post has no headings to excuse a jump. A LinkedIn draft went from "the specs do the marking" straight to "I went looking for a test pyramid and found a testing trophy", and it read as coming out of nowhere. Open each paragraph on something the last one set up ("Running the specs as tests means most of the suite is integration tests…"), or cut it.
+
 **Never label the beats.** "The honest bit.", "Would I build on it?", "Honest moment:" read as forced. The beats below are a shape for you, not words for the post: write the content and drop the signpost.
 
 **Step 3 — Draft LinkedIn**
@@ -144,7 +146,8 @@ Optionally, if `$ARGUMENTS` contains `--save`, write the full set to `~/.claude/
 
 **Notes on running this**
 
-- Run **after the post is live on `https://hungovercoders.com`** — i.e. after the publish branch has been merged to `main` and Cloudflare has deployed. The drafts hard-code the canonical URL, so running this against an unpublished branch would give the user copy that points at a 404.
+- **Draft before the post is merged, post after it is live.** The canonical URL is known from the slug, so the drafts can be written on the publish branch. Do that before merging: social copy is read cold, so it often says the idea more plainly than the blog does. Where it does, carry that wording back into the post (the opener, the `description` and the paragraph that makes the point) while the PR is still open. One post needed a separate PR after publishing to bring the LinkedIn wording into the blog.
+- **Hand the copy over only once the post is live on `https://hungovercoders.com`**, i.e. after the merge to `main` and the Cloudflare deploy, or say plainly that the link is not live yet. Copy posted before then points at a 404.
 - The share image needs to exist locally as well (`public/assets/<slug>/link.png`) — that's what the platforms preview when they fetch the canonical URL.
 - The drafts are a starting point, not final copy. Expect to tweak before posting — the user has the lived context the model doesn't.
 - LinkedIn and X don't auto-detect canonical URLs the same way Slack does, so the explicit link line is non-negotiable.

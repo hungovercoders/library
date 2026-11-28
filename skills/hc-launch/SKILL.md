@@ -225,10 +225,11 @@ Tell the user:
 - **Draft PR**: number + URL (either the existing one updated by this push, or the new one just opened)
 - **Cloudflare preview**: appears as a deployment check on the PR within a minute or two — preview URL is on the PR page
 - **Next steps before publishing**:
-  1. Open the preview URL — confirm the post renders, share image shows, training links resolve
+  1. Open the preview URL and **read the whole post there, top to bottom, before merging** — confirm it renders, the share image shows and training links resolve, and fix what reads wrong while the PR is open. One post took seven follow-up PRs after it went live (a wall of an opener, a line that was not a pre-requisite, a paragraph from nowhere), each one something a read of the preview would have caught
   2. Run `/hc-review-blog` for an independent voice/structural pass
   3. Run `/hc-preflight` for the site-wide gate (build, OG, sitemap)
-  4. When all clean, **mark the PR ready for review and merge to `main`** — the merge is what publishes; `git push` on the branch only updates the preview
+  4. Run `/hc-social` to draft the social copy, and carry any plainer wording it finds back into the post
+  5. When all clean, **mark the PR ready for review and merge to `main`** — the merge is what publishes; `git push` on the branch only updates the preview
 - **Metatags.io reminder**: paste the preview URL into `https://metatags.io/` to confirm Twitter / LinkedIn / Slack previews render correctly. This is the SEO sanity check the old Jekyll setup did via `jekyll-seo-tag` and the new site does via the `BaseHead` component.
 
 A note on what's *required* vs what varies. Required across every launch post: the want-or-equivalent personal opener, themed example data, the three opinion beats (honest moment, verdict, what I'd do differently), the "fellow hungovercoder" closer, British spellings, no corporate filler. Those are the brand. **Title pattern, opener formula, themed section headings, and the specific demo composition should vary post-to-post** — that's how the corpus stays interesting across thirty entries instead of reading like one templated voice.
